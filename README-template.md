@@ -32,7 +32,7 @@ echo Documentation outline for Docusaurus > sample.md
 In `sample.md` copy the following:
 
 ```markdown
-!import[/sample.md]
+!import[/sample/sample.md]
 ```
 
 Install Docusaurus in your working folder.
@@ -68,7 +68,6 @@ The `sample\sample-doc\docs\introduction.md` has the front-matter Docusaurus exp
 ```markdown
 !import[/sample/sample-doc/docs/introduction.md]
 ```
-
 
 ### Step 3: Use skeleton documentation in Docusaurus
 

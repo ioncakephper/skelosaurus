@@ -4,5 +4,5 @@ id: cli-commands
 sidebar_label: CLI commands
 ---
 
-Ut nulla velit quis qui ea est cupidatat occaecat cillum non. Duis enim dolor dolore ea velit mollit proident mollit. Elit ad do pariatur nulla mollit est pariatur nulla aute excepteur Lorem exercitation nulla. Eu proident pariatur laboris cupidatat excepteur id id reprehenderit. Sit proident minim ea deserunt proident est aliqua tempor sunt ad ut sit.
+Id cillum excepteur commodo ullamco amet consectetur ex fugiat magna. Sit amet dolor in Lorem. Elit ea excepteur et incididunt ut duis fugiat. Duis proident consequat sunt occaecat proident eu exercitation officia labore reprehenderit duis. Pariatur ex ea ullamco est consectetur incididunt cupidatat et veniam proident.
 

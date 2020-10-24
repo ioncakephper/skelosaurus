@@ -233,3 +233,12 @@ function slug(source) {
     source = source.replace(/^\-+/g, '').replace(/\-+$/g, '')
     return source;
 }
+
+module.exports = {
+    'buildCategoryTopics': buildCategoryTopics,
+    'buildSectionCategories': buildSectionCategories,
+    'buildTopicPage': buildTopicPage,
+    'getSidebars': getSidebars,
+    'saveDocument': saveDocument,
+    'slug': slug,
+}
