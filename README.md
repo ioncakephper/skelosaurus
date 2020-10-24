@@ -193,6 +193,8 @@ npm run start
 
 Docusaurus does its magic and finally opens up the local documentation site it created. Click `Docs` item in the top navigation menu to see the navigation bar and basic content for each topic.
 
+![Screenshot](./images/Screenshot%202020-10-24%20235147.png)
+
 
 ## Functions
 
