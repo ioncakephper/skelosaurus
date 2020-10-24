@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/ioncakephper/skelosaurusv2/issues"
   },
+  "keywords": [
+    "Docusaurus", "Docusaurus v2", "Docusaurus v1", "Documentation", "Outline", "Scaffold", "Skeleton",
+   ],
   "homepage": "https://github.com/ioncakephper/skelosaurusv2#readme",
   "dependencies": {
     "colors": "^1.4.0",
