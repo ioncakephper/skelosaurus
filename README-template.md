@@ -17,6 +17,8 @@ The `skelo` command now available at the command prompt.
 !import[/index-js-help.txt]
 ```
 
+## Quick example
+
 1. Create a documentation project folder `sample`and a documentation outline file `sample.md` which contains documention outline as Markdown.
 
 ```bash

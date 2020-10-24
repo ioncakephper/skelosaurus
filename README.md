@@ -29,6 +29,8 @@ Options:
 
 ```
 
+## Quick example
+
 1. Create a documentation project folder `sample`and a documentation outline file `sample.md` which contains documention outline as Markdown.
 
 ```bash
