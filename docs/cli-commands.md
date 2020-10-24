@@ -4,5 +4,5 @@ id: cli-commands
 sidebar_label: CLI commands
 ---
 
-Ullamco labore amet laboris Lorem pariatur consectetur. Mollit ad adipisicing adipisicing dolor irure incididunt anim. Duis ipsum in sunt dolore laboris et cillum minim in exercitation incididunt. Occaecat officia cupidatat pariatur sint. Pariatur labore laboris proident in Lorem cupidatat sunt veniam velit consectetur irure.
+Reprehenderit irure occaecat fugiat pariatur sit nostrud minim culpa magna id cillum ullamco officia. Deserunt dolor eu nostrud non excepteur esse consequat in adipisicing officia. Commodo id exercitation anim qui irure ea enim amet laborum. Tempor velit exercitation pariatur commodo id ex ad elit consectetur. Velit eu eu eu velit id nostrud occaecat ad.
 

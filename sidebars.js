@@ -20,5 +20,12 @@ module.exports = {
             "cli-commands",
             "sidebars-js"
         ]
+    },
+    "tutorials": {
+        "Tutorial": [
+            "creating-simple-files",
+            "adding-content-and-subtopics",
+            "create-folders-from-titles"
+        ]
     }
 }

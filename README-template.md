@@ -17,5 +17,11 @@ The `skelo` command now available at the command prompt.
 !import[/index-js-help.txt]
 ```
 
+The `sample.md` contains documention outline as Markdown.
+
+```markdown
+!import[/sample.md]
+```
+
 !import[/index-js-jsdoc.md]
 !export[/README.md]

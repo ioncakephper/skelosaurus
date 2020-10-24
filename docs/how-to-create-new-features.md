@@ -4,5 +4,5 @@ id: how-to-create-new-features
 sidebar_label: How to create new features
 ---
 
-Nulla do dolor laborum proident ipsum laboris sunt tempor anim culpa mollit. Nisi et duis labore dolor nulla exercitation proident minim. Veniam et est ut amet aliquip cillum deserunt aliquip voluptate deserunt voluptate eu. Magna duis amet anim sint qui id qui cupidatat anim ipsum laborum. Commodo voluptate ad veniam ex ad voluptate ut exercitation cupidatat aliquip mollit.
+Aliqua sint nostrud ut cillum labore. Aute qui ex commodo sit exercitation sit velit tempor quis ad. Duis ullamco nostrud quis non ut ut. Aliquip sunt cillum elit pariatur anim. Aliquip eiusmod duis duis nulla in Lorem quis sit cupidatat excepteur cupidatat eiusmod.
 

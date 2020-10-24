@@ -4,5 +4,5 @@ id: delegating-responsabilities
 sidebar_label: Delegating responsabilities
 ---
 
-Nisi non officia veniam laborum cupidatat. Proident quis veniam officia sint commodo cillum et deserunt exercitation minim tempor esse officia. Amet Lorem amet laboris id irure aute proident adipisicing. Ipsum pariatur laboris culpa sunt non et deserunt ut officia occaecat quis nisi. Tempor deserunt laboris id deserunt cupidatat sunt ex aliquip cupidatat mollit consequat minim laborum Lorem.
+Exercitation consequat culpa amet in sunt enim consectetur duis ad mollit id enim. Elit deserunt qui fugiat nostrud exercitation consectetur nisi. Proident ullamco sunt ipsum quis cillum culpa laboris excepteur id laboris dolor non ipsum ea. Duis deserunt sint proident dolor et esse cillum. Sint eiusmod consectetur laboris cillum ut fugiat eu occaecat anim pariatur est.
 
