@@ -31,12 +31,14 @@ Options:
 
 ## Quick example
 
-1. Create a documentation project folder `sample`and a documentation outline file `sample.md` which contains documention outline as Markdown.
+### Step 1: Create documentation project
+
+Create a working folder `sample`and a documentation outline file `sample.md` which contains documention outline as Markdown.
 
 ```bash
 mkdir sample
 cd sample
-type sample.md
+echo Documentation outline for Docusaurus > sample.md
 ```
 
 In `sample.md` copy the following:
@@ -68,13 +70,23 @@ An example of using Markdown to design documentation structure for Docusaurus v1
 
 ```
 
-2. Generate skeleton documentation with `skelo`:
+Install Docusaurus in your project folder.
 
 ```bash
-skelo sample
+npx @docusaurus/init@next init sample-doc classic
 ```
 
-Inside `sample` documentation folder, the `docs` folder contains `.md` files -- the source files for your documentation. The `sidebars.js` contains the navigation description.
+This will create the `sample-doc` documentation project as inside your working folder.
+
+### Step 2: Generate skeleton
+
+Generate skeleton documentation with `skelo`:
+
+```bash
+skelo sample -w ./sample-doc -d ./sample-doc/docs
+```
+
+The `sample\sample-doc\docs` folder contains `.md` topic source files for your documentation. The `sample\sample-doc\sidebars.js` contains the navigation description.
 
 ```txt
 Folder PATH listing for volume WINDOWS
@@ -144,10 +156,44 @@ id: introduction
 sidebar_label: Introduction
 ---
 
-Anim aliqua eiusmod incididunt et Lorem mollit incididunt consequat Lorem culpa. Cupidatat sint veniam anim sunt aliqua amet elit adipisicing in laborum sunt non nisi nulla. Consequat ullamco pariatur est officia nostrud aute do culpa dolore eu aliquip occaecat. Mollit eu voluptate ex et ea ad tempor. Do do non non qui enim ad.
+Ipsum culpa voluptate consectetur elit tempor esse laboris elit magna. Eiusmod eiusmod aliqua adipisicing mollit non cupidatat commodo enim ea adipisicing. Ipsum magna culpa in cillum in ut proident minim. Id eiusmod quis tempor incididunt laboris esse excepteur dolor. Ea eu fugiat nisi dolor incididunt fugiat consectetur labore veniam.
 
 
 ```
+
+
+### Step 3: Use it with Docusaurus
+
+Open the `sample/sample-doc/docusaurus.config.js`, and edit the `themeConfig`:
+
+```javascript
+  themeConfig: {
+    navbar: {
+      title: 'My Site',
+      logo: {
+        alt: 'My Site Logo',
+        src: 'img/logo.svg',
+      },
+      items: [
+        {
+          // to: 'docs/',
+          to: 'docs/introduction',
+          activeBasePath: 'docs',
+          label: 'Docs',
+          position: 'left',
+        },
+        ...
+```
+
+Now, start Docusaurus local server.
+
+```bash
+cd sample-doc
+npm run start
+```
+
+After going through the files, Docusaurus has a local server ready to show you the documentation.
+
 
 ## Functions
 
@@ -248,6 +294,8 @@ Convert specified string nto a slug.Converts spaces, tabs, and visible special
 | Param | Type | Description |
 | --- | --- | --- |
 | source | <code>string</code> | String to covert to slug. |
+
+
 
 
 
