@@ -1,6 +1,33 @@
 # skelosaurusv2
 Skeleton documentation generator for Docusaurus v2 and v2
 
+## Installation
+
+Install the package globally:
+
+```bash
+npm i skelosaurusv2 -g
+```
+
+The `skelo` command now available at the command prompt.
+
+## Usage
+
+```txt
+Usage: skelo [options] outlineFiles...
+
+Skeleton documentation generator for Docusaurus (v2 and v2)
+
+Options:
+  -V, --version         output the version number
+  -o, --out <filename>  filename to contains sidebars (default: "sidebars")
+  -w, --website <path>  path to store sidebars content file (default: "./")
+  -d, --docs <path>     path where markdown files are generated into (default:
+                        "./docs")
+  --no-v2               generate for Docusaurus v1
+  -h, --help            display help for command
+
+```
 
 ## Functions
 
