@@ -2,7 +2,7 @@
 
 <dl>
 <dt><a href="#buildCategoryTopics">buildCategoryTopics(bulletList, [options])</a> ⇒ <code>Array.Object</code></dt>
-<dd><p>Build list of topics and subcagories in a category.</p>
+<dd><p>Build list of topics and subcategories in a category.</p>
 </dd>
 <dt><a href="#buildSectionCategories">buildSectionCategories(bulletList, [options])</a> ⇒ <code>object</code></dt>
 <dd><p>Build items of navigation section.</p>
@@ -17,7 +17,7 @@
 <dd><p>Create a text file in utf-8 format from specified name and content</p>
 </dd>
 <dt><a href="#slug">slug(source)</a> ⇒ <code>string</code></dt>
-<dd><p>Convert specified string nto a slug.</p>
+<dd><p>Convert specified string into a slug.</p>
 <p>Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash ().
 Compresses sequence of dashes or special characters into a single dash. Removes heading or trailing
 dashes or special characters from the specified string.</p>
@@ -27,7 +27,7 @@ dashes or special characters from the specified string.</p>
 <a name="buildCategoryTopics"></a>
 
 ## buildCategoryTopics(bulletList, [options]) ⇒ <code>Array.Object</code>
-Build list of topics and subcagories in a category.
+Build list of topics and subcategories in a category.
 
 **Kind**: global function  
 **Returns**: <code>Array.Object</code> - List of topics and categories.  
@@ -83,13 +83,13 @@ Create a text file in utf-8 format from specified name and content
 
 | Param | Type | Description |
 | --- | --- | --- |
-| fileName | <code>\*</code> | Name of the file to create. |
-| content | <code>\*</code> | String to place in the file. |
+| fileName | <code>string</code> | Name of the file to create. |
+| content | <code>string</code> | String to place in the file. |
 
 <a name="slug"></a>
 
 ## slug(source) ⇒ <code>string</code>
-Convert specified string nto a slug.Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).Compresses sequence of dashes or special characters into a single dash. Removes heading or trailingdashes or special characters from the specified string.
+Convert specified string into a slug.Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).Compresses sequence of dashes or special characters into a single dash. Removes heading or trailingdashes or special characters from the specified string.
 
 **Kind**: global function  
 **Returns**: <code>string</code> - Trimmed, lowercase string with dashes(-)  

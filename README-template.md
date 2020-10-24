@@ -35,7 +35,7 @@ In `sample.md` copy the following:
 !import[/sample.md]
 ```
 
-Install Docusaurus in your project folder.
+Install Docusaurus in your working folder.
 
 ```bash
 npx @docusaurus/init@next init sample-doc classic
@@ -57,22 +57,22 @@ The `sample\sample-doc\docs` folder contains `.md` topic source files for your d
 !import[/sample/tree.txt]
 ```
 
-The `sidebars.js` exports the sidebar navigation design.
+The `sample\sample-doc\sidebars.js` exports the sidebar navigation design.
 
 ```javascript
 !import[/sample/sample-doc/sidebars.js]
 ```
 
-The `docs/introduction.md` has the front-matter Docusaurus expects, and is already filled with a lorem ipsum text.
+The `sample\sample-doc\docs\introduction.md` has the front-matter Docusaurus expects, and is already filled with a lorem ipsum text.
 
 ```markdown
 !import[/sample/sample-doc/docs/introduction.md]
 ```
 
 
-### Step 3: Use it with Docusaurus
+### Step 3: Use skeleton documentation in Docusaurus
 
-Open the `sample/sample-doc/docusaurus.config.js`, and edit the `themeConfig`:
+Open the `sample\sample-doc\docusaurus.config.js`, and edit the `themeConfig`:
 
 ```javascript
   themeConfig: {
@@ -100,7 +100,7 @@ cd sample-doc
 npm run start
 ```
 
-After going through the files, Docusaurus has a local server ready to show you the documentation.
+Docusaurus does its magic and finally opens up the local documentation site it created. Click `Docs` item in the top navigation menu to see the navigation bar and basic content for each topic.
 
 
 !import[/index-js-jsdoc.md]

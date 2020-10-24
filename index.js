@@ -55,7 +55,7 @@ saveDocument(outFilename, content)
 console.log('Sidebars file ' + colors.green(outFilename) + ' generated.');
 
 /**
- * Build list of topics and subcagories in a category.
+ * Build list of topics and subcategories in a category.
  *
  * @param {Array} bulletList The bullet list internal representation.
  * @param {object} [options={ 'parent': './', 'prefix': '' }] Options for building topic slug and folders
@@ -204,8 +204,8 @@ function getSidebars(sourceFilename) {
 /**
  * Create a text file in utf-8 format from specified name and content
  *
- * @param {*} fileName Name of the file to create.
- * @param {*} content String to place in the file.
+ * @param {string} fileName Name of the file to create.
+ * @param {string} content String to place in the file.
  */
 function saveDocument(fileName, content) {
     let ext = path.extname(fileName);
@@ -218,7 +218,7 @@ function saveDocument(fileName, content) {
 }
 
 /**
- * Convert specified string nto a slug.
+ * Convert specified string into a slug.
  * 
  * Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).
  * Compresses sequence of dashes or special characters into a single dash. Removes heading or trailing

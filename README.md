@@ -70,7 +70,7 @@ An example of using Markdown to design documentation structure for Docusaurus v1
 
 ```
 
-Install Docusaurus in your project folder.
+Install Docusaurus in your working folder.
 
 ```bash
 npx @docusaurus/init@next init sample-doc classic
@@ -111,7 +111,7 @@ C:.
 
 ```
 
-The `sidebars.js` exports the sidebar navigation design.
+The `sample\sample-doc\sidebars.js` exports the sidebar navigation design.
 
 ```javascript
 module.exports = {
@@ -147,7 +147,7 @@ module.exports = {
 }
 ```
 
-The `docs/introduction.md` has the front-matter Docusaurus expects, and is already filled with a lorem ipsum text.
+The `sample\sample-doc\docs\introduction.md` has the front-matter Docusaurus expects, and is already filled with a lorem ipsum text.
 
 ```markdown
 ---
@@ -162,9 +162,9 @@ Ipsum culpa voluptate consectetur elit tempor esse laboris elit magna. Eiusmod e
 ```
 
 
-### Step 3: Use it with Docusaurus
+### Step 3: Use skeleton documentation in Docusaurus
 
-Open the `sample/sample-doc/docusaurus.config.js`, and edit the `themeConfig`:
+Open the `sample\sample-doc\docusaurus.config.js`, and edit the `themeConfig`:
 
 ```javascript
   themeConfig: {
@@ -192,14 +192,14 @@ cd sample-doc
 npm run start
 ```
 
-After going through the files, Docusaurus has a local server ready to show you the documentation.
+Docusaurus does its magic and finally opens up the local documentation site it created. Click `Docs` item in the top navigation menu to see the navigation bar and basic content for each topic.
 
 
 ## Functions
 
 <dl>
 <dt><a href="#buildCategoryTopics">buildCategoryTopics(bulletList, [options])</a> ⇒ <code>Array.Object</code></dt>
-<dd><p>Build list of topics and subcagories in a category.</p>
+<dd><p>Build list of topics and subcategories in a category.</p>
 </dd>
 <dt><a href="#buildSectionCategories">buildSectionCategories(bulletList, [options])</a> ⇒ <code>object</code></dt>
 <dd><p>Build items of navigation section.</p>
@@ -214,7 +214,7 @@ After going through the files, Docusaurus has a local server ready to show you t
 <dd><p>Create a text file in utf-8 format from specified name and content</p>
 </dd>
 <dt><a href="#slug">slug(source)</a> ⇒ <code>string</code></dt>
-<dd><p>Convert specified string nto a slug.</p>
+<dd><p>Convert specified string into a slug.</p>
 <p>Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash ().
 Compresses sequence of dashes or special characters into a single dash. Removes heading or trailing
 dashes or special characters from the specified string.</p>
@@ -224,7 +224,7 @@ dashes or special characters from the specified string.</p>
 <a name="buildCategoryTopics"></a>
 
 ## buildCategoryTopics(bulletList, [options]) ⇒ <code>Array.Object</code>
-Build list of topics and subcagories in a category.
+Build list of topics and subcategories in a category.
 
 **Kind**: global function  
 **Returns**: <code>Array.Object</code> - List of topics and categories.  
@@ -280,13 +280,13 @@ Create a text file in utf-8 format from specified name and content
 
 | Param | Type | Description |
 | --- | --- | --- |
-| fileName | <code>\*</code> | Name of the file to create. |
-| content | <code>\*</code> | String to place in the file. |
+| fileName | <code>string</code> | Name of the file to create. |
+| content | <code>string</code> | String to place in the file. |
 
 <a name="slug"></a>
 
 ## slug(source) ⇒ <code>string</code>
-Convert specified string nto a slug.Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).Compresses sequence of dashes or special characters into a single dash. Removes heading or trailingdashes or special characters from the specified string.
+Convert specified string into a slug.Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).Compresses sequence of dashes or special characters into a single dash. Removes heading or trailingdashes or special characters from the specified string.
 
 **Kind**: global function  
 **Returns**: <code>string</code> - Trimmed, lowercase string with dashes(-)  
