@@ -16,7 +16,7 @@
     "url": "https://github.com/ioncakephper/skelosaurusv2/issues"
   },
   "keywords": [
-    "Docusaurus", "Docusaurus v2", "Docusaurus v1", "Documentation", "Outline", "Scaffold", "Skeleton",
+    "Docusaurus", "Docusaurus2", "Docusaurus v2", "Docusaurus v1", "Documentation", "Documentation tool", "Documentation generator", "Outline", "Document", "Scaffold", "Skeleton",
    ],
   "homepage": "https://github.com/ioncakephper/skelosaurusv2#readme",
   "dependencies": {
