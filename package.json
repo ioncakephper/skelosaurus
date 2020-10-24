@@ -1,0 +1,24 @@
+{
+  "name": "skelosaurusv2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "skelo": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ion Gireada",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "commander": "^6.1.0",
+    "file-easy": "^1.0.3",
+    "fs": "0.0.1-security",
+    "hbsr": "^1.0.6",
+    "lorem": "^0.4.0",
+    "markdown": "^0.5.0",
+    "path": "^0.12.7"
+  }
+}
