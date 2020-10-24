@@ -29,7 +29,15 @@ Options:
 
 ```
 
-The `sample.md` contains documention outline as Markdown.
+1. Create a documentation project folder `sample`and a documentation outline file `sample.md` which contains documention outline as Markdown.
+
+```bash
+mkdir sample
+cd sample
+type sample.md
+```
+
+In `sample.md` copy the following:
 
 ```markdown
 An example of using Markdown to design documentation structure for Docusaurus v1 and v2.
@@ -55,6 +63,87 @@ An example of using Markdown to design documentation structure for Docusaurus v1
     - Creating simple files
     - Adding content and subtopics
     - Create folders from titles
+
+```
+
+2. Generate skeleton documentation with `skelo`:
+
+```bash
+skelo sample
+```
+
+Inside `sample` documentation folder, the `docs` folder contains `.md` files -- the source files for your documentation. The `sidebars.js` contains the navigation description.
+
+```txt
+Folder PATH listing for volume WINDOWS
+Volume serial number is EE03-B6C0
+C:.
+|   sidebars.js
+|   tree.txt
+|   
+\---docs
+        adding-content-and-subtopics.md
+        allowing-new-features.md
+        building.md
+        cli-commands.md
+        controversies.md
+        create-folders-from-titles.md
+        creating-simple-files.md
+        delegating-responsabilities.md
+        how-to-create-new-features.md
+        introduction.md
+        sidebars-js.md
+        
+
+```
+
+The `sidebars.js` exports the sidebar navigation design.
+
+```javascript
+module.exports = {
+    "docs": {
+        "Getting started": [
+            "introduction",
+            "building",
+            {
+                "type": "category",
+                "label": "Generating",
+                "items": [
+                    "allowing-new-features",
+                    "delegating-responsabilities"
+                ]
+            },
+            "controversies"
+        ],
+        "Guides": [
+            "how-to-create-new-features"
+        ],
+        "API": [
+            "cli-commands",
+            "sidebars-js"
+        ]
+    },
+    "tutorials": {
+        "Tutorial": [
+            "creating-simple-files",
+            "adding-content-and-subtopics",
+            "create-folders-from-titles"
+        ]
+    }
+}
+```
+
+The `docs/introduction.md` has the front-matter Docusaurus expects, and is already filled with a lorem ipsum text.
+
+```markdown
+---
+title: Introduction
+id: introduction
+sidebar_label: Introduction
+---
+
+Anim aliqua eiusmod incididunt et Lorem mollit incididunt consequat Lorem culpa. Cupidatat sint veniam anim sunt aliqua amet elit adipisicing in laborum sunt non nisi nulla. Consequat ullamco pariatur est officia nostrud aute do culpa dolore eu aliquip occaecat. Mollit eu voluptate ex et ea ad tempor. Do do non non qui enim ad.
+
 
 ```
 
