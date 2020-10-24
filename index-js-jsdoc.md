@@ -1,7 +1,3 @@
-# skelosaurusv2
-Skeleton documentation generator for Docusaurus v2 and v2
-
-
 ## Functions
 
 <dl>
@@ -101,6 +97,4 @@ Convert specified string nto a slug.Converts spaces, tabs, and visible special
 | Param | Type | Description |
 | --- | --- | --- |
 | source | <code>string</code> | String to covert to slug. |
-
-
 

@@ -1,0 +1,18 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type":"shell",
+			"command": ["jsdoc2md"],
+			"args": ["index.js", ">", "index-js-jsdoc.md"],
+			"label": "Build API file"
+		},
+		{
+			"label": "Rebuild README from template",
+			// "type":"shell",
+			"dependsOn":["Build API file"],
+			"command": "${command:extension.MdMerge}"
+
+		}
+	]
+}

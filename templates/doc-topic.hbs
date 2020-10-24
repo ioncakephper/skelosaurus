@@ -1,0 +1,16 @@
+---
+title: {{{title}}}
+id: {{{id}}}
+sidebar_label: {{{sidebar_label}}}
+---
+{{#if description}}
+
+{{{description}}}
+{{/if}}
+
+{{#each headers as |header|}}
+{{{header.prefix}}} {{{header.title}}}
+{{#each header.items as |item|}}
+{{{item}}}
+{{/each}}
+{{/each}}

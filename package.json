@@ -1,0 +1,29 @@
+{
+  "name": "skelosaurusv2",
+  "version": "1.0.0",
+  "description": "Skeleton documentation generator for Docusaurus v2 and v1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ioncakephper/skelosaurusv2.git"
+  },
+  "author": "Ion Gireada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ioncakephper/skelosaurusv2/issues"
+  },
+  "homepage": "https://github.com/ioncakephper/skelosaurusv2#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "commander": "^6.1.0",
+    "file-easy": "^1.0.3",
+    "fs": "0.0.1-security",
+    "hbsr": "^1.0.6",
+    "lorem-ipsum": "^2.0.3",
+    "markdown": "^0.5.0",
+    "path": "^0.12.7"
+  }
+}
