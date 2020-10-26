@@ -1,5 +1,17 @@
+<!-- omit in toc -->
 # skelosaurusv2
 Skeleton documentation generator for Docusaurus v2 and v1
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Quick example](#quick-example)
+  - [Step 1: Create documentation project](#step-1-create-documentation-project)
+  - [Step 2: Generate skeleton](#step-2-generate-skeleton)
+  - [Step 3: Use skeleton documentation in Docusaurus](#step-3-use-skeleton-documentation-in-docusaurus)
+- [Creating documentation folders](#creating-documentation-folders)
+  - [Creating folders automatically](#creating-folders-automatically)
+  - [Creating folders selectively](#creating-folders-selectively)
+- [Creating `Overview` pages automatically](#creating-overview-pages-automatically)
 
 ## Installation
 
