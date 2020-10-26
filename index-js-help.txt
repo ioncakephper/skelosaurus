@@ -9,6 +9,8 @@ Options:
   -d, --docs <path>     path where markdown files are generated into (default:
                         "./docs")
   --no-v2               generate for Docusaurus v1
-  -f, --autofolder      Create subfolder for categories and subtopics (default:
+  -f, --autofolder      create subfolder for categories and subtopics (default:
                         false)
+  -i, --intro           create in Intro page in each subcategory
+  --introTitle [title]  title to use in intro pages (default: "Overview")
   -h, --help            display help for command

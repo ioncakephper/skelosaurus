@@ -125,7 +125,22 @@ The `sample\sample-folders-doc\sidebars.js` is also changed to include the file 
 !import[/sample/sample-folders-doc/sidebars.js]
 ```
 
+### Creating folders selectively
 
+When you want to indicate a topic as a folder in which subtopics will go:
+
+1. use the `@f` marker in your outline file
+2. do NOT include the `-f` (`--autofolders`) switch in command line.
+
+## Creating `Overview` pages automatically
+
+Automatically insert an `Overview` documentation page as the first item in a navigation section or list of subtopics. This will save you time and make your documentation have a consistent look.
+
+To create the `Overview` pages automatically, use the `-i` or `--intro` switch. By default, the title of the overview pages is set to `Overview`. You can specify a different title for the overview page with the `--introTitle` option.
+
+```bash
+skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
+```
 
 !import[/index-js-jsdoc.md]
 

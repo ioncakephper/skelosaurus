@@ -25,8 +25,10 @@ Options:
   -d, --docs <path>     path where markdown files are generated into (default:
                         "./docs")
   --no-v2               generate for Docusaurus v1
-  -f, --autofolder      Create subfolder for categories and subtopics (default:
+  -f, --autofolder      create subfolder for categories and subtopics (default:
                         false)
+  -i, --intro           create in Intro page in each subcategory
+  --introTitle [title]  title to use in intro pages (default: "Overview")
   -h, --help            display help for command
 
 ```
@@ -217,27 +219,19 @@ C:.
 |   tree.txt
 |   
 \---docs
-    +---api
-    |       cli-commands.md
-    |       sidebars-js.md
-    |       
-    +---getting-started
-    |       building.md
-    |       controversies.md
-    |       introduction.md
-    |       
-    +---getting-started-generating
-    |       allowing-new-features.md
-    |       delegating-responsabilities.md
-    |       
-    +---guides
-    |       how-to-create-new-features.md
-    |       
-    \---tutorial
-            adding-content-and-subtopics.md
-            create-folders-from-titles.md
-            creating-simple-files.md
-            
+        adding-content-and-subtopics.md
+        allowing-new-features.md
+        building.md
+        cli-commands.md
+        controversies.md
+        create-folders-from-titles.md
+        creating-simple-files.md
+        delegating-responsabilities.md
+        how-to-create-new-features.md
+        introduction.md
+        overview.md
+        sidebars-js.md
+        
 
 ```
 
@@ -247,37 +241,57 @@ The `sample\sample-folders-doc\sidebars.js` is also changed to include the file 
 module.exports = {
     "docs": {
         "Getting started": [
-            "getting-started/introduction",
-            "getting-started/building",
+            "overview",
+            "introduction",
+            "building",
             {
                 "type": "category",
                 "label": "Generating",
                 "items": [
-                    "getting-started/generating/allowing-new-features",
-                    "getting-started/generating/delegating-responsabilities"
+                    "overview",
+                    "allowing-new-features",
+                    "delegating-responsabilities"
                 ]
             },
-            "getting-started/controversies"
+            "controversies"
         ],
         "Guides": [
-            "guides/how-to-create-new-features"
+            "overview",
+            "how-to-create-new-features"
         ],
         "API": [
-            "api/cli-commands",
-            "api/sidebars-js"
+            "overview",
+            "cli-commands",
+            "sidebars-js"
         ]
     },
     "tutorials": {
         "Tutorial": [
-            "tutorial/creating-simple-files",
-            "tutorial/adding-content-and-subtopics",
-            "tutorial/create-folders-from-titles"
+            "overview",
+            "creating-simple-files",
+            "adding-content-and-subtopics",
+            "create-folders-from-titles"
         ]
     }
 }
 ```
 
+### Creating folders selectively
 
+When you want to indicate a topic as a folder in which subtopics will go:
+
+1. use the `@f` marker in your outline file
+2. do NOT include the `-f` (`--autofolders`) switch in command line.
+
+## Creating `Overview` pages automatically
+
+Automatically insert an `Overview` documentation page as the first item in a navigation section or list of subtopics. This will save you time and make your documentation have a consistent look.
+
+To create the `Overview` pages automatically, use the `-i` or `--intro` switch. By default, the title of the overview pages is set to `Overview`. You can specify a different title for the overview page with the `--introTitle` option.
+
+```bash
+skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
+```
 
 ## Functions
 
@@ -353,7 +367,7 @@ Extract sidebar title and sidebar outline from a Markdown file.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| sourceFilename | <code>\*</code> | Filename of a Markdown file with outline |
+| sourceFilename | <code>string</code> | Filename of a Markdown file with outline |
 
 <a name="saveDocument"></a>
 

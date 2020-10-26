@@ -5,24 +5,16 @@ C:.
 |   tree.txt
 |   
 \---docs
-    +---api
-    |       cli-commands.md
-    |       sidebars-js.md
-    |       
-    +---getting-started
-    |       building.md
-    |       controversies.md
-    |       introduction.md
-    |       
-    +---getting-started-generating
-    |       allowing-new-features.md
-    |       delegating-responsabilities.md
-    |       
-    +---guides
-    |       how-to-create-new-features.md
-    |       
-    \---tutorial
-            adding-content-and-subtopics.md
-            create-folders-from-titles.md
-            creating-simple-files.md
-            
+        adding-content-and-subtopics.md
+        allowing-new-features.md
+        building.md
+        cli-commands.md
+        controversies.md
+        create-folders-from-titles.md
+        creating-simple-files.md
+        delegating-responsabilities.md
+        how-to-create-new-features.md
+        introduction.md
+        overview.md
+        sidebars-js.md
+        

@@ -22,7 +22,9 @@ program
     .option('-w, --website <path>', 'path to store sidebars content file', './')
     .option('-d, --docs <path>', 'path where markdown files are generated into', './docs')
     .option('--no-v2', 'generate for Docusaurus v1')
-    .option('-f, --autofolder', 'Create subfolder for categories and subtopics', false)
+    .option('-f, --autofolder', 'create subfolder for categories and subtopics', false)
+    .option('-i, --intro', 'create in Intro page in each subcategory')
+    .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
 
 program.parse()
 
@@ -126,6 +128,12 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
         }
     })
 
+    if (program.intro > 0) {
+        buildTopicPage(program.introTitle, { 'parent': parent, 'headers': [], 'prefix': options.prefix })
+        let itemPath = slug(path.join(parent, program.introTitle))
+        itemPath = itemPath.replace(/\\/g, '/')
+        items.unshift(itemPath)
+    }
     return items;
 }
 
@@ -183,7 +191,7 @@ function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefi
 /**
  * Extract sidebar title and sidebar outline from a Markdown file.
  *
- * @param {*} sourceFilename Filename of a Markdown file with outline
+ * @param {string} sourceFilename Filename of a Markdown file with outline
  * @returns {object} Key-value where key is the sidebar title and value is bullet list tree.
  */
 function getSidebars(sourceFilename) {

@@ -72,7 +72,7 @@ Extract sidebar title and sidebar outline from a Markdown file.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| sourceFilename | <code>\*</code> | Filename of a Markdown file with outline |
+| sourceFilename | <code>string</code> | Filename of a Markdown file with outline |
 
 <a name="saveDocument"></a>
 
