@@ -16,8 +16,18 @@
     "url": "https://github.com/ioncakephper/skelosaurusv2/issues"
   },
   "keywords": [
-    "Docusaurus", "Docusaurus2", "Docusaurus v2", "Docusaurus v1", "Documentation", "Documentation tool", "Documentation generator", "Outline", "Document", "Scaffold", "Skeleton",
-   ],
+    "Docusaurus",
+    "Docusaurus2",
+    "Docusaurus v2",
+    "Docusaurus v1",
+    "Documentation",
+    "Documentation tool",
+    "Documentation generator",
+    "Outline",
+    "Document",
+    "Scaffold",
+    "Skeleton"
+  ],
   "homepage": "https://github.com/ioncakephper/skelosaurusv2#readme",
   "dependencies": {
     "colors": "^1.4.0",
@@ -28,5 +38,10 @@
     "lorem-ipsum": "^2.0.3",
     "markdown": "^0.5.0",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "grunt": "^1.3.0",
+    "grunt-shell": "^3.0.1",
+    "load-grunt-tasks": "^5.1.0"
   }
 }
