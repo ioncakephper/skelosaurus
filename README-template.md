@@ -1,5 +1,5 @@
 # skelosaurusv2
-Skeleton documentation generator for Docusaurus v2 and v2
+Skeleton documentation generator for Docusaurus v2 and v1
 
 ## Installation
 
