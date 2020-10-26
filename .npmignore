@@ -4,6 +4,7 @@ docs/
 sample/
 README-template.md
 sample.md
+Gruntfile.js
 
 # Logs
 logs
