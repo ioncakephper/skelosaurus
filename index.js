@@ -22,6 +22,7 @@ program
     .option('-w, --website <path>', 'path to store sidebars content file', './')
     .option('-d, --docs <path>', 'path where markdown files are generated into', './docs')
     .option('--no-v2', 'generate for Docusaurus v1')
+    .option('-f, --autofolder', 'Create subfolder for categories and subtopics', false)
 
 program.parse()
 
@@ -82,8 +83,8 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
                 items.push(itemPath)
             } else {
                 let title = topicItem[1];
-                let isFolder = topicItem[1].match(/.+\@f(\s+.*)?/g)
-                if (isFolder) {
+                let isFolder = topicItem[1].match(/.+\@f(\s+.*)?/g) || program.autofolder;
+                if (isFolder && !program.autofolder) {
                     title = title.substr(0, title.indexOf('@f')).trim()
                 }
                 if (!program.v2) {
@@ -140,10 +141,12 @@ function buildSectionCategories(bulletList, options = { 'parent': './' }) {
     if (bulletList[0] == 'bulletlist') {
         bulletList.slice(1).forEach((category) => {
             let title = category[1];
-            let isFolder = title.match(/.+\@f(\s+.*)?/g)
+            let isFolder = title.match(/.+\@f(\s+.*)?/g) || program.autofolder;
             let parent = options.parent;
             if (isFolder) {
-                title = title.substr(0, title.indexOf('@f')).trim();
+                if (!program.autofolder) {
+                    title = title.substr(0, title.indexOf('@f')).trim();
+                }
                 parent = path.join(parent, title)
                 parent = parent.replace(/\\/g, '/')
             }

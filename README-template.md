@@ -21,7 +21,7 @@ The `skelo` command now available at the command prompt.
 
 ### Step 1: Create documentation project
 
-Create a working folder `sample`and a documentation outline file `sample.md` which contains documention outline as Markdown.
+Create a working folder `sample` and a documentation outline file `sample.md` which contains documention outline as Markdown.
 
 ```bash
 mkdir sample
@@ -102,6 +102,29 @@ npm run start
 Docusaurus does its magic and finally opens up the local documentation site it created. Click `Docs` item in the top navigation menu to see the navigation bar and basic content for each topic.
 
 ![Screenshot](./images/Screenshot%202020-10-24%20235147.png)
+
+## Creating documentation folders
+
+### Creating folders automatically
+
+To create folders automatically, use the `-f` or `--autofolders` switch.
+
+```bash
+skelo sample -f -w ./sample-folders-doc -d ./sample-folders-doc/docs
+```
+
+This will generate the documentation `.md` files and `sidebars.js` file as before, but it also creates a subfolder for each topic with items. Here is the folder structure in `sample/sample-folders-doc`:
+
+```txt
+!import[/sample/sample-folders-doc/tree.txt]
+```
+
+The `sample\sample-folders-doc\sidebars.js` is also changed to include the file paths.
+
+```javascript
+!import[/sample/sample-folders-doc/sidebars.js]
+```
+
 
 
 !import[/index-js-jsdoc.md]

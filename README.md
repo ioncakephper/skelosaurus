@@ -25,6 +25,8 @@ Options:
   -d, --docs <path>     path where markdown files are generated into (default:
                         "./docs")
   --no-v2               generate for Docusaurus v1
+  -f, --autofolder      Create subfolder for categories and subtopics (default:
+                        false)
   -h, --help            display help for command
 
 ```
@@ -33,7 +35,7 @@ Options:
 
 ### Step 1: Create documentation project
 
-Create a working folder `sample`and a documentation outline file `sample.md` which contains documention outline as Markdown.
+Create a working folder `sample` and a documentation outline file `sample.md` which contains documention outline as Markdown.
 
 ```bash
 mkdir sample
@@ -194,6 +196,87 @@ npm run start
 Docusaurus does its magic and finally opens up the local documentation site it created. Click `Docs` item in the top navigation menu to see the navigation bar and basic content for each topic.
 
 ![Screenshot](./images/Screenshot%202020-10-24%20235147.png)
+
+## Creating documentation folders
+
+### Creating folders automatically
+
+To create folders automatically, use the `-f` or `--autofolders` switch.
+
+```bash
+skelo sample -f -w ./sample-folders-doc -d ./sample-folders-doc/docs
+```
+
+This will generate the documentation `.md` files and `sidebars.js` file as before, but it also creates a subfolder for each topic with items. Here is the folder structure in `sample/sample-folders-doc`:
+
+```txt
+Folder PATH listing for volume WINDOWS
+Volume serial number is EE03-B6C0
+C:.
+|   sidebars.js
+|   tree.txt
+|   
+\---docs
+    +---api
+    |       cli-commands.md
+    |       sidebars-js.md
+    |       
+    +---getting-started
+    |       building.md
+    |       controversies.md
+    |       introduction.md
+    |       
+    +---getting-started-generating
+    |       allowing-new-features.md
+    |       delegating-responsabilities.md
+    |       
+    +---guides
+    |       how-to-create-new-features.md
+    |       
+    \---tutorial
+            adding-content-and-subtopics.md
+            create-folders-from-titles.md
+            creating-simple-files.md
+            
+
+```
+
+The `sample\sample-folders-doc\sidebars.js` is also changed to include the file paths.
+
+```javascript
+module.exports = {
+    "docs": {
+        "Getting started": [
+            "getting-started/introduction",
+            "getting-started/building",
+            {
+                "type": "category",
+                "label": "Generating",
+                "items": [
+                    "getting-started/generating/allowing-new-features",
+                    "getting-started/generating/delegating-responsabilities"
+                ]
+            },
+            "getting-started/controversies"
+        ],
+        "Guides": [
+            "guides/how-to-create-new-features"
+        ],
+        "API": [
+            "api/cli-commands",
+            "api/sidebars-js"
+        ]
+    },
+    "tutorials": {
+        "Tutorial": [
+            "tutorial/creating-simple-files",
+            "tutorial/adding-content-and-subtopics",
+            "tutorial/create-folders-from-titles"
+        ]
+    }
+}
+```
+
 
 
 ## Functions
