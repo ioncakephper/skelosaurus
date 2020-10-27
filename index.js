@@ -28,6 +28,8 @@ program
 
 program.parse()
 
+let allUniqueNames = [];
+
 if (!program.v2) {
     program.website = path.join(program.website, 'website');
 }
@@ -72,15 +74,15 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
     let parent = options.parent;
     bulletList.slice(1).forEach((topicItem) => {
         if (!topicItem[2]) {
-            buildTopicPage(topicItem[1], { 'parent': parent, 'headers': [], 'prefix': options.prefix })
-            let itemPath = slug(path.join(parent, topicItem[1]))
+            let unique = buildTopicPage(topicItem[1], { 'parent': parent, 'headers': [], 'prefix': options.prefix })
+            let itemPath = slug(path.join(parent, unique))
             itemPath = itemPath.replace(/\\/g, '/')
             items.push(itemPath)
         } else {
             if (topicItem[1].match(/.+\@h(\s+.*)?/g)) {
                 let title = topicItem[1].substr(0, topicItem[1].indexOf('@h'));
-                buildTopicPage(title, { 'parent': parent, 'headers': topicItem[2], 'prefix': options.prefix }) // and use title and subheaders inside the topic
-                let itemPath = fileEasy.slug(path.join(parent, title))
+                let unique = buildTopicPage(title, { 'parent': parent, 'headers': topicItem[2], 'prefix': options.prefix }) // and use title and subheaders inside the topic
+                let itemPath = fileEasy.slug(path.join(parent, unique))
                 itemPath = itemPath.replace(/\\/g, '/')
                 items.push(itemPath)
             } else {
@@ -182,10 +184,13 @@ function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefi
         'headers': mdHeaders
     })
 
-    let topicFilename = fileEasy.slug(title) + '.md'
+    let topicFilename = fileEasy.slug(title)
     topicFilename = path.join(program.docs, fileEasy.slug(options.parent), topicFilename);
+    topicFilename = getUniqueName(topicFilename);
+    topicFilename = topicFilename + '.md';
     saveDocument(topicFilename, content)
     console.log('Topic file ' + colors.green(topicFilename) + ' generated.');
+    return path.basename(topicFilename, path.extname(topicFilename));
 }
 
 /**
@@ -210,6 +215,42 @@ function getSidebars(sourceFilename) {
     }
 
     return sidebars;
+}
+
+/**
+ * Return a random string with digital characters of specified length
+ *
+ * @param {number} length The length of string to return.
+ * @returns {string} Randomly chosen characters of specified length
+ */
+function makeid(length) {
+    var result = '';
+    var characters = '0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+/**
+ * Return a variant string
+ *  
+ * @param {string} name The name to check for uniqueness
+ * @returns {string} Original string with suffixed text
+ */
+function getUniqueName(name) {
+    if (allUniqueNames.includes(name)) {
+        let base = (!name.match(/(\-[0-9]+)$/)) ? name : name.substr(0, name.lastIndexOf('-'));
+        let newEntry = base + '-' + makeid(5);
+        while (allUniqueNames.includes(newEntry)) {
+            newEntry = base + '-' + makeid(5);
+        }
+        allUniqueNames.push(newEntry);
+        return newEntry;
+    }
+    allUniqueNames.push(name);
+    return name;
 }
 
 /**
