@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/1.0.9) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![NPM](https://img.shields.io/npm/l/skelosaurusv2)
+![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/1.0.10) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![NPM](https://img.shields.io/npm/l/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2)
 
 <!-- omit in toc -->
 # skelosaurusv2
