@@ -26,22 +26,23 @@ The `skelo` command now available at the command prompt.
 ## Usage
 
 ```txt
-Usage: skelo [options] outlineFiles...
-
-Skeleton documentation generator for Docusaurus (v2 and v2)
-
-Options:
-  -V, --version         output the version number
-  -o, --out <filename>  filename to contains sidebars (default: "sidebars")
-  -w, --website <path>  path to store sidebars content file (default: "./")
-  -d, --docs <path>     path where markdown files are generated into (default:
-                        "./docs")
-  --no-v2               generate for Docusaurus v1
-  -f, --autofolder      create subfolder for categories and subtopics (default:
-                        false)
-  -i, --intro           create in Intro page in each subcategory
-  --introTitle [title]  title to use in intro pages (default: "Overview")
-  -h, --help            display help for command
+Topic file [32msample\sample-doc\docs\introduction.md[39m generated.
+Topic file [32msample\sample-doc\docs\building.md[39m generated.
+Topic file [32msample\sample-doc\docs\allowing-new-features.md[39m generated.
+Topic file [32msample\sample-doc\docs\delegating-responsabilities.md[39m generated.
+Topic file [32msample\sample-doc\docs\overview.md[39m generated.
+Topic file [32msample\sample-doc\docs\controversies.md[39m generated.
+Topic file [32msample\sample-doc\docs\overview-56643.md[39m generated.
+Topic file [32msample\sample-doc\docs\how-to-create-new-features.md[39m generated.
+Topic file [32msample\sample-doc\docs\overview-31736.md[39m generated.
+Topic file [32msample\sample-doc\docs\cli-commands.md[39m generated.
+Topic file [32msample\sample-doc\docs\sidebars-js.md[39m generated.
+Topic file [32msample\sample-doc\docs\overview-14005.md[39m generated.
+Topic file [32msample\sample-doc\docs\creating-simple-files.md[39m generated.
+Topic file [32msample\sample-doc\docs\adding-content-and-subtopics.md[39m generated.
+Topic file [32msample\sample-doc\docs\create-folders-from-titles.md[39m generated.
+Topic file [32msample\sample-doc\docs\overview-34118.md[39m generated.
+Sidebars file [32msample\sample-doc\sidebars.js[39m generated.
 
 ```
 
@@ -133,12 +134,14 @@ The `sample\sample-doc\sidebars.js` exports the sidebar navigation design.
 module.exports = {
     "docs": {
         "Getting started": [
+            "overview-56643",
             "introduction",
             "building",
             {
                 "type": "category",
                 "label": "Generating",
                 "items": [
+                    "overview",
                     "allowing-new-features",
                     "delegating-responsabilities"
                 ]
@@ -146,15 +149,18 @@ module.exports = {
             "controversies"
         ],
         "Guides": [
+            "overview-31736",
             "how-to-create-new-features"
         ],
         "API": [
+            "overview-14005",
             "cli-commands",
             "sidebars-js"
         ]
     },
     "tutorials": {
         "Tutorial": [
+            "overview-34118",
             "creating-simple-files",
             "adding-content-and-subtopics",
             "create-folders-from-titles"
@@ -172,7 +178,7 @@ id: introduction
 sidebar_label: Introduction
 ---
 
-Nostrud aliquip labore cillum ipsum. Reprehenderit voluptate magna elit non. Tempor et reprehenderit quis adipisicing. Exercitation dolor elit ipsum amet proident velit aute fugiat in sunt sunt. Est commodo elit occaecat dolore.
+Consequat commodo exercitation anim do excepteur laboris eu aliquip labore adipisicing sit duis. Dolore ut eu ea nulla ut est laborum anim occaecat. Incididunt consectetur ex ex laborum aliqua occaecat et veniam nostrud laborum sunt proident. Elit pariatur culpa esse ad reprehenderit sit quis incididunt. Labore quis in ea labore minim Lorem consectetur in proident veniam ullamco.
 
 
 ```
@@ -314,7 +320,7 @@ skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
 <dt><a href="#buildSectionCategories">buildSectionCategories(bulletList, [options])</a> ⇒ <code>object</code></dt>
 <dd><p>Build items of navigation section.</p>
 </dd>
-<dt><a href="#buildTopicPage">buildTopicPage(title, [options])</a></dt>
+<dt><a href="#buildTopicPage">buildTopicPage(title, [options])</a> ⇒ <code>string</code></dt>
 <dd><p>Create topic documentation topic in Markdown.</p>
 </dd>
 <dt><a href="#getSidebars">getSidebars(sourceFilename)</a> ⇒ <code>object</code></dt>
@@ -365,10 +371,11 @@ Build items of navigation section.
 
 <a name="buildTopicPage"></a>
 
-## buildTopicPage(title, [options])
+## buildTopicPage(title, [options]) ⇒ <code>string</code>
 Create topic documentation topic in Markdown.
 
 **Kind**: global function  
+**Returns**: <code>string</code> - Topic unique slug  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |

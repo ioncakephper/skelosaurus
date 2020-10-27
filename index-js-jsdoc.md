@@ -7,7 +7,7 @@
 <dt><a href="#buildSectionCategories">buildSectionCategories(bulletList, [options])</a> ⇒ <code>object</code></dt>
 <dd><p>Build items of navigation section.</p>
 </dd>
-<dt><a href="#buildTopicPage">buildTopicPage(title, [options])</a></dt>
+<dt><a href="#buildTopicPage">buildTopicPage(title, [options])</a> ⇒ <code>string</code></dt>
 <dd><p>Create topic documentation topic in Markdown.</p>
 </dd>
 <dt><a href="#getSidebars">getSidebars(sourceFilename)</a> ⇒ <code>object</code></dt>
@@ -58,10 +58,11 @@ Build items of navigation section.
 
 <a name="buildTopicPage"></a>
 
-## buildTopicPage(title, [options])
+## buildTopicPage(title, [options]) ⇒ <code>string</code>
 Create topic documentation topic in Markdown.
 
 **Kind**: global function  
+**Returns**: <code>string</code> - Topic unique slug  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |

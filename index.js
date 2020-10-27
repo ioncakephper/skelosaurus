@@ -26,7 +26,8 @@ program
     .option('-i, --intro', 'create in Intro page in each subcategory')
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
 
-program.parse()
+program.parse(['node', 'index.js', 'sample', '-i', '-w', './sample/sample-doc', '-d', './sample/sample-doc/docs'])
+// program.parse()
 
 let allUniqueNames = [];
 
@@ -131,8 +132,8 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
     })
 
     if (program.intro > 0) {
-        buildTopicPage(program.introTitle, { 'parent': parent, 'headers': [], 'prefix': options.prefix })
-        let itemPath = slug(path.join(parent, program.introTitle))
+        let unique = buildTopicPage(program.introTitle, { 'parent': parent, 'headers': [], 'prefix': options.prefix })
+        let itemPath = slug(path.join(parent, unique))
         itemPath = itemPath.replace(/\\/g, '/')
         items.unshift(itemPath)
     }
@@ -171,22 +172,24 @@ function buildSectionCategories(bulletList, options = { 'parent': './' }) {
  *
  * @param {string} title Topic title
  * @param {object} [options={ 'headers': [], 'parent': './', 'prefix': '' }] Options for creating topic file.
+ * @returns {string} Topic unique slug
  */
 function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefix': '' }) {
 
     // let mdHeaders = [{'prefix': '##', 'title': 'Ficticious', 'items': []}]
     let mdHeaders = [];
+    let id = getUniqueName(fileEasy.slug(title))
     let content = hbsr.render_template('doc-topic', {
         'title': title,
-        'id': fileEasy.slug(title),
+        'id': id,
         'sidebar_label': title,
         'description': lorem.generateSentences(5),
         'headers': mdHeaders
     })
 
-    let topicFilename = fileEasy.slug(title)
+    let topicFilename = id
     topicFilename = path.join(program.docs, fileEasy.slug(options.parent), topicFilename);
-    topicFilename = getUniqueName(topicFilename);
+    // topicFilename = getUniqueName(topicFilename);
     topicFilename = topicFilename + '.md';
     saveDocument(topicFilename, content)
     console.log('Topic file ' + colors.green(topicFilename) + ' generated.');
