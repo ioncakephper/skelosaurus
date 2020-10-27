@@ -1,8 +1,36 @@
 ## docs
 
-- Skelosaurus
+- FintechOS
+  - Overview
   - Getting started
-  - Installation
-  - Quick example
-- Guides
-  - Documentation folders
+    - Architecture
+    - System requirements
+    - Third party libraries
+    - FintechOS Installation
+    - Evolutive Data Models
+    - Digital Journeys
+    - Data-driven analytics
+    - Digital Touchpoints
+    - FintechOS Accelerators
+    - Security
+  - Innovation Core
+  - Studio
+  - Automation processors
+    - Business Decisions Processors
+    - Banking Product Factory
+    - Computer Vision
+    - Digital Insurance Product Automation
+    - Digital Documents Processor
+    - eSign Processor
+    - Face recognition
+    - Video streaming
+    - Hyper-Personalization Automation
+    - Business Workflows Processor
+    - Omnichannel campaigns
+    - Omnichannel Communication Automation
+  - Digital Journeys
+  - REST APIs
+- Discover more
+  - App store
+  - Content hub
+  - Academy

@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'My Site',
-  tagline: 'The tagline of my site',
+  title: 'Skelosaurus v2',
+  tagline: 'Documentation skeleton generator for Docusaurus',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -12,11 +12,12 @@ module.exports = {
       title: 'Skelosaurus v2',
       logo: {
         alt: 'Skelosaurus v2 Logo',
-        src: 'img/logo.svg',
+        // src: 'img/logo.svg',
+        src: 'img/folder_icon.svg',
       },
       items: [
         {
-          to: 'docs/getting-started',
+          to: 'docs/overview',
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left',
