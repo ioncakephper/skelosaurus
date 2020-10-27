@@ -26,8 +26,7 @@ program
     .option('-i, --intro', 'create in Intro page in each subcategory')
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
 
-program.parse(['node', 'index.js', 'sample', '-i', '-w', './sample/sample-doc', '-d', './sample/sample-doc/docs'])
-// program.parse()
+program.parse()
 
 let allUniqueNames = [];
 

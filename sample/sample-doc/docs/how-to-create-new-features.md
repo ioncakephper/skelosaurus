@@ -4,5 +4,5 @@ id: how-to-create-new-features
 sidebar_label: How to create new features
 ---
 
-Fugiat eiusmod voluptate ullamco pariatur officia minim. Sint dolor Lorem aute duis labore amet reprehenderit. Laboris occaecat nisi consequat fugiat esse reprehenderit laborum aliqua consectetur officia labore duis. Officia enim do tempor esse incididunt labore adipisicing. Irure dolore aute est consequat laboris.
+Ut consequat culpa irure occaecat laboris enim adipisicing eiusmod cupidatat laboris esse sunt. Laborum laborum do officia pariatur consequat magna ipsum reprehenderit incididunt nostrud incididunt. Quis do in aute reprehenderit officia esse. Pariatur labore sit eiusmod exercitation. Incididunt commodo nulla enim nisi amet sit consectetur eu.
 

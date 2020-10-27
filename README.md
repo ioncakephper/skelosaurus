@@ -26,23 +26,22 @@ The `skelo` command now available at the command prompt.
 ## Usage
 
 ```txt
-Topic file [32msample\sample-doc\docs\introduction.md[39m generated.
-Topic file [32msample\sample-doc\docs\building.md[39m generated.
-Topic file [32msample\sample-doc\docs\allowing-new-features.md[39m generated.
-Topic file [32msample\sample-doc\docs\delegating-responsabilities.md[39m generated.
-Topic file [32msample\sample-doc\docs\overview.md[39m generated.
-Topic file [32msample\sample-doc\docs\controversies.md[39m generated.
-Topic file [32msample\sample-doc\docs\overview-56643.md[39m generated.
-Topic file [32msample\sample-doc\docs\how-to-create-new-features.md[39m generated.
-Topic file [32msample\sample-doc\docs\overview-31736.md[39m generated.
-Topic file [32msample\sample-doc\docs\cli-commands.md[39m generated.
-Topic file [32msample\sample-doc\docs\sidebars-js.md[39m generated.
-Topic file [32msample\sample-doc\docs\overview-14005.md[39m generated.
-Topic file [32msample\sample-doc\docs\creating-simple-files.md[39m generated.
-Topic file [32msample\sample-doc\docs\adding-content-and-subtopics.md[39m generated.
-Topic file [32msample\sample-doc\docs\create-folders-from-titles.md[39m generated.
-Topic file [32msample\sample-doc\docs\overview-34118.md[39m generated.
-Sidebars file [32msample\sample-doc\sidebars.js[39m generated.
+Usage: skelo [options] outlineFiles...
+
+Skeleton documentation generator for Docusaurus (v2 and v2)
+
+Options:
+  -V, --version         output the version number
+  -o, --out <filename>  filename to contains sidebars (default: "sidebars")
+  -w, --website <path>  path to store sidebars content file (default: "./")
+  -d, --docs <path>     path where markdown files are generated into (default:
+                        "./docs")
+  --no-v2               generate for Docusaurus v1
+  -f, --autofolder      create subfolder for categories and subtopics (default:
+                        false)
+  -i, --intro           create in Intro page in each subcategory
+  --introTitle [title]  title to use in intro pages (default: "Overview")
+  -h, --help            display help for command
 
 ```
 
@@ -134,7 +133,7 @@ The `sample\sample-doc\sidebars.js` exports the sidebar navigation design.
 module.exports = {
     "docs": {
         "Getting started": [
-            "overview-56643",
+            "overview-51082",
             "introduction",
             "building",
             {
@@ -149,18 +148,18 @@ module.exports = {
             "controversies"
         ],
         "Guides": [
-            "overview-31736",
+            "overview-92749",
             "how-to-create-new-features"
         ],
         "API": [
-            "overview-14005",
+            "overview-22452",
             "cli-commands",
             "sidebars-js"
         ]
     },
     "tutorials": {
         "Tutorial": [
-            "overview-34118",
+            "overview-71275",
             "creating-simple-files",
             "adding-content-and-subtopics",
             "create-folders-from-titles"
@@ -178,7 +177,7 @@ id: introduction
 sidebar_label: Introduction
 ---
 
-Consequat commodo exercitation anim do excepteur laboris eu aliquip labore adipisicing sit duis. Dolore ut eu ea nulla ut est laborum anim occaecat. Incididunt consectetur ex ex laborum aliqua occaecat et veniam nostrud laborum sunt proident. Elit pariatur culpa esse ad reprehenderit sit quis incididunt. Labore quis in ea labore minim Lorem consectetur in proident veniam ullamco.
+Fugiat aute minim aliqua incididunt do eu quis ea velit deserunt proident et. Pariatur eiusmod aute commodo minim sint amet anim culpa minim commodo. Nisi laborum reprehenderit nulla sit. Commodo velit nisi consequat irure. Aliquip fugiat ea aliqua excepteur ea eiusmod duis consequat.
 
 
 ```

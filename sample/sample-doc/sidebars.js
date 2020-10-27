@@ -1,7 +1,7 @@
 module.exports = {
     "docs": {
         "Getting started": [
-            "overview-56643",
+            "overview-51082",
             "introduction",
             "building",
             {
@@ -16,18 +16,18 @@ module.exports = {
             "controversies"
         ],
         "Guides": [
-            "overview-31736",
+            "overview-92749",
             "how-to-create-new-features"
         ],
         "API": [
-            "overview-14005",
+            "overview-22452",
             "cli-commands",
             "sidebars-js"
         ]
     },
     "tutorials": {
         "Tutorial": [
-            "overview-34118",
+            "overview-71275",
             "creating-simple-files",
             "adding-content-and-subtopics",
             "create-folders-from-titles"

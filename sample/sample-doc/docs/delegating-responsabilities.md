@@ -4,5 +4,5 @@ id: delegating-responsabilities
 sidebar_label: Delegating responsabilities
 ---
 
-Cillum sunt incididunt tempor id amet ex nisi in culpa aliquip anim dolore irure. Eiusmod dolor enim deserunt sit nisi. Nulla laboris nulla cupidatat eu amet ut ipsum. Veniam tempor ipsum ad cillum do in reprehenderit occaecat non. Nisi minim duis et non nulla sint qui.
+Consequat irure eu ipsum veniam nulla veniam excepteur ipsum occaecat sint ut cillum labore. Dolore tempor ad ipsum nulla sint veniam voluptate sint irure elit nostrud ex eiusmod. Enim velit laboris ex exercitation non consequat voluptate anim cillum ad ea ipsum. Do dolore exercitation cillum tempor deserunt magna dolore elit sint. Duis veniam eu laboris sint minim sunt non consectetur.
 
