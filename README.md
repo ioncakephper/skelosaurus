@@ -320,6 +320,12 @@ skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
 <dt><a href="#getSidebars">getSidebars(sourceFilename)</a> ⇒ <code>object</code></dt>
 <dd><p>Extract sidebar title and sidebar outline from a Markdown file.</p>
 </dd>
+<dt><a href="#makeid">makeid(length)</a> ⇒ <code>string</code></dt>
+<dd><p>Return a random string with digital characters of specified length</p>
+</dd>
+<dt><a href="#getUniqueName">getUniqueName(name)</a> ⇒ <code>string</code></dt>
+<dd><p>Return a variant string</p>
+</dd>
 <dt><a href="#saveDocument">saveDocument(fileName, content)</a></dt>
 <dd><p>Create a text file in utf-8 format from specified name and content</p>
 </dd>
@@ -380,6 +386,30 @@ Extract sidebar title and sidebar outline from a Markdown file.
 | Param | Type | Description |
 | --- | --- | --- |
 | sourceFilename | <code>string</code> | Filename of a Markdown file with outline |
+
+<a name="makeid"></a>
+
+## makeid(length) ⇒ <code>string</code>
+Return a random string with digital characters of specified length
+
+**Kind**: global function  
+**Returns**: <code>string</code> - Randomly chosen characters of specified length  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| length | <code>number</code> | The length of string to return. |
+
+<a name="getUniqueName"></a>
+
+## getUniqueName(name) ⇒ <code>string</code>
+Return a variant string
+
+**Kind**: global function  
+**Returns**: <code>string</code> - Original string with suffixed text  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name | <code>string</code> | The name to check for uniqueness |
 
 <a name="saveDocument"></a>
 
