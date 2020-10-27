@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/1.0.10) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![NPM](https://img.shields.io/npm/l/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2)
+![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/1.0.11) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![NPM](https://img.shields.io/npm/l/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2)
 
 <!-- omit in toc -->
 # skelosaurusv2
@@ -14,6 +14,7 @@ Skeleton documentation generator for Docusaurus v2 and v1
   - [Creating folders automatically](#creating-folders-automatically)
   - [Creating folders selectively](#creating-folders-selectively)
 - [Creating `Overview` pages automatically](#creating-overview-pages-automatically)
+- [License](#license)
 
 ## Installation
 
@@ -157,6 +158,10 @@ skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
 ```
 
 !import[/index-js-jsdoc.md]
+
+## License
+
+!import[/LICENSE]
 
 
 !export[/README.md]
