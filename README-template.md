@@ -1,3 +1,5 @@
+![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/1.0.9) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![NPM](https://img.shields.io/npm/l/skelosaurusv2)
+
 <!-- omit in toc -->
 # skelosaurusv2
 Skeleton documentation generator for Docusaurus v2 and v1
