@@ -4,5 +4,5 @@ id: omnichannel-campaigns
 sidebar_label: Omnichannel campaigns
 ---
 
-Ipsum quis do exercitation minim consectetur cillum cupidatat. Magna incididunt dolor est aliquip ea pariatur culpa irure consectetur ex Lorem mollit. Consequat excepteur eiusmod sit adipisicing cillum. Occaecat reprehenderit pariatur aute consectetur excepteur eu officia proident cupidatat anim id cillum anim in. Esse aute exercitation minim ipsum irure laborum ipsum adipisicing laboris qui do voluptate.
+Lorem ea dolor irure amet. Dolor tempor excepteur consequat pariatur. Elit ad amet tempor qui. Cillum occaecat sit in excepteur ut in duis est laboris aliqua cupidatat. Irure cupidatat non incididunt irure.
 

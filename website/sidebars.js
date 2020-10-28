@@ -18,7 +18,44 @@ module.exports = {
                     "security"
                 ]
             },
-            "innovation-core",
+            {
+                "type": "category",
+                "label": "Innovation Core",
+                "items": [
+                    "overview-19214",
+                    {
+                        "type": "category",
+                        "label": "Security",
+                        "items": [
+                            "overview-78745",
+                            "data-encryption-and-security",
+                            "authentication",
+                            "register-tls-client-certificates",
+                            "authorization",
+                            "password-security",
+                            "unauthorize-inactive-users",
+                            "session-expiratio-time",
+                            "data-audit"
+                        ]
+                    },
+                    {
+                        "type": "category",
+                        "label": "DevOps",
+                        "items": [
+                            "overview-97469",
+                            "certsign-integration-for-electronic-signature",
+                            "connect-to-azure-notification-hubs",
+                            "configure-the-file-upload-folder",
+                            "importing-and-exporting-deployment-packages",
+                            "file-type-upload-control",
+                            "fintechos-api-a-standalone-web-app",
+                            "activating-localization-debug-mode",
+                            "configure-the-cdata-sync-service",
+                            "configure-the-payment-processor-service"
+                        ]
+                    }
+                ]
+            },
             "studio",
             {
                 "type": "category",
@@ -38,7 +75,7 @@ module.exports = {
                     "omnichannel-communication-automation"
                 ]
             },
-            "digital-journeys-01600",
+            "digital-journeys-61403",
             "rest-apis"
         ],
         "Discover more": [

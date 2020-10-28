@@ -4,7 +4,18 @@
   - Overview
   - Getting started
     - Architecture
+        - @headers
+            - FintechOS API & Integrations Gateway
+            - FintechOS Native
     - System requirements
+        - @headers
+            - FintechOS platform
+                - Required Windows Server roles
+                - Required Web Server Roles (IIS) \ Role Services
+            - Client Devices
+                - FintechOS Studio
+                - FintechOS Portal
+                - FintechOS Mobile Applications
     - Third party libraries
     - FintechOS Installation
     - Evolutive Data Models
@@ -14,6 +25,28 @@
     - FintechOS Accelerators
     - Security
   - Innovation Core
+    - Overview
+    - Security
+        - Overview
+        - Data Encryption and Security
+        - Authentication
+        - Register TLS Client Certificates
+        - Authorization
+        - Password security
+        - Unauthorize inactive users
+        - Session expiratio time
+        - Data audit
+    - DevOps
+        - Overview
+        - CertSign integration for electronic signature
+        - Connect to Azure notification hubs
+        - Configure the File Upload folder
+        - Importing and Exporting deployment packages
+        - File-type upload control
+        - FintechOS API a standalone web app
+        - Activating localization debug mode
+        - Configure the CDATA sync service
+        - Configure the payment processor service
   - Studio
   - Automation processors
     - Business Decisions Processors

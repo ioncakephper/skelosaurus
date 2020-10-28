@@ -4,5 +4,9 @@ id: architecture
 sidebar_label: Architecture
 ---
 
-Velit non exercitation sint ex officia veniam reprehenderit pariatur aliqua. Nulla occaecat ut sint dolore excepteur cillum amet enim. Amet magna non qui et esse. Et eiusmod aute consequat irure anim cupidatat amet sunt nulla Lorem. Proident fugiat est eu excepteur in ullamco ad nostrud est.
+Eiusmod dolore labore ullamco eiusmod cillum mollit magna anim aliquip quis. Laborum consequat commodo do cillum eiusmod commodo. Mollit ullamco esse adipisicing minim cupidatat consectetur sunt occaecat ullamco velit consectetur fugiat consectetur consectetur. Officia id deserunt excepteur duis proident deserunt deserunt enim velit irure laborum voluptate. Pariatur ex consectetur consectetur incididunt quis.
+
+## FintechOS API & Integrations Gateway
+
+## FintechOS Native
 

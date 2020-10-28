@@ -4,5 +4,9 @@ id: installation
 sidebar_label: Installation
 ---
 
-Minim id dolor officia laboris ea ullamco aliqua Lorem quis elit esse aliquip eu enim. Anim cupidatat consectetur reprehenderit pariatur nostrud id occaecat laborum voluptate. Adipisicing proident nulla anim ea culpa commodo irure nulla aliquip enim. Nisi mollit in exercitation ad anim est. Nulla duis enim velit aute ex sit aute non irure anim.
+Qui et elit duis consectetur aute proident. Id ea mollit pariatur do. Aliqua est deserunt anim occaecat occaecat ex cillum eiusmod laboris. Dolor veniam exercitation in ad reprehenderit aliquip officia veniam nulla voluptate ea et incididunt non. Anim consequat amet aute commodo id qui esse sit do aute.
+
+## Installling Skelosaurus
+
+## Verifying installation
 

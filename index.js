@@ -26,6 +26,7 @@ program
     .option('-i, --intro', 'create in Intro page in each subcategory')
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
 
+// program.parse('node index.js sampleHeaders -w ./ -d ./docs'.split(/ +/g));
 program.parse()
 
 let allUniqueNames = [];
@@ -73,19 +74,35 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
     let items = []
     let parent = options.parent;
     bulletList.slice(1).forEach((topicItem) => {
+        //
+        // Does this topic have children
+        //
         if (!topicItem[2]) {
+            //
+            // A single topic
+            //
             let unique = buildTopicPage(topicItem[1], { 'parent': parent, 'headers': [], 'prefix': options.prefix })
             let itemPath = slug(path.join(parent, unique))
             itemPath = itemPath.replace(/\\/g, '/')
             items.push(itemPath)
         } else {
-            if (topicItem[1].match(/.+\@h(\s+.*)?/g)) {
-                let title = topicItem[1].substr(0, topicItem[1].indexOf('@h'));
-                let unique = buildTopicPage(title, { 'parent': parent, 'headers': topicItem[2], 'prefix': options.prefix }) // and use title and subheaders inside the topic
+            ///
+            /// Check for @headers as the first child.
+            /// If exists, use children of @headers as headers for current topic
+            /// 
+            let topicHeaders = getTopicHeaders(topicItem[2])
+            if (topicHeaders) {
+                let title = topicItem[1];
+                let unique = buildTopicPage(title, { 'parent': parent, 'headers': topicHeaders, 'prefix': options.prefix }) // and use title and subheaders inside the topic
                 let itemPath = fileEasy.slug(path.join(parent, unique))
                 itemPath = itemPath.replace(/\\/g, '/')
                 items.push(itemPath)
-            } else {
+            }
+            else {
+
+                ///
+                /// Do we want to generate a subfolder for this topic?
+                ///
                 let title = topicItem[1];
                 let isFolder = topicItem[1].match(/.+\@f(\s+.*)?/g) || program.autofolder;
                 if (isFolder && !program.autofolder) {
@@ -140,6 +157,45 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
 }
 
 /**
+ * Build topic top headers
+ *
+ * @param {Array} bulletlist Header list represented in Markdown abstrat tree
+ * @returns {Array} Headers in markdown notation
+ */
+function getTopicHeaders(bulletlist) {
+    let headers;
+    if (bulletlist[0] == 'bulletlist') {
+        let firstItem = bulletlist[1];
+        let hasHeaders = firstItem[1].match(/\@headers\s*/gi)
+        if (hasHeaders) {
+            headers = buildHeaders(firstItem[2]);
+        }
+    }
+    return headers;
+}
+
+/**
+ * Build headers as template variables
+ *
+ * @param {Array} bulletlist Representation of list in Markdown abstract tree
+ * @param {number} [level=2] Heading level for Markdown notation
+ * @returns {Array} Array of objects where each object is a set of template variables
+ */
+function buildHeaders(bulletlist, level = 2) {
+    if (!bulletlist) {
+        return []
+    }
+    let toc = bulletlist.slice(1).map((headerItem) => {
+        return {
+            'title': headerItem[1],
+            'prefix': '#'.repeat(level),
+            'content': hbsr.render_template('sub-headers', { 'headers': buildHeaders(headerItem[2], level + 1) })
+        }
+    })
+    return toc;
+}
+
+/**
  * Build items of navigation section.
  *
  * @param {Array} bulletList The bullet list internal representation.
@@ -176,7 +232,8 @@ function buildSectionCategories(bulletList, options = { 'parent': './' }) {
 function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefix': '' }) {
 
     // let mdHeaders = [{'prefix': '##', 'title': 'Ficticious', 'items': []}]
-    let mdHeaders = [];
+    // let mdHeaders = []
+    let mdHeaders = options.headers;
     let id = getUniqueName(fileEasy.slug(title))
     let content = hbsr.render_template('doc-topic', {
         'title': title,

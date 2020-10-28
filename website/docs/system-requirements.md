@@ -4,5 +4,19 @@ id: system-requirements
 sidebar_label: System requirements
 ---
 
-Adipisicing proident ipsum proident ex proident ad dolor aliqua exercitation irure. Do cupidatat consectetur mollit eu aliqua enim pariatur cupidatat in dolore. Commodo consectetur labore sint mollit sint esse elit ut minim ut non sunt sunt eiusmod. Eu fugiat officia labore velit irure occaecat labore occaecat labore eu et ipsum eiusmod adipisicing. Amet culpa laboris quis ad aute ullamco.
+Ea fugiat officia sit pariatur ipsum anim deserunt amet irure. Ad eiusmod et cillum sint non consectetur in nulla amet eiusmod enim ipsum nulla voluptate. Aliqua ullamco voluptate consequat est culpa. Dolor aliqua ipsum eu elit duis aliquip amet. Aute ex irure Lorem sit pariatur cupidatat aliqua laboris irure.
+
+## FintechOS platform
+### Required Windows Server roles
+
+### Required Web Server Roles (IIS) \ Role Services
+
+
+## Client Devices
+### FintechOS Studio
+
+### FintechOS Portal
+
+### FintechOS Mobile Applications
+
 

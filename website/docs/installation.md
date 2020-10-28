@@ -4,5 +4,9 @@ id: installation
 sidebar_label: Installation
 ---
 
-Esse pariatur Lorem culpa minim qui id mollit nostrud. Excepteur enim aliqua commodo sint id. Ullamco ad exercitation veniam tempor voluptate officia Lorem duis ad dolore. In anim nisi ullamco ipsum minim laboris cupidatat magna culpa est. Cupidatat ad tempor sit excepteur sint consequat duis Lorem dolore aliqua magna.
+Non id eu aliquip laboris consequat culpa ex. Elit incididunt nostrud id elit esse velit. Incididunt sit nulla qui ullamco duis. Culpa commodo et excepteur laboris deserunt do minim laborum exercitation sit. Exercitation exercitation est incididunt mollit sunt aliqua sunt labore enim excepteur eiusmod.
+
+## Installling Skelosaurus
+
+## Verifying installation
 

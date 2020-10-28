@@ -1,0 +1,95 @@
+{
+  "name": "",
+  "isOrdered": true,
+  "folders": {
+    "docs": {
+      "name": "docs",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "images": {
+      "name": "images",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "sample": {
+      "name": "sample",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "templates": {
+      "name": "templates",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "website": {
+      "name": "website",
+      "isOrdered": true,
+      "folders": {
+        "blog": {
+          "name": "blog",
+          "isOrdered": true,
+          "folders": {},
+          "files": {}
+        },
+        "build": {
+          "name": "build",
+          "isOrdered": true,
+          "folders": {
+            "blog": {
+              "name": "blog",
+              "isOrdered": true,
+              "folders": {},
+              "files": {}
+            },
+            "docs": {
+              "name": "docs",
+              "isOrdered": true,
+              "folders": {},
+              "files": {}
+            },
+            "img": {
+              "name": "img",
+              "isOrdered": true,
+              "folders": {},
+              "files": {}
+            }
+          },
+          "files": {}
+        },
+        "docs": {
+          "name": "docs",
+          "isOrdered": true,
+          "folders": {},
+          "files": {}
+        },
+        "src": {
+          "name": "src",
+          "isOrdered": true,
+          "folders": {},
+          "files": {}
+        },
+        "static": {
+          "name": "static",
+          "isOrdered": true,
+          "folders": {},
+          "files": {}
+        }
+      },
+      "files": {
+        "README": 0
+      }
+    }
+  },
+  "files": {
+    "README-template": 0,
+    "index-js-jsdoc": 1,
+    "README": 2,
+    "sample": 3,
+    "skelodoc-outline": 4
+  }
+}
