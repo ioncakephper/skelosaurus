@@ -4,5 +4,5 @@ id: video-streaming
 sidebar_label: Video streaming
 ---
 
-Non veniam et amet minim culpa anim culpa veniam mollit officia. Duis veniam mollit non voluptate nostrud in minim amet dolore laboris reprehenderit mollit proident duis. Magna esse amet deserunt quis. Dolor cupidatat ullamco ipsum pariatur incididunt. Reprehenderit aliquip aliqua laboris ut cupidatat consectetur.
+Aliqua commodo consequat incididunt eiusmod esse fugiat pariatur occaecat exercitation occaecat sit velit minim dolor. Occaecat Lorem culpa sit dolor in. Aliqua culpa pariatur elit nisi anim eiusmod dolore sit consequat culpa. Et quis esse sit veniam commodo ad Lorem ullamco duis sint mollit. Non do consequat cupidatat id minim cupidatat velit in.
 

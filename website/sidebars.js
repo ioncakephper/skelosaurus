@@ -20,43 +20,42 @@ module.exports = {
             },
             {
                 "type": "category",
-                "label": "Innovation Core",
+                "label": "Studio",
                 "items": [
-                    "overview-19214",
+                    "studio/overview-34751",
                     {
                         "type": "category",
-                        "label": "Security",
+                        "label": "Release notes",
                         "items": [
-                            "overview-78745",
-                            "data-encryption-and-security",
-                            "authentication",
-                            "register-tls-client-certificates",
-                            "authorization",
-                            "password-security",
-                            "unauthorize-inactive-users",
-                            "session-expiratio-time",
-                            "data-audit"
+                            "studio/release-notes/october-2020",
+                            "studio/release-notes/september-2020",
+                            "studio/release-notes/august-2020"
                         ]
                     },
                     {
                         "type": "category",
-                        "label": "DevOps",
+                        "label": "User Guide",
                         "items": [
-                            "overview-97469",
-                            "certsign-integration-for-electronic-signature",
-                            "connect-to-azure-notification-hubs",
-                            "configure-the-file-upload-folder",
-                            "importing-and-exporting-deployment-packages",
-                            "file-type-upload-control",
-                            "fintechos-api-a-standalone-web-app",
-                            "activating-localization-debug-mode",
-                            "configure-the-cdata-sync-service",
-                            "configure-the-payment-processor-service"
+                            "studio/user-guide/overview-82660",
+                            {
+                                "type": "category",
+                                "label": "Evolutive Data Core",
+                                "items": [
+                                    "studio/user-guide/overview-31504",
+                                    "studio/user-guide/data-model-designer"
+                                ]
+                            },
+                            "studio/user-guide/digital-journeys-19365",
+                            "studio/user-guide/fintech-automation",
+                            "studio/user-guide/reporting-and-automation",
+                            "studio/user-guide/digital-developer-tools",
+                            "studio/user-guide/digital-touchpoints-73474",
+                            "studio/user-guide/security-61063",
+                            "studio/user-guide/devops"
                         ]
                     }
                 ]
             },
-            "studio",
             {
                 "type": "category",
                 "label": "Automation processors",
@@ -75,7 +74,7 @@ module.exports = {
                     "omnichannel-communication-automation"
                 ]
             },
-            "digital-journeys-61403",
+            "digital-journeys-05797",
             "rest-apis"
         ],
         "Discover more": [

@@ -4,5 +4,5 @@ id: computer-vision
 sidebar_label: Computer Vision
 ---
 
-Quis dolore irure aliquip aliquip commodo qui do eiusmod velit cupidatat do laboris. Labore est occaecat incididunt ea in exercitation nulla excepteur aliquip exercitation nulla. Quis aliqua labore reprehenderit sunt amet adipisicing culpa magna do aliqua ea nisi excepteur. Minim in irure aute Lorem consequat enim sint anim sit culpa cupidatat. Anim labore non nulla minim eu eu ipsum irure amet laboris.
+Consequat do proident enim nostrud excepteur. In aute excepteur dolore est quis amet irure sit eu aliquip commodo sunt. Voluptate amet ex consectetur quis ea id est occaecat qui fugiat in esse veniam. Eu labore do ad excepteur. Veniam ex minim non nisi sint nostrud duis.
 

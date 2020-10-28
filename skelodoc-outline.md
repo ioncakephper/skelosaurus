@@ -24,43 +24,37 @@
     - Digital Touchpoints
     - FintechOS Accelerators
     - Security
-  - Innovation Core
+  - Studio @f
     - Overview
-    - Security
-        - Overview
-        - Data Encryption and Security
-        - Authentication
-        - Register TLS Client Certificates
-        - Authorization
-        - Password security
-        - Unauthorize inactive users
-        - Session expiratio time
-        - Data audit
-    - DevOps
-        - Overview
-        - CertSign integration for electronic signature
-        - Connect to Azure notification hubs
-        - Configure the File Upload folder
-        - Importing and Exporting deployment packages
-        - File-type upload control
-        - FintechOS API a standalone web app
-        - Activating localization debug mode
-        - Configure the CDATA sync service
-        - Configure the payment processor service
-  - Studio
+    - Release notes @f
+          - October 2020
+          - September 2020
+          - August 2020
+    - User Guide @f
+          - Overview
+          - Evolutive Data Core
+              - Overview
+              - Data model designer
+          - Digital journeys
+          - Fintech Automation
+          - Reporting and Automation
+          - Digital developer tools
+          - Digital touchpoints
+          - Security
+          - DevOps
   - Automation processors
-    - Business Decisions Processors
-    - Banking Product Factory
-    - Computer Vision
-    - Digital Insurance Product Automation
-    - Digital Documents Processor
-    - eSign Processor
-    - Face recognition
-    - Video streaming
-    - Hyper-Personalization Automation
-    - Business Workflows Processor
-    - Omnichannel campaigns
-    - Omnichannel Communication Automation
+      - Business Decisions Processors
+      - Banking Product Factory
+      - Computer Vision
+      - Digital Insurance Product Automation
+      - Digital Documents Processor
+      - eSign Processor
+      - Face recognition
+      - Video streaming
+      - Hyper-Personalization Automation
+      - Business Workflows Processor
+      - Omnichannel campaigns
+      - Omnichannel Communication Automation
   - Digital Journeys
   - REST APIs
 - Discover more

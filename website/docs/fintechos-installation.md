@@ -4,5 +4,5 @@ id: fintechos-installation
 sidebar_label: FintechOS Installation
 ---
 
-Ipsum in qui ex tempor do commodo officia ad enim dolor id. Aliqua eiusmod veniam incididunt fugiat sint non laborum irure id nisi ea deserunt pariatur. Ipsum anim ut duis veniam ad magna eiusmod minim nisi non velit esse commodo eu. Enim velit sint consequat exercitation qui ut ut. Ipsum eu voluptate amet pariatur minim velit fugiat deserunt cillum in elit.
+Tempor quis ex qui ad veniam veniam esse elit excepteur et Lorem mollit exercitation nulla. Nulla nulla eiusmod enim nulla. Cupidatat ea quis elit sint in sint id cillum anim culpa irure et dolore ea. Officia ipsum ex ut velit sint labore laboris consectetur qui excepteur commodo duis. Quis elit nulla ea in elit eiusmod eu aliqua veniam mollit cillum.
 

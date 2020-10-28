@@ -4,5 +4,5 @@ id: digital-journeys
 sidebar_label: Digital Journeys
 ---
 
-Dolor ipsum sint ex pariatur ullamco duis adipisicing esse veniam ipsum nisi non quis. Est dolore laboris deserunt pariatur eiusmod amet. Cupidatat labore commodo ex ipsum reprehenderit. Adipisicing tempor commodo eu in nulla eiusmod officia labore cillum non dolor. Do nulla consectetur nisi exercitation mollit.
+Ullamco amet magna eiusmod duis non eu. Laboris est magna velit et exercitation minim sit ullamco sunt Lorem. Pariatur dolor cillum proident ad quis do velit proident voluptate exercitation eiusmod eu. Do nisi velit voluptate non sunt esse cupidatat et minim duis occaecat nostrud tempor. Ea amet amet minim dolore.
 
