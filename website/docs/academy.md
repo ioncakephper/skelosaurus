@@ -4,5 +4,5 @@ id: academy
 sidebar_label: Academy
 ---
 
-Ad est pariatur anim aliqua cillum laboris. Reprehenderit nostrud magna irure duis pariatur et elit velit excepteur deserunt esse ipsum. Fugiat veniam adipisicing fugiat labore do culpa est mollit sit velit dolore qui id consectetur. Officia sit eiusmod sunt anim reprehenderit do pariatur ullamco officia excepteur amet cillum labore nisi. Eiusmod amet dolor adipisicing aute duis magna excepteur nostrud eu ut adipisicing.
+Ipsum ad proident sit elit sunt labore. Id ipsum reprehenderit elit cillum duis dolore exercitation sint est sunt velit adipisicing. Magna non sit pariatur occaecat nostrud fugiat sit magna tempor sunt deserunt magna sunt. Aute aute voluptate aliquip adipisicing sit tempor eiusmod nisi deserunt est ex amet sit. Labore consequat occaecat cupidatat ut labore deserunt amet sunt est Lorem reprehenderit ex ea.
 

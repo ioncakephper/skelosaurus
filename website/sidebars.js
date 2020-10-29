@@ -22,36 +22,59 @@ module.exports = {
                 "type": "category",
                 "label": "Studio",
                 "items": [
-                    "studio/overview-34751",
+                    "overview-81889",
                     {
                         "type": "category",
                         "label": "Release notes",
                         "items": [
-                            "studio/release-notes/october-2020",
-                            "studio/release-notes/september-2020",
-                            "studio/release-notes/august-2020"
+                            "october-2020",
+                            "september-2020",
+                            "august-2020"
                         ]
                     },
                     {
                         "type": "category",
                         "label": "User Guide",
                         "items": [
-                            "studio/user-guide/overview-82660",
+                            "overview-00259",
                             {
                                 "type": "category",
                                 "label": "Evolutive Data Core",
                                 "items": [
-                                    "studio/user-guide/overview-31504",
-                                    "studio/user-guide/data-model-designer"
+                                    "overview-20753",
+                                    "data-model-designer",
+                                    {
+                                        "type": "category",
+                                        "label": "Data model explorer",
+                                        "items": [
+                                            "business-entities",
+                                            "attributes",
+                                            "entity-unique-constraints",
+                                            "extend-data-model",
+                                            "entity-relationships",
+                                            "advanced-entity-find",
+                                            "views",
+                                            "forms",
+                                            "transient-data-entities",
+                                            "sample-api-calls",
+                                            "importing-and-exporting-data",
+                                            "data-exports",
+                                            "bulk-data-import"
+                                        ]
+                                    },
+                                    "data-import-template",
+                                    "data-governance",
+                                    "rest-processors",
+                                    "data-pipes"
                                 ]
                             },
-                            "studio/user-guide/digital-journeys-19365",
-                            "studio/user-guide/fintech-automation",
-                            "studio/user-guide/reporting-and-automation",
-                            "studio/user-guide/digital-developer-tools",
-                            "studio/user-guide/digital-touchpoints-73474",
-                            "studio/user-guide/security-61063",
-                            "studio/user-guide/devops"
+                            "digital-journeys-43723",
+                            "fintech-automation",
+                            "reporting-and-automation",
+                            "digital-developer-tools",
+                            "digital-touchpoints-64365",
+                            "security-07287",
+                            "devops"
                         ]
                     }
                 ]
@@ -74,7 +97,7 @@ module.exports = {
                     "omnichannel-communication-automation"
                 ]
             },
-            "digital-journeys-05797",
+            "digital-journeys-44415",
             "rest-apis"
         ],
         "Discover more": [

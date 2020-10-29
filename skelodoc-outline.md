@@ -24,17 +24,78 @@
     - Digital Touchpoints
     - FintechOS Accelerators
     - Security
-  - Studio @f
+  - Studio
     - Overview
-    - Release notes @f
+    - Release notes
           - October 2020
           - September 2020
           - August 2020
-    - User Guide @f
+    - User Guide
           - Overview
           - Evolutive Data Core
               - Overview
               - Data model designer
+                  - @headers
+                      - Accessing Data Model Designer
+                      - The User Interface
+                          - Entities Panel
+                          - Toolbar
+                          - Work Area Panel
+                      - Creating data models
+                          - STEP 1: Add the Data Model
+                          - STEP 2: Add Entities to the Data Model
+                          - STEP 3: Define Relationships
+                      - Working with data models
+                          - Loading Data Models
+                          - Editing Data Model Details
+                          - Editing Data Models
+                          - Deleting Data Models
+              - Data model explorer
+                  - Business entities
+                      - @headers
+                          - Types of entities
+                          - Viewing existing business entities
+                          - Creating entities
+                              - Required fields
+                                    - Name
+                                    - Display name
+                          - Editing entities
+                          - Deleting entities
+                  - Attributes
+                      - @headers
+                          - System-generated attributes
+                          - Attribute types
+                          - Adding attributes
+                          - Adding Option set attributes
+                              - Step 1: Define the option set (picklist)
+                              - Step 2: Add new option set items
+                              - Step 3: Define the option set attribute
+                          - Reordering entity attributes
+                  - Entity unique constraints
+                  - Extend data model
+                  - Entity relationships
+                  - Advanced entity find
+                  - Views
+                  - Forms
+                  - Transient data entities
+                  - Sample API calls
+                  - Importing and Exporting data
+                      - @headers
+                          - Exporting data
+                          - Importing data in bulk
+                              - Step 1: Create a data import template
+                              - Step 2: Map the data
+                              - Step 3: Import mapped data
+                  - Data exports
+                  - Bulk data import
+                      - @headers
+                          - Step 1: Create a data import template
+                          - Step 2: Map the data
+                          - Step 3: Import mapped data
+              - Data import template
+              - Data governance
+              - REST processors
+              - Data pipes
           - Digital journeys
           - Fintech Automation
           - Reporting and Automation
@@ -43,18 +104,18 @@
           - Security
           - DevOps
   - Automation processors
-      - Business Decisions Processors
-      - Banking Product Factory
-      - Computer Vision
-      - Digital Insurance Product Automation
-      - Digital Documents Processor
-      - eSign Processor
-      - Face recognition
-      - Video streaming
-      - Hyper-Personalization Automation
-      - Business Workflows Processor
-      - Omnichannel campaigns
-      - Omnichannel Communication Automation
+          - Business Decisions Processors
+          - Banking Product Factory
+          - Computer Vision
+          - Digital Insurance Product Automation
+          - Digital Documents Processor
+          - eSign Processor
+          - Face recognition
+          - Video streaming
+          - Hyper-Personalization Automation
+          - Business Workflows Processor
+          - Omnichannel campaigns
+          - Omnichannel Communication Automation
   - Digital Journeys
   - REST APIs
 - Discover more

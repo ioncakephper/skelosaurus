@@ -4,7 +4,7 @@ id: system-requirements
 sidebar_label: System requirements
 ---
 
-Labore elit commodo aliqua laborum exercitation Lorem. Quis enim commodo non esse pariatur ipsum consectetur proident dolor irure voluptate minim nulla. Duis adipisicing est ad ut quis laborum est sint eiusmod consequat proident culpa qui occaecat. Officia dolor eu magna culpa fugiat deserunt proident adipisicing laboris occaecat sunt nisi. In dolore quis ea veniam ad nulla adipisicing consequat mollit.
+Et magna enim est incididunt et aliquip occaecat officia. Voluptate veniam sunt non aliqua ipsum magna consectetur. Cupidatat non enim minim aute laborum adipisicing dolore et consectetur culpa exercitation proident. Do laborum ipsum ullamco adipisicing tempor. Cillum aute non ullamco anim.
 
 ## FintechOS platform
 ### Required Windows Server roles
