@@ -41,12 +41,16 @@ if (program.args.length == 0) {
     })
 }
 let sb = {}
+let allSidebars = {};
 program.args.forEach((sourceFilename) => {
     sourceFilename = fileEasy.setDefaultExtension(sourceFilename, '.md')
     let sidebars = getSidebars(sourceFilename)
-    for (const sidebarName in sidebars) {
-        sb[sidebarName] = buildSectionCategories(sidebars[sidebarName])
-    }
+    allSidebars = {...allSidebars, ...sidebars}
+})
+
+let sortedSidebarNames = Object.keys(allSidebars).sort();
+sortedSidebarNames.forEach((sidebarName) => {
+    sb[sidebarName] = buildSectionCategories(allSidebars[sidebarName])
 })
 
 let content = JSON.stringify(sb, null, 4);
