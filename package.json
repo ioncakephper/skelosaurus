@@ -3,6 +3,9 @@
   "version": "1.0.12",
   "description": "Skeleton documentation generator for Docusaurus v2 and v1",
   "main": "index.js",
+  "bin": {
+    "skelo": "../skelosaurusv2/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

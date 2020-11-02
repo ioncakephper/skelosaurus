@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const colors = require('colors');
 const program = require('commander')
 const fileEasy = require('file-easy');
