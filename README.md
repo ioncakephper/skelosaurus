@@ -1,11 +1,7 @@
-![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/1.0.12) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
-<<<<<<< HEAD
+![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/1.0.13) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
 
 ![Outlined with Skelosaurus v2](https://img.shields.io/badge/Outlined%20with-Skelosaurus%20v2-red)
 
-=======
-![Outlined with Skelosaurus v2](https://img.shields.io/badge/Outlined%20with-Skelosaurus%20v2-red)
->>>>>>> ea66a948b4d0d74578533c86108b6c6bee04c5ba
 
 <!-- omit in toc -->
 # skelosaurusv2
@@ -326,6 +322,12 @@ skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
 <dt><a href="#buildCategoryTopics">buildCategoryTopics(bulletList, [options])</a> ⇒ <code>Array.Object</code></dt>
 <dd><p>Build list of topics and subcategories in a category.</p>
 </dd>
+<dt><a href="#getTopicHeaders">getTopicHeaders(bulletlist)</a> ⇒ <code>Array</code></dt>
+<dd><p>Build topic top headers</p>
+</dd>
+<dt><a href="#buildHeaders">buildHeaders(bulletlist, [level])</a> ⇒ <code>Array</code></dt>
+<dd><p>Build headers as template variables</p>
+</dd>
 <dt><a href="#buildSectionCategories">buildSectionCategories(bulletList, [options])</a> ⇒ <code>object</code></dt>
 <dd><p>Build items of navigation section.</p>
 </dd>
@@ -364,6 +366,31 @@ Build list of topics and subcategories in a category.
 | --- | --- | --- | --- |
 | bulletList | <code>Array</code> |  | The bullet list internal representation. |
 | [options] | <code>object</code> | <code>{ &#x27;parent&#x27;: &#x27;./&#x27;, &#x27;prefix&#x27;: &#x27;&#x27; }</code> | Options for building topic slug and folders |
+
+<a name="getTopicHeaders"></a>
+
+## getTopicHeaders(bulletlist) ⇒ <code>Array</code>
+Build topic top headers
+
+**Kind**: global function  
+**Returns**: <code>Array</code> - Headers in markdown notation  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| bulletlist | <code>Array</code> | Header list represented in Markdown abstrat tree |
+
+<a name="buildHeaders"></a>
+
+## buildHeaders(bulletlist, [level]) ⇒ <code>Array</code>
+Build headers as template variables
+
+**Kind**: global function  
+**Returns**: <code>Array</code> - Array of objects where each object is a set of template variables  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| bulletlist | <code>Array</code> |  | Representation of list in Markdown abstract tree |
+| [level] | <code>number</code> | <code>2</code> | Heading level for Markdown notation |
 
 <a name="buildSectionCategories"></a>
 
@@ -442,11 +469,7 @@ Create a text file in utf-8 format from specified name and content
 <a name="slug"></a>
 
 ## slug(source) ⇒ <code>string</code>
-Convert specified string into a slug.
-
-Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).
-Compresses sequence of dashes or special characters into a single dash. Removes heading or trailing
-dashes or special characters from the specified string.
+Convert specified string into a slug.Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).Compresses sequence of dashes or special characters into a single dash. Removes heading or trailingdashes or special characters from the specified string.
 
 **Kind**: global function  
 **Returns**: <code>string</code> - Trimmed, lowercase string with dashes(-)  

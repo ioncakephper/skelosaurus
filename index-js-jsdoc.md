@@ -4,6 +4,12 @@
 <dt><a href="#buildCategoryTopics">buildCategoryTopics(bulletList, [options])</a> ⇒ <code>Array.Object</code></dt>
 <dd><p>Build list of topics and subcategories in a category.</p>
 </dd>
+<dt><a href="#getTopicHeaders">getTopicHeaders(bulletlist)</a> ⇒ <code>Array</code></dt>
+<dd><p>Build topic top headers</p>
+</dd>
+<dt><a href="#buildHeaders">buildHeaders(bulletlist, [level])</a> ⇒ <code>Array</code></dt>
+<dd><p>Build headers as template variables</p>
+</dd>
 <dt><a href="#buildSectionCategories">buildSectionCategories(bulletList, [options])</a> ⇒ <code>object</code></dt>
 <dd><p>Build items of navigation section.</p>
 </dd>
@@ -42,6 +48,31 @@ Build list of topics and subcategories in a category.
 | --- | --- | --- | --- |
 | bulletList | <code>Array</code> |  | The bullet list internal representation. |
 | [options] | <code>object</code> | <code>{ &#x27;parent&#x27;: &#x27;./&#x27;, &#x27;prefix&#x27;: &#x27;&#x27; }</code> | Options for building topic slug and folders |
+
+<a name="getTopicHeaders"></a>
+
+## getTopicHeaders(bulletlist) ⇒ <code>Array</code>
+Build topic top headers
+
+**Kind**: global function  
+**Returns**: <code>Array</code> - Headers in markdown notation  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| bulletlist | <code>Array</code> | Header list represented in Markdown abstrat tree |
+
+<a name="buildHeaders"></a>
+
+## buildHeaders(bulletlist, [level]) ⇒ <code>Array</code>
+Build headers as template variables
+
+**Kind**: global function  
+**Returns**: <code>Array</code> - Array of objects where each object is a set of template variables  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| bulletlist | <code>Array</code> |  | Representation of list in Markdown abstract tree |
+| [level] | <code>number</code> | <code>2</code> | Heading level for Markdown notation |
 
 <a name="buildSectionCategories"></a>
 
