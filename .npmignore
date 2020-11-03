@@ -2,10 +2,13 @@
 index-js*.*
 docs/
 sample/
+sample-doc
 README-template.md
 sample.md
 Gruntfile.js
 sidebars.js
+sampleHeaders.md
+skelodoc-outlined.md
 .vscode/**/*
 
 # Logs
