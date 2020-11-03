@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
 const colors = require('colors');
+const { description } = require('commander');
 const program = require('commander')
 const fileEasy = require('file-easy');
 const fs = require('fs');
 const hbsr = require('hbsr');
 const md = require('markdown').markdown;
 const path = require('path');
+const { title } = require('process');
 const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 
 const lorem = new LoremIpsum();
@@ -66,6 +68,37 @@ outFilename = path.join(program.website, outFilename);
 saveDocument(outFilename, content)
 console.log('Sidebars file ' + colors.green(outFilename) + ' generated.');
 
+function isSingleTopic(topicItem) {
+    return (!topicItem[2] || hasHeaders(topicItem))
+}
+
+function hasHeaders(topicItem) {
+    if (topicItem[2]) {
+        if (topicItem[2][1][1].trim().match(/\@headers/gi)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function parseTitle(topicTitle) {
+    let regex = /^(.*)\@/;
+    let matches = topicTitle.match(regex);
+    let title = ((matches) ? matches[1] : topicTitle).trim();
+    regex = /\@f/gi;
+    matches = topicTitle.match(regex);
+    let isFolder = (matches) ? true : false;
+    regex = /\@brief(.*)/gi
+    matches = topicTitle.match(regex);
+    let description = (matches) ? topicTitle.substr(topicTitle.toLowerCase().indexOf('@brief') + 6).trim() : undefined;
+
+    return {
+        title: title,
+        isFolder: isFolder,
+        description: description,
+    }
+}
+
 /**
  * Build list of topics and subcategories in a category.
  *
@@ -83,71 +116,57 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
         //
         // Does this topic have children
         //
-        if (!topicItem[2]) {
+        let parsed = parseTitle(topicItem[1]);
+        if (isSingleTopic(topicItem)) {
+
             //
             // A single topic
             //
-            let unique = buildTopicPage(topicItem[1], { 'parent': parent, 'headers': [], 'prefix': options.prefix })
+
+            let topicHeaders = (hasHeaders(topicItem)) ? getTopicHeaders(topicItem[2]) : [];
+            let unique = buildTopicPage(parsed.title, { 'parent': parent, headers: topicHeaders, 'prefix': options.prefix, 'description': parsed.description })
             let itemPath = slug(path.join(parent, unique))
             itemPath = itemPath.replace(/\\/g, '/')
             items.push(itemPath)
         } else {
             ///
-            /// Check for @headers as the first child.
-            /// If exists, use children of @headers as headers for current topic
-            /// 
-            let topicHeaders = getTopicHeaders(topicItem[2])
-            if (topicHeaders) {
-                let title = topicItem[1];
-                let unique = buildTopicPage(title, { 'parent': parent, 'headers': topicHeaders, 'prefix': options.prefix }) // and use title and subheaders inside the topic
-                let itemPath = fileEasy.slug(path.join(parent, unique))
-                itemPath = itemPath.replace(/\\/g, '/')
-                items.push(itemPath)
-            }
-            else {
-
-                ///
-                /// Do we want to generate a subfolder for this topic?
-                ///
-                let title = topicItem[1];
-                let isFolder = topicItem[1].match(/.+\@f(\s+.*)?/g) || program.autofolder;
-                if (isFolder && !program.autofolder) {
-                    title = title.substr(0, title.indexOf('@f')).trim()
-                }
-                if (!program.v2) {
-                    //
-                    // For Docusaurus v1
-                    //
-                    if (isFolder) {
-                        items.push({
-                            'type': 'subcategory',
-                            'label': title,
-                            'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent, fileEasy.slug(title)), 'prefix': options.prefix })
-                        })
-                    } else {
-                        items.push({
-                            'type': 'subcategory',
-                            'label': title,
-                            'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent), 'prefix': fileEasy.slug(title) })
-                        })
-                    }
+            /// Do we want to generate a subfolder for this topic?
+            ///
+            let title = parsed.title;
+            let isFolder = parsed.isFolder || program.autofolder;
+            if (!program.v2) {
+                //
+                // For Docusaurus v1
+                //
+                if (isFolder) {
+                    items.push({
+                        'type': 'subcategory',
+                        'label': title,
+                        'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent, fileEasy.slug(title)), 'prefix': options.prefix })
+                    })
                 } else {
-                    //
-                    // For Docusaurus v2
-                    //
-                    if (isFolder) {
-                        items.push({
-                            'type': 'category',
-                            'label': title,
-                            'items': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent, fileEasy.slug(title)), 'prefix': options.prefix })
-                        })
-                    } else {
-                        items.push({
-                            'type': 'category',
-                            'label': title,
-                            'items': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent), 'prefix': fileEasy.slug(title) })
-                        })
-                    }
+                    items.push({
+                        'type': 'subcategory',
+                        'label': title,
+                        'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent), 'prefix': fileEasy.slug(title) })
+                    })
+                }
+            } else {
+                //
+                // For Docusaurus v2
+                //
+                if (isFolder) {
+                    items.push({
+                        'type': 'category',
+                        'label': title,
+                        'items': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent, fileEasy.slug(title)), 'prefix': options.prefix })
+                    })
+                } else {
+                    items.push({
+                        'type': 'category',
+                        'label': title,
+                        'items': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent), 'prefix': fileEasy.slug(title) })
+                    })
                 }
             }
         }
@@ -169,7 +188,7 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
  * @returns {Array} Headers in markdown notation
  */
 function getTopicHeaders(bulletlist) {
-    let headers;
+    let headers = []
     if (bulletlist[0] == 'bulletlist') {
         let firstItem = bulletlist[1];
         let hasHeaders = firstItem[1].match(/\@headers\s*/gi)
@@ -192,12 +211,13 @@ function buildHeaders(bulletlist, level = 2) {
         return []
     }
     let toc = bulletlist.slice(1).map((headerItem) => {
+        let parsed = parseTitle(headerItem[1]);
         return {
-            'title': headerItem[1],
+            'title': parsed.title,
             'prefix': '#'.repeat(level),
             'level': level,
             'id': fileEasy.slug(headerItem[1]),
-            'description': lorem.generateSentences(5),
+            'description': parsed.description || lorem.generateSentences(5),
             'content': hbsr.render_template('sub-headers', { 'headers': buildHeaders(headerItem[2], level + 1) })
         }
     })
@@ -248,7 +268,7 @@ function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefi
         'title': title,
         'id': id,
         'sidebar_label': title,
-        'description': lorem.generateSentences(5),
+        'description': options.description || lorem.generateSentences(5),
         'headers': mdHeaders
     })
 

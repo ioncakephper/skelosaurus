@@ -6,7 +6,7 @@ sidebar_label: Installation
 
 <!-- @part src="parts/installation/h1-installation-description.md" -->
 
-Voluptate reprehenderit aliquip culpa eu reprehenderit consequat esse deserunt sit magna aute elit. Cillum commodo cupidatat enim id nisi cupidatat qui cillum do sunt elit nulla. Dolor deserunt ex aliquip culpa fugiat excepteur ex. Ullamco aliquip enim est dolor. Consequat exercitation sunt tempor proident incididunt nulla nulla.
+Here is the description
 <!-- @/part -->
 
 <!-- @part src="parts/installation/h1-installation-body.md" -->
@@ -15,7 +15,7 @@ Voluptate reprehenderit aliquip culpa eu reprehenderit consequat esse deserunt s
 
 ## Installling Skelosaurus
 <!-- @part src="parts/installling-skelosaurus/h2-installling-skelosaurus-description.md" -->
-Ipsum cupidatat non reprehenderit in magna pariatur eu amet nostrud minim reprehenderit sunt magna. Magna ut consequat ut nostrud officia culpa proident dolor aliquip Lorem consequat in occaecat. Minim aliqua sunt et fugiat veniam elit veniam non reprehenderit elit ullamco velit esse. Ullamco reprehenderit exercitation ex tempor. Incididunt cillum elit id laboris nostrud est magna.
+Labore laborum nisi deserunt nulla minim. Quis ipsum et id culpa. Labore ut amet culpa non nostrud nisi. Reprehenderit veniam in aliqua sit. Aliqua eiusmod laborum voluptate commodo occaecat do consequat consequat.
 <!-- @/part -->
 
 
@@ -26,7 +26,7 @@ Ipsum cupidatat non reprehenderit in magna pariatur eu amet nostrud minim repreh
 
 ## Verifying installation
 <!-- @part src="parts/verifying-installation/h2-verifying-installation-description.md" -->
-Excepteur enim id occaecat fugiat duis est non irure aute. Occaecat duis cupidatat deserunt ex incididunt exercitation. Est labore dolor aute amet pariatur proident officia in tempor non. Officia in et dolore id deserunt cillum eu laboris sit occaecat amet laboris. Sunt officia sint sunt esse laboris ut sunt dolor culpa nostrud.
+Aute labore elit adipisicing proident dolore amet ad. Veniam labore proident labore sint id aliqua id consectetur officia. Consectetur mollit adipisicing aliquip nulla minim velit ut qui magna. Sunt magna laboris deserunt qui cupidatat sunt minim labore ipsum. Aliquip veniam magna nisi fugiat ullamco.
 <!-- @/part -->
 
 
