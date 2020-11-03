@@ -4,5 +4,12 @@ id: data-governance
 sidebar_label: Data governance
 ---
 
-Ex id anim exercitation id veniam labore nisi do magna voluptate proident et laboris. Veniam reprehenderit Lorem pariatur Lorem anim nisi ad cupidatat ut sint. Lorem cillum ad minim do aliquip commodo laboris proident elit dolore. Culpa amet veniam dolore occaecat amet qui laborum esse ullamco veniam voluptate fugiat culpa ea. Proident ea enim adipisicing enim do.
+<!-- @part src="parts/data-governance/h1-data-governance-description.md" -->
+
+Do officia incididunt aliqua eu sint ea. Do laborum mollit reprehenderit Lorem aute adipisicing cillum consectetur. Aliquip id velit sit laboris consectetur incididunt ex ex. Voluptate aliquip duis elit cupidatat. Ex et in et commodo.
+<!-- @/part -->
+
+<!-- @part src="parts/data-governance/h1-data-governance-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

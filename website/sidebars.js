@@ -22,7 +22,7 @@ module.exports = {
                 "type": "category",
                 "label": "Studio",
                 "items": [
-                    "overview-81889",
+                    "overview-08970",
                     {
                         "type": "category",
                         "label": "Release notes",
@@ -36,12 +36,12 @@ module.exports = {
                         "type": "category",
                         "label": "User Guide",
                         "items": [
-                            "overview-00259",
+                            "overview-08577",
                             {
                                 "type": "category",
                                 "label": "Evolutive Data Core",
                                 "items": [
-                                    "overview-20753",
+                                    "overview-35019",
                                     "data-model-designer",
                                     {
                                         "type": "category",
@@ -68,12 +68,12 @@ module.exports = {
                                     "data-pipes"
                                 ]
                             },
-                            "digital-journeys-43723",
+                            "digital-journeys-75400",
                             "fintech-automation",
                             "reporting-and-automation",
                             "digital-developer-tools",
-                            "digital-touchpoints-64365",
-                            "security-07287",
+                            "digital-touchpoints-07539",
+                            "security-68076",
                             "devops"
                         ]
                     }
@@ -97,7 +97,7 @@ module.exports = {
                     "omnichannel-communication-automation"
                 ]
             },
-            "digital-journeys-44415",
+            "digital-journeys-44930",
             "rest-apis"
         ],
         "Discover more": [

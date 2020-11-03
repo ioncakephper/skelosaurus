@@ -4,5 +4,12 @@ id: rest-apis
 sidebar_label: REST APIs
 ---
 
-Aute nulla non est nulla veniam. Ut non amet commodo ex ut veniam Lorem dolore id id qui. Id ut ad mollit veniam nisi est nostrud do velit reprehenderit ex. Sit ad officia consectetur ut. Esse nulla laboris ex ex deserunt commodo cillum sit adipisicing incididunt ex et ex ea.
+<!-- @part src="parts/rest-apis/h1-rest-apis-description.md" -->
+
+Veniam aute adipisicing ullamco cillum eiusmod eu deserunt quis consequat nulla in sit. Sint irure sunt sint quis proident deserunt eiusmod consectetur eiusmod minim. Dolor veniam duis ad nulla cillum non occaecat aliquip anim. Et sint elit amet officia incididunt amet ea reprehenderit enim amet incididunt nostrud laboris eu. Enim non aute minim amet sint labore voluptate cupidatat deserunt eu et fugiat.
+<!-- @/part -->
+
+<!-- @part src="parts/rest-apis/h1-rest-apis-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

@@ -4,5 +4,12 @@ id: security
 sidebar_label: Security
 ---
 
-Ad culpa voluptate in nisi quis pariatur mollit irure. Laboris pariatur fugiat velit dolore minim in mollit mollit consequat cupidatat cupidatat elit est. Nisi tempor mollit et eu excepteur. Aute duis nulla nostrud sint laboris deserunt. Pariatur tempor et velit dolor mollit esse qui ullamco.
+<!-- @part src="parts/security/h1-security-description.md" -->
+
+Enim exercitation occaecat Lorem Lorem non sunt mollit pariatur velit aliqua in. Lorem eiusmod est minim velit qui cillum proident elit consequat. In id consectetur est labore consectetur aliquip ad nulla pariatur. Elit laborum elit Lorem tempor minim do sint culpa. Non irure reprehenderit elit aliqua sit exercitation laborum eiusmod est fugiat.
+<!-- @/part -->
+
+<!-- @part src="parts/security/h1-security-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

@@ -4,5 +4,12 @@ id: september-2020
 sidebar_label: September 2020
 ---
 
-Culpa et sit mollit velit consequat pariatur. Eu pariatur sunt ex et nulla aliquip exercitation consequat esse elit quis excepteur sint incididunt. Labore do aliqua nostrud et nisi. Irure anim aliqua ad aliqua proident laborum anim sunt anim nostrud cupidatat ea velit. Commodo laboris duis commodo nostrud proident reprehenderit id aliqua incididunt dolore.
+<!-- @part src="parts/september-2020/h1-september-2020-description.md" -->
+
+Consequat sunt fugiat dolore fugiat. Amet nisi laboris aute veniam ad occaecat anim nulla veniam mollit aliqua non magna. Sunt excepteur ea ea mollit culpa quis est dolore commodo laborum ut labore. Duis ut nostrud deserunt ullamco aliquip proident sit est ipsum commodo laboris. Aute laboris nisi in aute anim sunt eu ex.
+<!-- @/part -->
+
+<!-- @part src="parts/september-2020/h1-september-2020-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

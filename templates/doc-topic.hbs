@@ -3,12 +3,34 @@ title: {{{title}}}
 id: {{{id}}}
 sidebar_label: {{{sidebar_label}}}
 ---
+
+<!-- @part src="parts/{{{id}}}/h1-{{{id}}}-description.md" -->
 {{#if description}}
 
 {{{description}}}
+{{else}}
+<!-- Your content goes here, replacing this comment -->
 {{/if}}
+<!-- @/part -->
+
+<!-- @part src="parts/{{{id}}}/h1-{{{id}}}-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 
 {{#each headers as |header|}}
 {{{header.prefix}}} {{{header.title}}}
+<!-- @part src="parts/{{{id}}}/h{{{header.level}}}-{{{header.id}}}-description.md" -->
+{{#if header.description}}
+{{{header.description}}}
+{{else}}
+<!-- Your content goes here, replacing this comment -->
+{{/if}}
+<!-- @/part -->
+
 {{{header.content}}}
+
+<!-- @part src="parts/{{{id}}}/h{{{header.level}}}-{{{header.id}}}-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
+
 {{/each}}

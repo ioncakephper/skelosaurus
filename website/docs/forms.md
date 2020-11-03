@@ -4,5 +4,12 @@ id: forms
 sidebar_label: Forms
 ---
 
-Nisi sint ullamco sit magna commodo velit laborum nulla eiusmod non exercitation anim. Ullamco sint exercitation qui veniam magna Lorem pariatur id aliqua tempor aliquip minim. In aliqua ipsum consequat Lorem sint nostrud excepteur. Mollit ad veniam aliqua dolore. Id dolore pariatur ullamco cillum laborum duis non voluptate.
+<!-- @part src="parts/forms/h1-forms-description.md" -->
+
+Aliqua aute anim amet excepteur amet enim et sint duis sint id non. Commodo elit anim laboris nisi. Deserunt do Lorem anim laborum. Dolor anim commodo duis adipisicing voluptate consequat consectetur exercitation nulla et. Reprehenderit id reprehenderit adipisicing sit dolor enim consectetur.
+<!-- @/part -->
+
+<!-- @part src="parts/forms/h1-forms-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

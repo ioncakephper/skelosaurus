@@ -4,5 +4,12 @@ id: fintechos-accelerators
 sidebar_label: FintechOS Accelerators
 ---
 
-Ad pariatur occaecat laboris incididunt irure excepteur do incididunt dolore laboris. Sint tempor culpa minim do eu. Nisi nulla ad incididunt aliquip irure officia pariatur cupidatat ex ipsum ex exercitation ea aliquip. Nisi officia eu in elit pariatur do. Do deserunt nulla ullamco do consequat fugiat incididunt aliqua ullamco dolore do voluptate.
+<!-- @part src="parts/fintechos-accelerators/h1-fintechos-accelerators-description.md" -->
+
+Consectetur laboris consectetur adipisicing consectetur fugiat eiusmod Lorem id. Nostrud fugiat proident sit exercitation sint duis incididunt consectetur nulla. Sunt culpa Lorem ullamco reprehenderit incididunt magna nisi id enim labore magna id. Magna veniam excepteur ipsum voluptate quis duis. Occaecat aliqua do magna ea incididunt.
+<!-- @/part -->
+
+<!-- @part src="parts/fintechos-accelerators/h1-fintechos-accelerators-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

@@ -4,5 +4,12 @@ id: hyper-personalization-automation
 sidebar_label: Hyper-Personalization Automation
 ---
 
-Consectetur qui irure consequat eu laboris incididunt eu elit eu. Commodo mollit quis et adipisicing pariatur mollit qui fugiat laboris. In minim eu enim velit esse aliqua Lorem id occaecat proident. Laboris exercitation ex tempor laborum aliquip enim. Duis dolor est nisi non qui ipsum elit officia do proident fugiat.
+<!-- @part src="parts/hyper-personalization-automation/h1-hyper-personalization-automation-description.md" -->
+
+Nulla laboris nulla Lorem dolor deserunt eiusmod laboris aute culpa anim irure labore dolore id. Do ipsum nulla proident duis. Cupidatat deserunt ad magna ad eu anim enim. Est non tempor veniam culpa. Cillum culpa non deserunt nulla tempor elit nulla nulla do tempor quis non quis.
+<!-- @/part -->
+
+<!-- @part src="parts/hyper-personalization-automation/h1-hyper-personalization-automation-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

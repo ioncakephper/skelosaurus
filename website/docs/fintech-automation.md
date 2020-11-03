@@ -4,5 +4,12 @@ id: fintech-automation
 sidebar_label: Fintech Automation
 ---
 
-Nulla ut aute laboris dolor duis elit ad eu consequat qui sunt adipisicing irure. Cupidatat est excepteur consequat nisi ea. Anim in ad duis adipisicing aute minim est officia est nisi. Officia minim do qui fugiat enim reprehenderit magna culpa velit non adipisicing incididunt. Deserunt tempor aute nisi aliqua pariatur non duis cupidatat ullamco.
+<!-- @part src="parts/fintech-automation/h1-fintech-automation-description.md" -->
+
+Cillum est nulla minim aliquip ut ad qui ex quis labore irure minim tempor. Dolor veniam proident ea excepteur do aliquip esse anim dolore id fugiat aute tempor. Proident non aute esse sunt laborum esse dolor. Ut non eiusmod amet elit consectetur esse esse mollit laboris. Elit anim cupidatat cupidatat proident consectetur esse est excepteur.
+<!-- @/part -->
+
+<!-- @part src="parts/fintech-automation/h1-fintech-automation-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

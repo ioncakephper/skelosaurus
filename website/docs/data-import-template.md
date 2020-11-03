@@ -4,5 +4,12 @@ id: data-import-template
 sidebar_label: Data import template
 ---
 
-Id officia ex aliquip proident ullamco incididunt et qui in amet eu. Magna esse pariatur sunt nisi in dolor fugiat laborum esse. Cupidatat irure aliqua nisi dolor incididunt exercitation consectetur ullamco magna occaecat. Eiusmod elit nisi voluptate dolore nostrud cupidatat commodo officia. Laboris commodo incididunt nostrud dolore non irure aliqua sint.
+<!-- @part src="parts/data-import-template/h1-data-import-template-description.md" -->
+
+Irure nostrud ad labore proident pariatur sit consectetur magna aliquip quis. Enim reprehenderit aliquip anim elit magna. Aliquip reprehenderit quis dolor laboris aliquip est excepteur fugiat. Elit fugiat dolore ut incididunt laborum non tempor. Excepteur in ex occaecat mollit pariatur quis commodo voluptate incididunt.
+<!-- @/part -->
+
+<!-- @part src="parts/data-import-template/h1-data-import-template-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

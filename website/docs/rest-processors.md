@@ -4,5 +4,12 @@ id: rest-processors
 sidebar_label: REST processors
 ---
 
-Anim elit Lorem culpa incididunt in quis sunt anim ullamco ex est ut voluptate aute. Mollit laboris duis enim id sit. Dolor incididunt officia excepteur duis culpa ad ea labore tempor ipsum deserunt do. Irure commodo qui aute cillum incididunt ad. Officia anim sit non eiusmod minim cillum magna dolor ipsum qui nulla esse incididunt.
+<!-- @part src="parts/rest-processors/h1-rest-processors-description.md" -->
+
+Amet aute adipisicing laborum velit nisi mollit velit elit officia commodo est magna. Ex aute qui exercitation mollit voluptate aute amet minim. Amet laborum irure tempor proident reprehenderit sint aute non laborum occaecat deserunt. Elit ut voluptate ad cillum aliquip. Quis nulla elit ex ad cillum aliquip culpa magna.
+<!-- @/part -->
+
+<!-- @part src="parts/rest-processors/h1-rest-processors-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

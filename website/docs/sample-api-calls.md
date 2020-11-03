@@ -4,5 +4,12 @@ id: sample-api-calls
 sidebar_label: Sample API calls
 ---
 
-Lorem sit ad elit aliquip. Voluptate anim consectetur sint voluptate. Eu qui qui eu exercitation ex ea aute sit reprehenderit elit aute pariatur aliquip commodo. Pariatur veniam non anim culpa dolore consequat ullamco ex velit Lorem consectetur et do. Sit et pariatur minim irure ullamco laboris incididunt anim.
+<!-- @part src="parts/sample-api-calls/h1-sample-api-calls-description.md" -->
+
+Ipsum aliquip reprehenderit aliquip deserunt officia sunt ullamco incididunt proident officia sint non quis. Deserunt commodo consectetur aliqua sit nostrud sunt nisi id. Ipsum veniam culpa aliqua laboris labore laboris amet culpa reprehenderit amet laborum ut. Anim magna quis pariatur nisi quis cupidatat excepteur quis anim. Anim velit anim tempor consequat magna qui excepteur ullamco nostrud commodo exercitation veniam eiusmod cupidatat.
+<!-- @/part -->
+
+<!-- @part src="parts/sample-api-calls/h1-sample-api-calls-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

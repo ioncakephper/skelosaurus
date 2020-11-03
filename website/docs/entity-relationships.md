@@ -4,5 +4,12 @@ id: entity-relationships
 sidebar_label: Entity relationships
 ---
 
-Nulla fugiat tempor enim ad sunt duis est irure aliqua sit veniam magna duis. Elit exercitation incididunt et adipisicing occaecat duis aute nisi reprehenderit occaecat amet aliquip. Exercitation anim incididunt aliquip sunt proident dolor consectetur irure cupidatat. Fugiat et laborum officia cillum elit ipsum ea. Proident deserunt sunt reprehenderit labore excepteur nisi nostrud esse ullamco ea dolore.
+<!-- @part src="parts/entity-relationships/h1-entity-relationships-description.md" -->
+
+Pariatur ea velit voluptate do eiusmod nisi in ut dolore. Non ex ea velit nisi excepteur pariatur est. Aliquip tempor aliqua anim ut mollit culpa enim consequat elit consequat. Commodo ad ut amet voluptate incididunt sint elit reprehenderit consequat ullamco esse. Laboris excepteur in ipsum nulla cillum.
+<!-- @/part -->
+
+<!-- @part src="parts/entity-relationships/h1-entity-relationships-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

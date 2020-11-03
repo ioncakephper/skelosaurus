@@ -4,5 +4,12 @@ id: digital-developer-tools
 sidebar_label: Digital developer tools
 ---
 
-Dolore quis veniam reprehenderit ad adipisicing consectetur eu deserunt officia reprehenderit minim sit. Nostrud culpa nostrud aliquip fugiat aliqua elit anim officia anim mollit. Consectetur aute anim Lorem nisi consectetur ipsum exercitation proident laboris fugiat est excepteur. Dolor non occaecat nisi irure. Voluptate culpa ea tempor id culpa cupidatat.
+<!-- @part src="parts/digital-developer-tools/h1-digital-developer-tools-description.md" -->
+
+Ea esse eu Lorem proident non aute exercitation ut officia aliqua non excepteur. Quis reprehenderit in est et et mollit aliqua sunt sit sunt ipsum laboris deserunt commodo. Esse incididunt incididunt voluptate amet exercitation non laborum officia qui consectetur officia esse. Consequat velit eu et commodo ullamco cillum magna eiusmod minim officia aliquip excepteur non. Ullamco proident Lorem nisi labore aute voluptate fugiat eu et dolore ad nostrud anim enim.
+<!-- @/part -->
+
+<!-- @part src="parts/digital-developer-tools/h1-digital-developer-tools-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

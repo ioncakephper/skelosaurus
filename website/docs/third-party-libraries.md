@@ -4,5 +4,12 @@ id: third-party-libraries
 sidebar_label: Third party libraries
 ---
 
-Est laboris laborum excepteur incididunt pariatur quis exercitation sit commodo. Excepteur culpa anim et enim eiusmod consequat excepteur aliqua proident elit commodo anim cupidatat ut. Consectetur ex id et sit incididunt esse voluptate. Eu tempor cillum voluptate labore excepteur mollit consequat adipisicing. Voluptate fugiat nulla ipsum irure nisi nulla laborum ullamco ipsum ipsum voluptate quis sunt.
+<!-- @part src="parts/third-party-libraries/h1-third-party-libraries-description.md" -->
+
+Excepteur veniam do officia Lorem do magna magna reprehenderit culpa ex ea aute. Proident laborum voluptate mollit est id non ea aliquip mollit id. Ad est excepteur occaecat est ad ex quis. Nisi elit sint et ad. Exercitation minim cupidatat dolor do eu id.
+<!-- @/part -->
+
+<!-- @part src="parts/third-party-libraries/h1-third-party-libraries-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

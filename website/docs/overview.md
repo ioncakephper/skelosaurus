@@ -4,5 +4,14 @@ id: overview
 sidebar_label: Overview
 ---
 
-In proident veniam anim officia consectetur id sint ex id. Proident quis consequat dolor deserunt esse est magna incididunt aliqua deserunt quis sunt proident id. Aliquip irure laboris magna adipisicing enim aliquip occaecat non aliquip irure laboris ea. Commodo nisi amet ad non ullamco ipsum. Proident aliqua minim ea non amet.
+[Home](http://localhost:3000/) // [Docs](overview) // **Overview**
+
+<!-- @part src="parts/overview/h1-overview-description.md" -->
+
+Labore in proident adipisicing velit esse irure deserunt Lorem anim nulla. Occaecat cupidatat velit pariatur non duis labore proident ipsum dolore nostrud sit ullamco reprehenderit. Ad cupidatat sit in laborum veniam sit. Ex qui minim ut proident officia aliquip ipsum. Incididunt officia culpa occaecat consequat consequat labore et magna laboris cupidatat.
+<!-- @/part -->
+
+<!-- @part src="parts/overview/h1-overview-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

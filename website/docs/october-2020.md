@@ -4,5 +4,12 @@ id: october-2020
 sidebar_label: October 2020
 ---
 
-Magna aute non sint velit ea Lorem. Lorem ullamco amet ex excepteur irure cupidatat eiusmod pariatur reprehenderit Lorem est. Pariatur tempor ut ex veniam consequat cillum consectetur ullamco id duis est. Minim ullamco nisi do velit pariatur. Consequat exercitation pariatur velit laborum aliqua nisi aliqua excepteur eiusmod.
+<!-- @part src="parts/october-2020/h1-october-2020-description.md" -->
+
+Esse proident fugiat ut aliqua nulla non nisi anim nostrud amet. Aliquip ea pariatur voluptate cupidatat. Culpa nulla duis velit ut duis officia ipsum. Eiusmod consequat consectetur eiusmod magna nisi dolore ullamco incididunt ea eu eiusmod officia. Nisi eiusmod qui dolore minim.
+<!-- @/part -->
+
+<!-- @part src="parts/october-2020/h1-october-2020-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

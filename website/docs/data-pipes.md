@@ -4,5 +4,12 @@ id: data-pipes
 sidebar_label: Data pipes
 ---
 
-Est nostrud aliquip eiusmod tempor incididunt exercitation voluptate id enim dolore aute pariatur commodo. Veniam excepteur irure qui nostrud mollit occaecat ullamco laboris officia excepteur sint. Occaecat irure minim proident duis elit aliqua mollit. Incididunt laboris officia irure labore exercitation consequat. Do in sit anim nisi cupidatat veniam ut ut officia qui Lorem dolore magna.
+<!-- @part src="parts/data-pipes/h1-data-pipes-description.md" -->
+
+Sunt occaecat mollit eiusmod enim magna eiusmod aute. Eiusmod do culpa consequat labore ea. In excepteur sint non magna dolor sunt ex aute. Sit cupidatat sunt officia fugiat non. Pariatur esse est enim sint exercitation id officia sunt non aute non excepteur aliquip occaecat.
+<!-- @/part -->
+
+<!-- @part src="parts/data-pipes/h1-data-pipes-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

@@ -4,5 +4,12 @@ id: app-store
 sidebar_label: App store
 ---
 
-In commodo consequat dolore aute eiusmod ad. Cupidatat fugiat reprehenderit fugiat ea ipsum commodo. Laborum ex duis ullamco eu do in nulla velit. Lorem ad esse aliqua voluptate nisi velit aliquip qui pariatur et nulla aliquip enim. Sint proident pariatur commodo aute est esse laboris eiusmod voluptate.
+<!-- @part src="parts/app-store/h1-app-store-description.md" -->
+
+Cupidatat dolore eiusmod est elit cillum sint dolore elit exercitation enim sint. Nisi cillum sunt voluptate id tempor reprehenderit velit. Ipsum adipisicing cillum qui aute enim. Aliquip aute incididunt magna do. Cupidatat aute cillum elit do voluptate est aliqua voluptate deserunt nulla esse elit in duis.
+<!-- @/part -->
+
+<!-- @part src="parts/app-store/h1-app-store-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

@@ -34,7 +34,7 @@
   "homepage": "https://github.com/ioncakephper/skelosaurusv2#readme",
   "dependencies": {
     "colors": "^1.4.0",
-    "commander": "^6.1.0",
+    "commander": "^6.2.0",
     "file-easy": "^1.0.3",
     "fs": "0.0.1-security",
     "hbsr": "^1.0.6",

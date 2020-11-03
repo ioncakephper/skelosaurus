@@ -4,5 +4,12 @@ id: transient-data-entities
 sidebar_label: Transient data entities
 ---
 
-Fugiat ea laboris veniam nulla enim ut aute labore sint culpa enim culpa magna sint. Duis proident esse nulla culpa Lorem veniam reprehenderit consequat ad et excepteur reprehenderit enim dolore. Lorem ex duis aliqua enim anim nostrud officia. Dolor sint mollit sunt eiusmod nisi aute culpa eiusmod et ut culpa irure irure aute. Incididunt esse qui fugiat cillum laborum esse.
+<!-- @part src="parts/transient-data-entities/h1-transient-data-entities-description.md" -->
+
+Sit cupidatat aliquip anim voluptate sint sint labore dolor qui ad anim commodo magna. Duis exercitation qui cupidatat velit dolore laborum quis ullamco eu. Veniam ullamco veniam elit elit nostrud proident est consectetur ad. Commodo velit cupidatat proident aute incididunt. Pariatur exercitation voluptate eu laboris commodo quis.
+<!-- @/part -->
+
+<!-- @part src="parts/transient-data-entities/h1-transient-data-entities-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 

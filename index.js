@@ -47,7 +47,7 @@ let allSidebars = {};
 program.args.forEach((sourceFilename) => {
     sourceFilename = fileEasy.setDefaultExtension(sourceFilename, '.md')
     let sidebars = getSidebars(sourceFilename)
-    allSidebars = {...allSidebars, ...sidebars}
+    allSidebars = { ...allSidebars, ...sidebars }
 })
 
 let sortedSidebarNames = Object.keys(allSidebars).sort();
@@ -195,6 +195,9 @@ function buildHeaders(bulletlist, level = 2) {
         return {
             'title': headerItem[1],
             'prefix': '#'.repeat(level),
+            'level': level,
+            'id': fileEasy.slug(headerItem[1]),
+            'description': lorem.generateSentences(5),
             'content': hbsr.render_template('sub-headers', { 'headers': buildHeaders(headerItem[2], level + 1) })
         }
     })

@@ -4,5 +4,12 @@ id: digital-insurance-product-automation
 sidebar_label: Digital Insurance Product Automation
 ---
 
-Excepteur Lorem eu elit consectetur cupidatat quis. Nisi do adipisicing ad in ad ut tempor nostrud. Adipisicing cillum veniam sit ut laborum laborum enim nisi laborum consectetur ex esse aliquip laboris. Lorem laboris duis ut ullamco ut reprehenderit officia aliqua ad mollit mollit ipsum. Qui enim magna cillum ipsum in nulla ex qui culpa.
+<!-- @part src="parts/digital-insurance-product-automation/h1-digital-insurance-product-automation-description.md" -->
+
+Et consectetur culpa non est culpa Lorem id. Elit nostrud Lorem proident quis. Labore eiusmod voluptate deserunt tempor irure esse minim incididunt labore cupidatat fugiat ipsum nulla. Minim ut id velit magna elit incididunt cillum exercitation ad cupidatat in velit nulla nostrud. Nisi dolor exercitation aliqua esse consectetur proident tempor adipisicing excepteur.
+<!-- @/part -->
+
+<!-- @part src="parts/digital-insurance-product-automation/h1-digital-insurance-product-automation-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 
