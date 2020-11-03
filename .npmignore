@@ -2,7 +2,8 @@
 index-js*.*
 docs/
 sample/
-sample-doc
+sample-doc/
+website/
 README-template.md
 sample.md
 Gruntfile.js
