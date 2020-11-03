@@ -68,10 +68,22 @@ outFilename = path.join(program.website, outFilename);
 saveDocument(outFilename, content)
 console.log('Sidebars file ' + colors.green(outFilename) + ' generated.');
 
+/**
+ * Checks whether a topic has children topics
+ * 
+ * @param {object} topicItem Topic to test whether it is single topic
+ * @returns {boolean} true if single topic, false otherwise
+ */
 function isSingleTopic(topicItem) {
     return (!topicItem[2] || hasHeaders(topicItem))
 }
 
+/**
+ * Checks whether the topic has headers
+ * 
+ * @param {object} topicItem Topic to test whether it has headers
+ * @returns {boolean} true if topic has headers, false otherwise.
+ */
 function hasHeaders(topicItem) {
     if (topicItem[2]) {
         if (topicItem[2][1][1].trim().match(/\@headers/gi)) {
@@ -81,6 +93,12 @@ function hasHeaders(topicItem) {
     return false;
 }
 
+/**
+ * Extract topic title to extract relevant information
+ * 
+ * @param {object} topicTitle Topic title to parse.
+ * @returns {object} Properties extracted from title
+ */
 function parseTitle(topicTitle) {
     let regex = /^(.*)\@/;
     let matches = topicTitle.match(regex);
