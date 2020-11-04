@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/1.0.18) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
+![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/1.0.20) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
 
 ![Outlined with Skelosaurus v2](https://img.shields.io/badge/Outlined%20with-Skelosaurus%20v2-red)
 
@@ -319,6 +319,15 @@ skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
 ## Functions
 
 <dl>
+<dt><a href="#isSingleTopic">isSingleTopic(topicItem)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Checks whether a topic has children topics</p>
+</dd>
+<dt><a href="#hasHeaders">hasHeaders(topicItem)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Checks whether the topic has headers</p>
+</dd>
+<dt><a href="#parseTitle">parseTitle(topicTitle)</a> ⇒ <code>object</code></dt>
+<dd><p>Extract topic title to extract relevant information</p>
+</dd>
 <dt><a href="#buildCategoryTopics">buildCategoryTopics(bulletList, [options])</a> ⇒ <code>Array.Object</code></dt>
 <dd><p>Build list of topics and subcategories in a category.</p>
 </dd>
@@ -353,6 +362,42 @@ Compresses sequence of dashes or special characters into a single dash. Removes 
 dashes or special characters from the specified string.</p>
 </dd>
 </dl>
+
+<a name="isSingleTopic"></a>
+
+## isSingleTopic(topicItem) ⇒ <code>boolean</code>
+Checks whether a topic has children topics
+
+**Kind**: global function  
+**Returns**: <code>boolean</code> - true if single topic, false otherwise  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| topicItem | <code>object</code> | Topic to test whether it is single topic |
+
+<a name="hasHeaders"></a>
+
+## hasHeaders(topicItem) ⇒ <code>boolean</code>
+Checks whether the topic has headers
+
+**Kind**: global function  
+**Returns**: <code>boolean</code> - true if topic has headers, false otherwise.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| topicItem | <code>object</code> | Topic to test whether it has headers |
+
+<a name="parseTitle"></a>
+
+## parseTitle(topicTitle) ⇒ <code>object</code>
+Extract topic title to extract relevant information
+
+**Kind**: global function  
+**Returns**: <code>object</code> - Properties extracted from title  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| topicTitle | <code>object</code> | Topic title to parse. |
 
 <a name="buildCategoryTopics"></a>
 
