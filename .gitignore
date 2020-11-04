@@ -1,3 +1,7 @@
+website/
+sample/
+sample-doc/
+
 # Logs
 logs
 *.log
