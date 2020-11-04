@@ -1,9 +1,9 @@
 module.exports = {
     "docs": {
         "Getting started": [
-            "overview",
-            "installation",
-            "other-topic"
+            "start/overview",
+            "start/installation",
+            "start/other-topic"
         ]
     }
 }

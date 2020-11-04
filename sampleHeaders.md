@@ -1,6 +1,6 @@
 ## docs
 
-- Getting started
+- Getting started @slug start
   - Overview @brief Shows how to install and other topics
   - Installation @brief Here is the description
       - @headers

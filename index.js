@@ -30,8 +30,8 @@ program
     .option('-i, --intro', 'create in Intro page in each subcategory')
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
 
-// program.parse('node index.js sampleHeaders -w ./ -d ./docs'.split(/ +/g));
-program.parse()
+program.parse('node index.js sampleHeaders -f -w ./ -d ./docs'.split(/ +/g));
+// program.parse()
 
 let allUniqueNames = [];
 
@@ -106,14 +106,21 @@ function parseTitle(topicTitle) {
     regex = /\@f/gi;
     matches = topicTitle.match(regex);
     let isFolder = (matches) ? true : false;
+
     regex = /\@brief(.*)/gi
     matches = topicTitle.match(regex);
     let description = (matches) ? topicTitle.substr(topicTitle.toLowerCase().indexOf('@brief') + 6).trim() : undefined;
+
+    regex = /\@slug(.*)/gi
+    matches = topicTitle.match(regex);
+    let slg = (matches) ? topicTitle.substr(topicTitle.toLowerCase().indexOf('@slug') + 5).trim() : title;
+    slg = slug(slg);
 
     return {
         title: title,
         isFolder: isFolder,
         description: description,
+        slug: slg,
     }
 }
 
@@ -142,7 +149,7 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
             //
 
             let topicHeaders = (hasHeaders(topicItem)) ? getTopicHeaders(topicItem[2]) : [];
-            let unique = buildTopicPage(parsed.title, { 'parent': parent, headers: topicHeaders, 'prefix': options.prefix, 'description': parsed.description })
+            let unique = buildTopicPage(parsed.title, { 'parent': parent, headers: topicHeaders, 'prefix': options.prefix, 'description': parsed.description, 'id': parsed.slug })
             let itemPath = slug(path.join(parent, unique))
             itemPath = itemPath.replace(/\\/g, '/')
             items.push(itemPath)
@@ -160,13 +167,13 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
                     items.push({
                         'type': 'subcategory',
                         'label': title,
-                        'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent, fileEasy.slug(title)), 'prefix': options.prefix })
+                        'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent, parsed.slug), 'prefix': options.prefix })
                     })
                 } else {
                     items.push({
                         'type': 'subcategory',
                         'label': title,
-                        'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent), 'prefix': fileEasy.slug(title) })
+                        'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent), 'prefix': fileEasy.slug(title)})
                     })
                 }
             } else {
@@ -177,7 +184,7 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
                     items.push({
                         'type': 'category',
                         'label': title,
-                        'items': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent, fileEasy.slug(title)), 'prefix': options.prefix })
+                        'items': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent, parsed.slug), 'prefix': options.prefix })
                     })
                 } else {
                     items.push({
@@ -253,14 +260,16 @@ function buildSectionCategories(bulletList, options = { 'parent': './' }) {
     let topCategories = {}
     if (bulletList[0] == 'bulletlist') {
         bulletList.slice(1).forEach((category) => {
-            let title = category[1];
-            let isFolder = title.match(/.+\@f(\s+.*)?/g) || program.autofolder;
+            let parsed = parseTitle(category[1]);
+            let title = parsed.title;
+            let isFolder = parsed.isFolder || program.autofolder;
+
             let parent = options.parent;
             if (isFolder) {
-                if (!program.autofolder) {
-                    title = title.substr(0, title.indexOf('@f')).trim();
-                }
-                parent = path.join(parent, title)
+                // if (!program.autofolder) {
+                //     title = title.substr(0, title.indexOf('@f')).trim();
+                // }
+                parent = path.join(parent, parsed.slug)
                 parent = parent.replace(/\\/g, '/')
             }
             topCategories[title] = buildCategoryTopics(category[2], { 'parent': parent, 'prefix': '' });
