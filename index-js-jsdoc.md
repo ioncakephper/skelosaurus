@@ -1,4 +1,4 @@
-## Functions
+### Functions
 
 <dl>
 <dt><a href="#buildCategoryTopics">buildCategoryTopics(bulletList, [options])</a> ⇒ <code>Array.Object</code></dt>
@@ -47,7 +47,7 @@ dashes or special characters from the specified string.</p>
 
 <a name="buildCategoryTopics"></a>
 
-## buildCategoryTopics(bulletList, [options]) ⇒ <code>Array.Object</code>
+### buildCategoryTopics(bulletList, [options]) ⇒ <code>Array.Object</code>
 Build list of topics and subcategories in a category.
 
 **Kind**: global function  
@@ -60,7 +60,7 @@ Build list of topics and subcategories in a category.
 
 <a name="buildHeaders"></a>
 
-## buildHeaders(bulletlist, [level]) ⇒ <code>Array</code>
+### buildHeaders(bulletlist, [level]) ⇒ <code>Array</code>
 Build headers as template variables
 
 **Kind**: global function  
@@ -73,7 +73,7 @@ Build headers as template variables
 
 <a name="buildSectionCategories"></a>
 
-## buildSectionCategories(bulletList, [options]) ⇒ <code>object</code>
+### buildSectionCategories(bulletList, [options]) ⇒ <code>object</code>
 Build items of navigation section.
 
 **Kind**: global function  
@@ -86,7 +86,7 @@ Build items of navigation section.
 
 <a name="buildTopicPage"></a>
 
-## buildTopicPage(title, [options]) ⇒ <code>string</code>
+### buildTopicPage(title, [options]) ⇒ <code>string</code>
 Create topic documentation topic in Markdown.
 
 **Kind**: global function  
@@ -99,7 +99,7 @@ Create topic documentation topic in Markdown.
 
 <a name="getSidebars"></a>
 
-## getSidebars(sourceFilename) ⇒ <code>object</code>
+### getSidebars(sourceFilename) ⇒ <code>object</code>
 Extract sidebar title and sidebar outline from a Markdown file.
 
 **Kind**: global function  
@@ -111,7 +111,7 @@ Extract sidebar title and sidebar outline from a Markdown file.
 
 <a name="getTopicHeaders"></a>
 
-## getTopicHeaders(bulletlist) ⇒ <code>Array</code>
+### getTopicHeaders(bulletlist) ⇒ <code>Array</code>
 Build topic top headers
 
 **Kind**: global function  
@@ -123,7 +123,7 @@ Build topic top headers
 
 <a name="getUniqueName"></a>
 
-## getUniqueName(name) ⇒ <code>string</code>
+### getUniqueName(name) ⇒ <code>string</code>
 Return a variant string
 
 **Kind**: global function  
@@ -135,7 +135,7 @@ Return a variant string
 
 <a name="hasHeaders"></a>
 
-## hasHeaders(topicItem) ⇒ <code>boolean</code>
+### hasHeaders(topicItem) ⇒ <code>boolean</code>
 Checks whether the topic has headers
 
 **Kind**: global function  
@@ -147,7 +147,7 @@ Checks whether the topic has headers
 
 <a name="isSingleTopic"></a>
 
-## isSingleTopic(topicItem) ⇒ <code>boolean</code>
+### isSingleTopic(topicItem) ⇒ <code>boolean</code>
 Checks whether a topic has children topics
 
 **Kind**: global function  
@@ -159,7 +159,7 @@ Checks whether a topic has children topics
 
 <a name="makeid"></a>
 
-## makeid(length) ⇒ <code>string</code>
+### makeid(length) ⇒ <code>string</code>
 Return a random string with digital characters of specified length
 
 **Kind**: global function  
@@ -171,7 +171,7 @@ Return a random string with digital characters of specified length
 
 <a name="parseTitle"></a>
 
-## parseTitle(topicTitle) ⇒ <code>object</code>
+### parseTitle(topicTitle) ⇒ <code>object</code>
 Extract topic title to extract relevant information
 
 **Kind**: global function  
@@ -183,7 +183,7 @@ Extract topic title to extract relevant information
 
 <a name="saveDocument"></a>
 
-## saveDocument(fileName, content)
+### saveDocument(fileName, content)
 Create a text file in utf-8 format from specified name and content
 
 **Kind**: global function  
@@ -195,7 +195,7 @@ Create a text file in utf-8 format from specified name and content
 
 <a name="slug"></a>
 
-## slug(source) ⇒ <code>string</code>
+### slug(source) ⇒ <code>string</code>
 Convert specified string into a slug.Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).Compresses sequence of dashes or special characters into a single dash. Removes heading or trailingdashes or special characters from the specified string.
 
 **Kind**: global function  

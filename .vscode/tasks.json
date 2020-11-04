@@ -4,7 +4,7 @@
 		{
 			"type":"shell",
 			"command": ["jsdoc2md"],
-			"args": ["index.js", ">", "index-js-jsdoc.md"],
+			"args": ["index.js", "-d", "3", ">", "index-js-jsdoc.md"],
 			"label": "Build API file"
 		},
 		{
