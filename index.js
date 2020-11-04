@@ -30,8 +30,8 @@ program
     .option('-i, --intro', 'create in Intro page in each subcategory')
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
 
-program.parse('node index.js sampleHeaders -f -w ./ -d ./docs'.split(/ +/g));
-// program.parse()
+// program.parse('node index.js sampleHeaders -f -w ./ -d ./docs'.split(/ +/g));
+program.parse()
 
 let allUniqueNames = [];
 
