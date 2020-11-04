@@ -1,14 +1,12 @@
 #!/usr/bin/env node
 
 const colors = require('colors');
-const { description } = require('commander');
 const program = require('commander')
 const fileEasy = require('file-easy');
 const fs = require('fs');
 const hbsr = require('hbsr');
 const md = require('markdown').markdown;
 const path = require('path');
-const { title } = require('process');
 const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 
 const lorem = new LoremIpsum();
@@ -30,8 +28,8 @@ program
     .option('-i, --intro', 'create in Intro page in each subcategory')
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
 
-// program.parse('node index.js sampleHeaders -f -w ./ -d ./docs'.split(/ +/g));
-program.parse()
+program.parse('node index.js sampleHeaders -f -w ./ -d ./docs'.split(/ +/g));
+// program.parse()
 
 let allUniqueNames = [];
 
@@ -69,62 +67,6 @@ saveDocument(outFilename, content)
 console.log('Sidebars file ' + colors.green(outFilename) + ' generated.');
 
 /**
- * Checks whether a topic has children topics
- * 
- * @param {object} topicItem Topic to test whether it is single topic
- * @returns {boolean} true if single topic, false otherwise
- */
-function isSingleTopic(topicItem) {
-    return (!topicItem[2] || hasHeaders(topicItem))
-}
-
-/**
- * Checks whether the topic has headers
- * 
- * @param {object} topicItem Topic to test whether it has headers
- * @returns {boolean} true if topic has headers, false otherwise.
- */
-function hasHeaders(topicItem) {
-    if (topicItem[2]) {
-        if (topicItem[2][1][1].trim().match(/\@headers/gi)) {
-            return true;
-        }
-    }
-    return false;
-}
-
-/**
- * Extract topic title to extract relevant information
- * 
- * @param {object} topicTitle Topic title to parse.
- * @returns {object} Properties extracted from title
- */
-function parseTitle(topicTitle) {
-    let regex = /^(.*)\@/;
-    let matches = topicTitle.match(regex);
-    let title = ((matches) ? matches[1] : topicTitle).trim();
-    regex = /\@f/gi;
-    matches = topicTitle.match(regex);
-    let isFolder = (matches) ? true : false;
-
-    regex = /\@brief(.*)/gi
-    matches = topicTitle.match(regex);
-    let description = (matches) ? topicTitle.substr(topicTitle.toLowerCase().indexOf('@brief') + 6).trim() : undefined;
-
-    regex = /\@slug(.*)/gi
-    matches = topicTitle.match(regex);
-    let slg = (matches) ? topicTitle.substr(topicTitle.toLowerCase().indexOf('@slug') + 5).trim() : title;
-    slg = slug(slg);
-
-    return {
-        title: title,
-        isFolder: isFolder,
-        description: description,
-        slug: slg,
-    }
-}
-
-/**
  * Build list of topics and subcategories in a category.
  *
  * @param {Array} bulletList The bullet list internal representation.
@@ -143,11 +85,9 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
         //
         let parsed = parseTitle(topicItem[1]);
         if (isSingleTopic(topicItem)) {
-
             //
             // A single topic
             //
-
             let topicHeaders = (hasHeaders(topicItem)) ? getTopicHeaders(topicItem[2]) : [];
             let unique = buildTopicPage(parsed.title, { 'parent': parent, headers: topicHeaders, 'prefix': options.prefix, 'description': parsed.description, 'id': parsed.slug })
             let itemPath = slug(path.join(parent, unique))
@@ -173,7 +113,7 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
                     items.push({
                         'type': 'subcategory',
                         'label': title,
-                        'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent), 'prefix': fileEasy.slug(title)})
+                        'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent), 'prefix': fileEasy.slug(title) })
                     })
                 }
             } else {
@@ -204,24 +144,6 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
         items.unshift(itemPath)
     }
     return items;
-}
-
-/**
- * Build topic top headers
- *
- * @param {Array} bulletlist Header list represented in Markdown abstrat tree
- * @returns {Array} Headers in markdown notation
- */
-function getTopicHeaders(bulletlist) {
-    let headers = []
-    if (bulletlist[0] == 'bulletlist') {
-        let firstItem = bulletlist[1];
-        let hasHeaders = firstItem[1].match(/\@headers\s*/gi)
-        if (hasHeaders) {
-            headers = buildHeaders(firstItem[2]);
-        }
-    }
-    return headers;
 }
 
 /**
@@ -266,9 +188,6 @@ function buildSectionCategories(bulletList, options = { 'parent': './' }) {
 
             let parent = options.parent;
             if (isFolder) {
-                // if (!program.autofolder) {
-                //     title = title.substr(0, title.indexOf('@f')).trim();
-                // }
                 parent = path.join(parent, parsed.slug)
                 parent = parent.replace(/\\/g, '/')
             }
@@ -301,7 +220,7 @@ function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefi
 
     let topicFilename = id
     topicFilename = path.join(program.docs, fileEasy.slug(options.parent), topicFilename);
-    // topicFilename = getUniqueName(topicFilename);
+
     topicFilename = topicFilename + '.md';
     saveDocument(topicFilename, content)
     console.log('Topic file ' + colors.green(topicFilename) + ' generated.');
@@ -333,19 +252,21 @@ function getSidebars(sourceFilename) {
 }
 
 /**
- * Return a random string with digital characters of specified length
+ * Build topic top headers
  *
- * @param {number} length The length of string to return.
- * @returns {string} Randomly chosen characters of specified length
+ * @param {Array} bulletlist Header list represented in Markdown abstrat tree
+ * @returns {Array} Headers in markdown notation
  */
-function makeid(length) {
-    var result = '';
-    var characters = '0123456789';
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+function getTopicHeaders(bulletlist) {
+    let headers = []
+    if (bulletlist[0] == 'bulletlist') {
+        let firstItem = bulletlist[1];
+        let hasHeaders = firstItem[1].match(/\@headers\s*/gi)
+        if (hasHeaders) {
+            headers = buildHeaders(firstItem[2]);
+        }
     }
-    return result;
+    return headers;
 }
 
 /**
@@ -366,6 +287,78 @@ function getUniqueName(name) {
     }
     allUniqueNames.push(name);
     return name;
+}
+
+/**
+ * Checks whether the topic has headers
+ * 
+ * @param {object} topicItem Topic to test whether it has headers
+ * @returns {boolean} true if topic has headers, false otherwise.
+ */
+function hasHeaders(topicItem) {
+    if (topicItem[2]) {
+        if (topicItem[2][1][1].trim().match(/\@h(eaders)?/gi)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * Checks whether a topic has children topics
+ * 
+ * @param {object} topicItem Topic to test whether it is single topic
+ * @returns {boolean} true if single topic, false otherwise
+ */
+function isSingleTopic(topicItem) {
+    return (!topicItem[2] || hasHeaders(topicItem))
+}
+
+/**
+ * Return a random string with digital characters of specified length
+ *
+ * @param {number} length The length of string to return.
+ * @returns {string} Randomly chosen characters of specified length
+ */
+function makeid(length) {
+    var result = '';
+    var characters = '0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+/**
+ * Extract topic title to extract relevant information
+ * 
+ * @param {object} topicTitle Topic title to parse.
+ * @returns {object} Properties extracted from title
+ */
+function parseTitle(topicTitle) {
+    let regex = /^(.*)\@/;
+    let matches = topicTitle.match(regex);
+    let title = ((matches) ? matches[1] : topicTitle).trim();
+    regex = /\@f(older)?/gi;
+    matches = topicTitle.match(regex);
+    let isFolder = (matches) ? true : false;
+
+    regex = /\@b(rief)?([^@]*)/gi
+    matches = regex.exec(topicTitle)
+    let description = (matches) ? matches[2].trim() : undefined;
+
+    regex = /\@s(lug)?([^@]*)/gi
+    matches = regex.exec(topicTitle);
+    let slg = (matches) ? matches[2].trim() : title;
+    slg = slug(slg);
+
+    return {
+        title: title,
+        isFolder: isFolder,
+        description: description,
+        slug: slg,
+    }
 }
 
 /**

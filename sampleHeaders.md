@@ -2,7 +2,7 @@
 
 - Getting started @slug start
   - Overview @brief Shows how to install and other topics
-  - Installation @brief Here is the description
+  - Installation @b Here is the description
       - @headers
           - Installling Skelosaurus
           - Verifying installation

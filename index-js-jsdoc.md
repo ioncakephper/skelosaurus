@@ -1,20 +1,8 @@
 ## Functions
 
 <dl>
-<dt><a href="#isSingleTopic">isSingleTopic(topicItem)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Checks whether a topic has children topics</p>
-</dd>
-<dt><a href="#hasHeaders">hasHeaders(topicItem)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Checks whether the topic has headers</p>
-</dd>
-<dt><a href="#parseTitle">parseTitle(topicTitle)</a> ⇒ <code>object</code></dt>
-<dd><p>Extract topic title to extract relevant information</p>
-</dd>
 <dt><a href="#buildCategoryTopics">buildCategoryTopics(bulletList, [options])</a> ⇒ <code>Array.Object</code></dt>
 <dd><p>Build list of topics and subcategories in a category.</p>
-</dd>
-<dt><a href="#getTopicHeaders">getTopicHeaders(bulletlist)</a> ⇒ <code>Array</code></dt>
-<dd><p>Build topic top headers</p>
 </dd>
 <dt><a href="#buildHeaders">buildHeaders(bulletlist, [level])</a> ⇒ <code>Array</code></dt>
 <dd><p>Build headers as template variables</p>
@@ -28,11 +16,23 @@
 <dt><a href="#getSidebars">getSidebars(sourceFilename)</a> ⇒ <code>object</code></dt>
 <dd><p>Extract sidebar title and sidebar outline from a Markdown file.</p>
 </dd>
-<dt><a href="#makeid">makeid(length)</a> ⇒ <code>string</code></dt>
-<dd><p>Return a random string with digital characters of specified length</p>
+<dt><a href="#getTopicHeaders">getTopicHeaders(bulletlist)</a> ⇒ <code>Array</code></dt>
+<dd><p>Build topic top headers</p>
 </dd>
 <dt><a href="#getUniqueName">getUniqueName(name)</a> ⇒ <code>string</code></dt>
 <dd><p>Return a variant string</p>
+</dd>
+<dt><a href="#hasHeaders">hasHeaders(topicItem)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Checks whether the topic has headers</p>
+</dd>
+<dt><a href="#isSingleTopic">isSingleTopic(topicItem)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Checks whether a topic has children topics</p>
+</dd>
+<dt><a href="#makeid">makeid(length)</a> ⇒ <code>string</code></dt>
+<dd><p>Return a random string with digital characters of specified length</p>
+</dd>
+<dt><a href="#parseTitle">parseTitle(topicTitle)</a> ⇒ <code>object</code></dt>
+<dd><p>Extract topic title to extract relevant information</p>
 </dd>
 <dt><a href="#saveDocument">saveDocument(fileName, content)</a></dt>
 <dd><p>Create a text file in utf-8 format from specified name and content</p>
@@ -44,42 +44,6 @@ Compresses sequence of dashes or special characters into a single dash. Removes 
 dashes or special characters from the specified string.</p>
 </dd>
 </dl>
-
-<a name="isSingleTopic"></a>
-
-## isSingleTopic(topicItem) ⇒ <code>boolean</code>
-Checks whether a topic has children topics
-
-**Kind**: global function  
-**Returns**: <code>boolean</code> - true if single topic, false otherwise  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| topicItem | <code>object</code> | Topic to test whether it is single topic |
-
-<a name="hasHeaders"></a>
-
-## hasHeaders(topicItem) ⇒ <code>boolean</code>
-Checks whether the topic has headers
-
-**Kind**: global function  
-**Returns**: <code>boolean</code> - true if topic has headers, false otherwise.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| topicItem | <code>object</code> | Topic to test whether it has headers |
-
-<a name="parseTitle"></a>
-
-## parseTitle(topicTitle) ⇒ <code>object</code>
-Extract topic title to extract relevant information
-
-**Kind**: global function  
-**Returns**: <code>object</code> - Properties extracted from title  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| topicTitle | <code>object</code> | Topic title to parse. |
 
 <a name="buildCategoryTopics"></a>
 
@@ -93,18 +57,6 @@ Build list of topics and subcategories in a category.
 | --- | --- | --- | --- |
 | bulletList | <code>Array</code> |  | The bullet list internal representation. |
 | [options] | <code>object</code> | <code>{ &#x27;parent&#x27;: &#x27;./&#x27;, &#x27;prefix&#x27;: &#x27;&#x27; }</code> | Options for building topic slug and folders |
-
-<a name="getTopicHeaders"></a>
-
-## getTopicHeaders(bulletlist) ⇒ <code>Array</code>
-Build topic top headers
-
-**Kind**: global function  
-**Returns**: <code>Array</code> - Headers in markdown notation  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| bulletlist | <code>Array</code> | Header list represented in Markdown abstrat tree |
 
 <a name="buildHeaders"></a>
 
@@ -157,17 +109,17 @@ Extract sidebar title and sidebar outline from a Markdown file.
 | --- | --- | --- |
 | sourceFilename | <code>string</code> | Filename of a Markdown file with outline |
 
-<a name="makeid"></a>
+<a name="getTopicHeaders"></a>
 
-## makeid(length) ⇒ <code>string</code>
-Return a random string with digital characters of specified length
+## getTopicHeaders(bulletlist) ⇒ <code>Array</code>
+Build topic top headers
 
 **Kind**: global function  
-**Returns**: <code>string</code> - Randomly chosen characters of specified length  
+**Returns**: <code>Array</code> - Headers in markdown notation  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| length | <code>number</code> | The length of string to return. |
+| bulletlist | <code>Array</code> | Header list represented in Markdown abstrat tree |
 
 <a name="getUniqueName"></a>
 
@@ -180,6 +132,54 @@ Return a variant string
 | Param | Type | Description |
 | --- | --- | --- |
 | name | <code>string</code> | The name to check for uniqueness |
+
+<a name="hasHeaders"></a>
+
+## hasHeaders(topicItem) ⇒ <code>boolean</code>
+Checks whether the topic has headers
+
+**Kind**: global function  
+**Returns**: <code>boolean</code> - true if topic has headers, false otherwise.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| topicItem | <code>object</code> | Topic to test whether it has headers |
+
+<a name="isSingleTopic"></a>
+
+## isSingleTopic(topicItem) ⇒ <code>boolean</code>
+Checks whether a topic has children topics
+
+**Kind**: global function  
+**Returns**: <code>boolean</code> - true if single topic, false otherwise  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| topicItem | <code>object</code> | Topic to test whether it is single topic |
+
+<a name="makeid"></a>
+
+## makeid(length) ⇒ <code>string</code>
+Return a random string with digital characters of specified length
+
+**Kind**: global function  
+**Returns**: <code>string</code> - Randomly chosen characters of specified length  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| length | <code>number</code> | The length of string to return. |
+
+<a name="parseTitle"></a>
+
+## parseTitle(topicTitle) ⇒ <code>object</code>
+Extract topic title to extract relevant information
+
+**Kind**: global function  
+**Returns**: <code>object</code> - Properties extracted from title  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| topicTitle | <code>object</code> | Topic title to parse. |
 
 <a name="saveDocument"></a>
 

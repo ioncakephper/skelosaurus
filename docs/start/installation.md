@@ -15,7 +15,7 @@ Here is the description
 
 ## Installling Skelosaurus
 <!-- @part src="parts/installling-skelosaurus/h2-installling-skelosaurus-description.md" -->
-Sint voluptate fugiat eiusmod ut commodo id consequat dolore. Deserunt id et labore consequat enim culpa consectetur cupidatat deserunt amet irure officia officia laborum. Ullamco officia aliquip proident sint ea pariatur culpa culpa anim dolore consequat cillum dolore tempor. Amet eiusmod irure non do reprehenderit fugiat laborum esse ipsum. Ullamco eu occaecat mollit enim duis ipsum irure.
+Id dolore aliqua non qui cupidatat voluptate est fugiat mollit magna commodo in fugiat sint. Enim sit dolor aute laboris eiusmod culpa deserunt est elit voluptate non cillum ex. Elit dolore aliquip aute pariatur est. Veniam consequat laborum consequat proident magna voluptate commodo. Id incididunt sit mollit laborum irure amet sunt esse adipisicing sunt laborum voluptate nostrud.
 <!-- @/part -->
 
 
@@ -26,7 +26,7 @@ Sint voluptate fugiat eiusmod ut commodo id consequat dolore. Deserunt id et lab
 
 ## Verifying installation
 <!-- @part src="parts/verifying-installation/h2-verifying-installation-description.md" -->
-Aute in sunt eu aliquip quis minim. Qui anim incididunt ea fugiat culpa enim nostrud sit anim id eiusmod cupidatat nisi. Nulla Lorem voluptate id ipsum veniam velit commodo deserunt ad. Consectetur sit aliquip nostrud aute irure aliquip elit nostrud amet ad sit. Dolor non ad in sit mollit.
+Exercitation magna velit cupidatat et magna minim. Duis anim duis magna sunt nostrud aliqua. Magna nisi tempor minim in. Cillum occaecat eu in voluptate consectetur veniam ad exercitation duis reprehenderit voluptate culpa excepteur. Quis qui exercitation mollit tempor Lorem nulla consequat veniam amet.
 <!-- @/part -->
 
 
