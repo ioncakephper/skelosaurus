@@ -1,5 +1,13 @@
 #!/usr/bin/env node
 
+/**
+ * Skeleton documentation generator from Markdown outline. Generates .md doc files and sidebars
+ * definition files for Docusaurus v2 or v1.
+ * 
+ * @module skelosaurusv2
+ * @typicalname skelo
+ */
+
 const colors = require('colors');
 const program = require('commander')
 const fileEasy = require('file-easy');
@@ -28,8 +36,7 @@ program
     .option('-i, --intro', 'create in Intro page in each subcategory')
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
 
-program.parse('node index.js sampleHeaders -f -w ./ -d ./docs'.split(/ +/g));
-// program.parse()
+program.parse()
 
 let allUniqueNames = [];
 
@@ -57,7 +64,7 @@ sortedSidebarNames.forEach((sidebarName) => {
 
 let content = JSON.stringify(sb, null, 4);
 if (program.v2) {
-    content = 'module.exports = ' + content;
+    content = hbsr.render_template('sidebarsjs', {content: content});
 }
 
 let extension = (program.v2) ? '.js' : '.json'
