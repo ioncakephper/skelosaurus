@@ -88,7 +88,8 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
             // A single topic
             //
             let topicHeaders = (hasHeaders(topicItem)) ? getTopicHeaders(topicItem[2]) : [];
-            let unique = buildTopicPage(parsed.title, { 'parent': parent, headers: topicHeaders, 'prefix': options.prefix, 'description': parsed.description, 'id': parsed.slug })
+
+            let unique = buildTopicPage(parsed.title, { 'parent': parent, headers: topicHeaders, 'prefix': options.prefix, 'description': parsed.description, 'id': parsed.slug, 'altTitle': parsed.altTitle })
             let itemPath = slug(path.join(parent, unique))
             itemPath = itemPath.replace(/\\/g, '/')
             items.push(itemPath)
@@ -205,12 +206,13 @@ function buildSectionCategories(bulletList, options = { 'parent': './' }) {
  */
 function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefix': '' }) {
 
-    // let mdHeaders = [{'prefix': '##', 'title': 'Ficticious', 'items': []}]
-    // let mdHeaders = []
+
     let mdHeaders = options.headers;
-    let id = getUniqueName(fileEasy.slug(title))
+
+    let id = getUniqueName(fileEasy.slug(options.id || title))
+    // let id = getUniqueName(path.join(slug(options.parent), fileEasy.slug(options.id || title)))
     let content = hbsr.render_template('doc-topic', {
-        'title': title,
+        'title': options.altTitle,
         'id': id,
         'sidebar_label': title,
         'description': options.description || lorem.generateSentences(5),
@@ -336,9 +338,14 @@ function makeid(length) {
  * @returns {object} Properties extracted from title
  */
 function parseTitle(topicTitle) {
-    let regex = /^(.*)\@/;
+    let regex = /^([^@]*)\@/;
     let matches = topicTitle.match(regex);
     let title = ((matches) ? matches[1] : topicTitle).trim();
+
+    regex = /\@t(itle)?([^@]*)/gi
+    matches = regex.exec(topicTitle);
+    let altTitle = (matches) ? matches[2].trim() : title;
+
     regex = /\@f(older)?/gi;
     matches = topicTitle.match(regex);
     let isFolder = (matches) ? true : false;
@@ -357,6 +364,7 @@ function parseTitle(topicTitle) {
         isFolder: isFolder,
         description: description,
         slug: slg,
+        altTitle: altTitle
     }
 }
 
@@ -388,7 +396,7 @@ function saveDocument(fileName, content) {
  */
 function slug(source) {
     let regex = /[^a-zA-Z0-9\\]+/g
-    source = source.trim().toLowerCase().replace(regex, '-')
+    source = source.trim().toLowerCase().replace(regex, '-').replace(/\-+/gi, '-')
     source = source.replace(/^\-+/g, '').replace(/\-+$/g, '')
     return source;
 }
