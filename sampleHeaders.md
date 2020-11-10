@@ -6,5 +6,5 @@
       - @headers
           - Installling Skelosaurus
           - Verifying installation
-      - Another page
+  - Another page
   - Other topic
