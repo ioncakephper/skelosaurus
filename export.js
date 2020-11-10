@@ -4,7 +4,7 @@ const path = require('path')
 let sourceFile = path.join('./website', 'docs', 'academy.md')
 let source = fs.readFileSync(sourceFile, 'utf8')
 
-let regex = /\<\!\-\- *@part +src *= *"([^"]*)" *\-\-\>(\x0a?\x0d?.*)?\x0a?<\!\-\- *@\/part *\-\-\>/gi
+let regex = /\<\!\-\- *@part +src *= *"([^"]*)" *\-\-\>(\r\n[a-zA-Z0-9\,\.\(\)\s\-\_\+\*\&\^\%\$\#\@\!\}\]\|\\\{\[\"\:\;\?\/\>\<]*)*\r\n\s*<\!\-\- *@\/part *\-\-\>/gi
 // let matches = regex.test(source)
 // console.log(matches)
 let allMatches = regex.exec(source);
@@ -20,3 +20,5 @@ while (allMatches != null) {
 }
 
 console.log(source)
+
+// \x0a?<\!\-\- *@\/part *\-\-\>

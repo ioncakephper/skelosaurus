@@ -28,7 +28,8 @@ program
     .option('-i, --intro', 'create in Intro page in each subcategory')
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
 
-program.parse()
+program.parse('node index.js -w ./website -d ./website/docs sampleHeaders.md'.split(/ +/))
+// program.parse()
 
 let allUniqueNames = [];
 
@@ -225,7 +226,33 @@ function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefi
     topicFilename = topicFilename + '.md';
     saveDocument(topicFilename, content)
     console.log('Topic file ' + colors.green(topicFilename) + ' generated.');
+    generateTopicParts(topicFilename);
     return path.basename(topicFilename, path.extname(topicFilename));
+}
+
+/**
+ * Create parts files for a specified topic document
+ *
+ * @param {string} sourceFile Path to topic document
+ */
+function generateTopicParts(sourceFile) {
+    let source = fs.readFileSync(sourceFile, 'utf8');
+
+    let regex = /\<\!\-\- *@part +src *= *"([^"]*)" *\-\-\>(\r\n[a-zA-Z0-9\,\.\(\)\s\-\_\+\*\&\^\%\$\#\@\!\}\]\|\\\{\[\"\:\;\?\/\>\<]*)*\r\n\s*<\!\-\- *@\/part *\-\-\>/gi
+
+    let allMatches = regex.exec(source);
+    while (allMatches != null) {
+        let targetPath = allMatches[1];
+        let partContent = allMatches[2];
+
+        let relative = path.relative(program.docs, program.website);
+        let completePath = path.join(program.docs, relative, targetPath);
+        console.log(completePath);
+        if (!fs.existsSync(completePath)) {
+            fileEasy.saveDocument(completePath, partContent);
+        }
+        allMatches = regex.exec(source)
+    }
 }
 
 /**
