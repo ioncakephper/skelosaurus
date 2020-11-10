@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/1.0.23) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
+![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/1.0.24) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
 
 ![Outlined with Skelosaurus v2](https://img.shields.io/badge/Outlined%20with-Skelosaurus%20v2-red)
 
@@ -17,20 +17,6 @@ Skeleton documentation generator for Docusaurus v2 and v1
   - [Creating folders automatically](#creating-folders-automatically)
   - [Creating folders selectively](#creating-folders-selectively)
 - [Creating `Overview` pages automatically](#creating-overview-pages-automatically)
-- [Functions](#functions)
-  - [buildCategoryTopics(bulletList, [options]) ⇒ <code>Array.Object</code>](#buildcategorytopicsbulletlist-options--arrayobject)
-  - [buildHeaders(bulletlist, [level]) ⇒ <code>Array</code>](#buildheadersbulletlist-level--array)
-  - [buildSectionCategories(bulletList, [options]) ⇒ <code>object</code>](#buildsectioncategoriesbulletlist-options--object)
-  - [buildTopicPage(title, [options]) ⇒ <code>string</code>](#buildtopicpagetitle-options--string)
-  - [getSidebars(sourceFilename) ⇒ <code>object</code>](#getsidebarssourcefilename--object)
-  - [getTopicHeaders(bulletlist) ⇒ <code>Array</code>](#gettopicheadersbulletlist--array)
-  - [getUniqueName(name) ⇒ <code>string</code>](#getuniquenamename--string)
-  - [hasHeaders(topicItem) ⇒ <code>boolean</code>](#hasheaderstopicitem--boolean)
-  - [isSingleTopic(topicItem) ⇒ <code>boolean</code>](#issingletopictopicitem--boolean)
-  - [makeid(length) ⇒ <code>string</code>](#makeidlength--string)
-  - [parseTitle(topicTitle) ⇒ <code>object</code>](#parsetitletopictitle--object)
-  - [saveDocument(fileName, content)](#savedocumentfilename-content)
-  - [slug(source) ⇒ <code>string</code>](#slugsource--string)
 - [License](#license)
 
 ## Installation
@@ -330,7 +316,7 @@ To create the `Overview` pages automatically, use the `-i` or `--intro` switch. 
 skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
 ```
 
-## Functions
+### Functions
 
 <dl>
 <dt><a href="#buildCategoryTopics">buildCategoryTopics(bulletList, [options])</a> ⇒ <code>Array.Object</code></dt>
@@ -344,6 +330,9 @@ skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
 </dd>
 <dt><a href="#buildTopicPage">buildTopicPage(title, [options])</a> ⇒ <code>string</code></dt>
 <dd><p>Create topic documentation topic in Markdown.</p>
+</dd>
+<dt><a href="#generateTopicParts">generateTopicParts(sourceFile)</a></dt>
+<dd><p>Create parts files for a specified topic document</p>
 </dd>
 <dt><a href="#getSidebars">getSidebars(sourceFilename)</a> ⇒ <code>object</code></dt>
 <dd><p>Extract sidebar title and sidebar outline from a Markdown file.</p>
@@ -428,6 +417,17 @@ Create topic documentation topic in Markdown.
 | --- | --- | --- | --- |
 | title | <code>string</code> |  | Topic title |
 | [options] | <code>object</code> | <code>{ &#x27;headers&#x27;: [], &#x27;parent&#x27;: &#x27;./&#x27;, &#x27;prefix&#x27;: &#x27;&#x27; }</code> | Options for creating topic file. |
+
+<a name="generateTopicParts"></a>
+
+### generateTopicParts(sourceFile)
+Create parts files for a specified topic document
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| sourceFile | <code>string</code> | Path to topic document |
 
 <a name="getSidebars"></a>
 
@@ -528,11 +528,7 @@ Create a text file in utf-8 format from specified name and content
 <a name="slug"></a>
 
 ### slug(source) ⇒ <code>string</code>
-Convert specified string into a slug.
-
-Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).
-Compresses sequence of dashes or special characters into a single dash. Removes heading or trailing
-dashes or special characters from the specified string.
+Convert specified string into a slug.Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).Compresses sequence of dashes or special characters into a single dash. Removes heading or trailingdashes or special characters from the specified string.
 
 **Kind**: global function  
 **Returns**: <code>string</code> - Trimmed, lowercase string with dashes(-)  

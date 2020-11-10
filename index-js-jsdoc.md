@@ -13,6 +13,9 @@
 <dt><a href="#buildTopicPage">buildTopicPage(title, [options])</a> ⇒ <code>string</code></dt>
 <dd><p>Create topic documentation topic in Markdown.</p>
 </dd>
+<dt><a href="#generateTopicParts">generateTopicParts(sourceFile)</a></dt>
+<dd><p>Create parts files for a specified topic document</p>
+</dd>
 <dt><a href="#getSidebars">getSidebars(sourceFilename)</a> ⇒ <code>object</code></dt>
 <dd><p>Extract sidebar title and sidebar outline from a Markdown file.</p>
 </dd>
@@ -96,6 +99,17 @@ Create topic documentation topic in Markdown.
 | --- | --- | --- | --- |
 | title | <code>string</code> |  | Topic title |
 | [options] | <code>object</code> | <code>{ &#x27;headers&#x27;: [], &#x27;parent&#x27;: &#x27;./&#x27;, &#x27;prefix&#x27;: &#x27;&#x27; }</code> | Options for creating topic file. |
+
+<a name="generateTopicParts"></a>
+
+### generateTopicParts(sourceFile)
+Create parts files for a specified topic document
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| sourceFile | <code>string</code> | Path to topic document |
 
 <a name="getSidebars"></a>
 
