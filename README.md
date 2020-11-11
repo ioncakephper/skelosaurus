@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/1.0.26) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
+![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/2.0.0) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
 
 ![Outlined with Skelosaurus v2](https://img.shields.io/badge/Outlined%20with-Skelosaurus%20v2-red)
 
@@ -22,6 +22,22 @@ Skeleton documentation generator for Docusaurus v2 and v1
   - [Creating folders selectively](#creating-folders-selectively)
 - [Creating `Overview` pages automatically](#creating-overview-pages-automatically)
 - [API](#api)
+  - [skelosaurusv2](#skelosaurusv2)
+    - [skelosaurusv2~buildCategoryTopics(bulletList, [options]) ⇒ <code>Array.Object</code>](#skelosaurusv2buildcategorytopicsbulletlist-options--arrayobject)
+    - [skelosaurusv2~buildHeaders(bulletlist, [level]) ⇒ <code>Array</code>](#skelosaurusv2buildheadersbulletlist-level--array)
+    - [skelosaurusv2~buildSectionCategories(bulletList, [options]) ⇒ <code>object</code>](#skelosaurusv2buildsectioncategoriesbulletlist-options--object)
+    - [skelosaurusv2~buildTopicPage(title, [options]) ⇒ <code>string</code>](#skelosaurusv2buildtopicpagetitle-options--string)
+    - [skelosaurusv2~getDocumentParts(sourceFile)](#skelosaurusv2getdocumentpartssourcefile)
+    - [skelosaurusv2~saveDocumentParts(sourceFile, program)](#skelosaurusv2savedocumentpartssourcefile-program)
+    - [skelosaurusv2~getSidebars(sourceFilename) ⇒ <code>object</code>](#skelosaurusv2getsidebarssourcefilename--object)
+    - [skelosaurusv2~getTopicHeaders(bulletlist) ⇒ <code>Array</code>](#skelosaurusv2gettopicheadersbulletlist--array)
+    - [skelosaurusv2~getUniqueName(name) ⇒ <code>string</code>](#skelosaurusv2getuniquenamename--string)
+    - [skelosaurusv2~hasHeaders(topicItem) ⇒ <code>boolean</code>](#skelosaurusv2hasheaderstopicitem--boolean)
+    - [skelosaurusv2~isSingleTopic(topicItem) ⇒ <code>boolean</code>](#skelosaurusv2issingletopictopicitem--boolean)
+    - [skelosaurusv2~makeid(length) ⇒ <code>string</code>](#skelosaurusv2makeidlength--string)
+    - [skelosaurusv2~parseTitle(topicTitle) ⇒ <code>object</code>](#skelosaurusv2parsetitletopictitle--object)
+    - [skelosaurusv2~saveDocument(fileName, content)](#skelosaurusv2savedocumentfilename-content)
+    - [skelosaurusv2~slug(source) ⇒ <code>string</code>](#skelosaurusv2slugsource--string)
 - [License](#license)
 
 ## Installation
@@ -393,22 +409,38 @@ skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
 ### skelosaurusv2
 **Author**: Ion Gireada  
 
-* [skelosaurusv2](#module_skelosaurusv2)
-    * [~buildCategoryTopics(bulletList, [options])](#module_skelosaurusv2..buildCategoryTopics) ⇒ <code>Array.Object</code>
-    * [~buildHeaders(bulletlist, [level])](#module_skelosaurusv2..buildHeaders) ⇒ <code>Array</code>
-    * [~buildSectionCategories(bulletList, [options])](#module_skelosaurusv2..buildSectionCategories) ⇒ <code>object</code>
-    * [~buildTopicPage(title, [options])](#module_skelosaurusv2..buildTopicPage) ⇒ <code>string</code>
-    * [~getDocumentParts(sourceFile)](#module_skelosaurusv2..getDocumentParts)
-    * [~saveDocumentParts(sourceFile, program)](#module_skelosaurusv2..saveDocumentParts)
-    * [~getSidebars(sourceFilename)](#module_skelosaurusv2..getSidebars) ⇒ <code>object</code>
-    * [~getTopicHeaders(bulletlist)](#module_skelosaurusv2..getTopicHeaders) ⇒ <code>Array</code>
-    * [~getUniqueName(name)](#module_skelosaurusv2..getUniqueName) ⇒ <code>string</code>
-    * [~hasHeaders(topicItem)](#module_skelosaurusv2..hasHeaders) ⇒ <code>boolean</code>
-    * [~isSingleTopic(topicItem)](#module_skelosaurusv2..isSingleTopic) ⇒ <code>boolean</code>
-    * [~makeid(length)](#module_skelosaurusv2..makeid) ⇒ <code>string</code>
-    * [~parseTitle(topicTitle)](#module_skelosaurusv2..parseTitle) ⇒ <code>object</code>
-    * [~saveDocument(fileName, content)](#module_skelosaurusv2..saveDocument)
-    * [~slug(source)](#module_skelosaurusv2..slug) ⇒ <code>string</code>
+- [Installation](#installation)
+- [Usage](#usage)
+  - [skelo -h](#skelo--h)
+  - [skelo help build](#skelo-help-build)
+  - [skelo help load](#skelo-help-load)
+  - [skelo help save](#skelo-help-save)
+- [Quick example](#quick-example)
+  - [Step 1: Create documentation project](#step-1-create-documentation-project)
+  - [Step 2: Generate skeleton](#step-2-generate-skeleton)
+  - [Step 3: Use skeleton documentation in Docusaurus](#step-3-use-skeleton-documentation-in-docusaurus)
+- [Creating documentation folders](#creating-documentation-folders)
+  - [Creating folders automatically](#creating-folders-automatically)
+  - [Creating folders selectively](#creating-folders-selectively)
+- [Creating `Overview` pages automatically](#creating-overview-pages-automatically)
+- [API](#api)
+  - [skelosaurusv2](#skelosaurusv2)
+    - [skelosaurusv2~buildCategoryTopics(bulletList, [options]) ⇒ <code>Array.Object</code>](#skelosaurusv2buildcategorytopicsbulletlist-options--arrayobject)
+    - [skelosaurusv2~buildHeaders(bulletlist, [level]) ⇒ <code>Array</code>](#skelosaurusv2buildheadersbulletlist-level--array)
+    - [skelosaurusv2~buildSectionCategories(bulletList, [options]) ⇒ <code>object</code>](#skelosaurusv2buildsectioncategoriesbulletlist-options--object)
+    - [skelosaurusv2~buildTopicPage(title, [options]) ⇒ <code>string</code>](#skelosaurusv2buildtopicpagetitle-options--string)
+    - [skelosaurusv2~getDocumentParts(sourceFile)](#skelosaurusv2getdocumentpartssourcefile)
+    - [skelosaurusv2~saveDocumentParts(sourceFile, program)](#skelosaurusv2savedocumentpartssourcefile-program)
+    - [skelosaurusv2~getSidebars(sourceFilename) ⇒ <code>object</code>](#skelosaurusv2getsidebarssourcefilename--object)
+    - [skelosaurusv2~getTopicHeaders(bulletlist) ⇒ <code>Array</code>](#skelosaurusv2gettopicheadersbulletlist--array)
+    - [skelosaurusv2~getUniqueName(name) ⇒ <code>string</code>](#skelosaurusv2getuniquenamename--string)
+    - [skelosaurusv2~hasHeaders(topicItem) ⇒ <code>boolean</code>](#skelosaurusv2hasheaderstopicitem--boolean)
+    - [skelosaurusv2~isSingleTopic(topicItem) ⇒ <code>boolean</code>](#skelosaurusv2issingletopictopicitem--boolean)
+    - [skelosaurusv2~makeid(length) ⇒ <code>string</code>](#skelosaurusv2makeidlength--string)
+    - [skelosaurusv2~parseTitle(topicTitle) ⇒ <code>object</code>](#skelosaurusv2parsetitletopictitle--object)
+    - [skelosaurusv2~saveDocument(fileName, content)](#skelosaurusv2savedocumentfilename-content)
+    - [skelosaurusv2~slug(source) ⇒ <code>string</code>](#skelosaurusv2slugsource--string)
+- [License](#license)
 
 <a name="module_skelosaurusv2..buildCategoryTopics"></a>
 
@@ -584,7 +616,11 @@ Create a text file in utf-8 format from specified name and content
 <a name="module_skelosaurusv2..slug"></a>
 
 #### skelosaurusv2~slug(source) ⇒ <code>string</code>
-Convert specified string into a slug.Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).Compresses sequence of dashes or special characters into a single dash. Removes heading or trailingdashes or special characters from the specified string.
+Convert specified string into a slug.
+
+Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).
+Compresses sequence of dashes or special characters into a single dash. Removes heading or trailing
+dashes or special characters from the specified string.
 
 **Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>string</code> - Trimmed, lowercase string with dashes(-)  
