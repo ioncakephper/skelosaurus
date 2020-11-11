@@ -253,6 +253,50 @@ function generateTopicParts(sourceFile) {
     }
 }
 
+function getDocumentParts(sourceFile) {
+    let source = fs.readFileSync(sourceFile, 'utf8');
+
+    let regex = /\<\!\-\- *@part +src *= *"([^"]*)" *\-\-\>(\r\n[a-zA-Z0-9\,\.\(\)\s\-\_\+\*\&\^\%\$\#\@\!\}\]\|\\\{\[\"\:\;\?\/\>\<]*)*\r\n\s*<\!\-\- *@\/part *\-\-\>/gi
+
+    let parts = []
+    let allMatches = regex.exec(source);
+    while (allMatches != null) {
+        parts.push({
+            targetPath: allMatches[1];
+            content: allMatches[2]
+        })
+        let allMatches = regex.exec(source);
+    }
+    return parts;
+}
+
+function saveDocumentParts(sourceFile) {
+    getDocumentParts(sourceFile).forEach((part) => {
+        let targetPath = part.targetPath;
+        let partContent = part.content;
+        let relative = path.relative(program.docs, program.website);
+        let completePath = path.join(program.docs, relative, targetPath);
+        if (!fs.existsSync(completePath)) {
+            saveDocument(completePath, partContent);
+        }
+    })
+}
+
+function loadDocumentParts(sourceFile) {
+    let source = fs.readFileSync(sourceFile, 'utf8')
+    getDocumentParts(sourceFile).forEach((part) => {
+        if (fs.existsSync(completePath)) {
+            let partSource = fs.readFileSync(completePath, 'utf8')
+            let newpart = hbsr.render_template('part', {
+                src: targetPath,
+                content: content
+            })
+            source = source.replace(pathRegex, newpart);
+    })
+    saveDocument(sourceFile, source)
+}
+
+
 /**
  * Extract sidebar title and sidebar outline from a Markdown file.
  *
