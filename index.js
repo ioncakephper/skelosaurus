@@ -28,8 +28,7 @@ program
     .option('-i, --intro', 'create in Intro page in each subcategory')
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
 
-program.parse('node index.js -w ./website -d ./website/docs sampleHeaders.md'.split(/ +/))
-// program.parse()
+program.parse()
 
 let allUniqueNames = [];
 
@@ -211,7 +210,7 @@ function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefi
     let mdHeaders = options.headers;
 
     let id = getUniqueName(fileEasy.slug(options.id || title))
-    // let id = getUniqueName(path.join(slug(options.parent), fileEasy.slug(options.id || title)))
+
     let content = hbsr.render_template('doc-topic', {
         'title': options.altTitle,
         'id': id,
@@ -249,7 +248,7 @@ function generateTopicParts(sourceFile) {
         let completePath = path.join(program.docs, relative, targetPath);
         console.log(completePath);
         if (!fs.existsSync(completePath)) {
-            fileEasy.saveDocument(completePath, partContent);
+            saveDocument(completePath, partContent);
         }
         allMatches = regex.exec(source)
     }
