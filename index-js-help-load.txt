@@ -1,0 +1,9 @@
+Usage: skelo load [options]
+
+load documentation parts into respective files
+
+Options:
+  -d, --docs <path>     path where markdown files are generated into (default:
+                        "./docs")
+  -w, --website <path>  path to store sidebars content file (default: "./")
+  -h, --help            display help for command

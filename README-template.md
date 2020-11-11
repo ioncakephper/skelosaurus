@@ -9,6 +9,10 @@ Skeleton documentation generator for Docusaurus v2 and v1
 
 - [Installation](#installation)
 - [Usage](#usage)
+  - [skelo -h](#skelo--h)
+  - [skelo help build](#skelo-help-build)
+  - [skelo help load](#skelo-help-load)
+  - [skelo help save](#skelo-help-save)
 - [Quick example](#quick-example)
   - [Step 1: Create documentation project](#step-1-create-documentation-project)
   - [Step 2: Generate skeleton](#step-2-generate-skeleton)
@@ -17,6 +21,7 @@ Skeleton documentation generator for Docusaurus v2 and v1
   - [Creating folders automatically](#creating-folders-automatically)
   - [Creating folders selectively](#creating-folders-selectively)
 - [Creating `Overview` pages automatically](#creating-overview-pages-automatically)
+- [API](#api)
 - [License](#license)
 
 ## Installation
@@ -31,8 +36,39 @@ The `skelo` command now available at the command prompt.
 
 ## Usage
 
+### skelo -h
+
+See commands and general options.
+
 ```txt
 !import[/index-js-help.txt]
+```
+
+> **`build`** is the default command, so you can provide its  arguments and options without including the `build` command.
+
+
+### skelo help build
+
+See arguments and options for `build` command.
+
+```txt
+!import[/index-js-help-build.txt]
+```
+
+### skelo help load
+
+See arguments and options for `load` command.
+
+```txt
+!import[/index-js-help-load.txt]
+```
+
+### skelo help save
+
+See arguments and options for `save` command.
+
+```txt
+!import[/index-js-help-save.txt]
 ```
 
 ## Quick example
@@ -66,7 +102,7 @@ This will create the `sample-doc` documentation project as inside your working f
 Generate skeleton documentation with `skelo`:
 
 ```bash
-skelo sample -w ./sample-doc -d ./sample-doc/docs
+skelo build sample -w ./sample-doc -d ./sample-doc/docs
 ```
 
 The `sample\sample-doc\docs` folder contains `.md` topic source files for your documentation. The `sample\sample-doc\sidebars.js` contains the navigation description.
@@ -131,6 +167,8 @@ To create folders automatically, use the `-f` or `--autofolders` switch.
 skelo sample -f -w ./sample-folders-doc -d ./sample-folders-doc/docs
 ```
 
+> Because **`build`** is the default command, you can skip providing the command name explicityly, like in the example above. In the example above, `sample` is the outline filename. If the extension of the outline file is `.md`, you can skip writing it.
+
 This will generate the documentation `.md` files and `sidebars.js` file as before, but it also creates a subfolder for each topic with items. Here is the folder structure in `sample/sample-folders-doc`:
 
 ```txt
@@ -159,6 +197,8 @@ To create the `Overview` pages automatically, use the `-i` or `--intro` switch. 
 ```bash
 skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
 ```
+
+## API
 
 !import[/index-js-jsdoc.md]
 

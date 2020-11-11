@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+/**
+ * @module skelosaurusv2
+ * @author Ion Gireada
+ */
+
 const colors = require('colors');
 const program = require('commander')
 const fileEasy = require('file-easy');
@@ -7,12 +12,20 @@ const fs = require('fs');
 const hbsr = require('hbsr');
 const md = require('markdown').markdown;
 const path = require('path');
+const FileSet = require('file-set');
+const { file } = require('grunt');
 const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 const lorem = new LoremIpsum();
 
 hbsr.options.template_path = path.join(__dirname, 'templates');
 
 let version = require(path.join(__dirname, 'package.json')).version;
+
+let allUniqueNames = [];
+
+program
+    .passCommandToAction(false);
+
 program
     .name('skelo')
     .description('Skeleton documentation generator for Docusaurus (v2 and v2)')
@@ -20,6 +33,8 @@ program
     .version(version)
 
 program
+    .command('build <sources...>', { isDefault: true })
+    .description('build doc files and sidebars file')
     .option('-o, --out <filename>', 'filename to contains sidebars', 'sidebars')
     .option('-w, --website <path>', 'path to store sidebars content file', './')
     .option('-d, --docs <path>', 'path where markdown files are generated into', './docs')
@@ -27,43 +42,70 @@ program
     .option('-f, --autofolder', 'create subfolder for categories and subtopics', false)
     .option('-i, --intro', 'create in Intro page in each subcategory')
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
+    .action((sources, opts) => {
+        let allUniqueNames = [];
+
+        if (!opts.v2) {
+            opts.website = path.join(opts.website, 'website');
+        }
+
+        if (sources.length == 0) {
+            program.help((helpText) => {
+                return helpText + '\n' + colors.yellow('Provide at least one outline file.')
+            })
+        }
+        let sb = {}
+        let allSidebars = {};
+        sources.forEach((sourceFilename) => {
+            sourceFilename = fileEasy.setDefaultExtension(sourceFilename, '.md')
+            let sidebars = getSidebars(sourceFilename)
+            allSidebars = { ...allSidebars, ...sidebars }
+        })
+
+        let sortedSidebarNames = Object.keys(allSidebars).sort();
+        sortedSidebarNames.forEach((sidebarName) => {
+            sb[sidebarName] = buildSectionCategories(allSidebars[sidebarName], opts)
+        })
+
+        let content = JSON.stringify(sb, null, 4);
+        if (opts.v2) {
+            content = hbsr.render_template('sidebarsjs', { content: content });
+        }
+
+        let extension = (opts.v2) ? '.js' : '.json'
+        let outFilename = fileEasy.setDefaultExtension(opts.out, extension)
+        outFilename = path.join(opts.website, outFilename);
+        saveDocument(outFilename, content)
+        console.log('Sidebars file ' + colors.green(outFilename) + ' generated.');
+    })
+
+program
+    .command('load')
+    .description('load documentation parts into respective files')
+    .option('-d, --docs <path>', 'path where markdown files are generated into', './docs')
+    .option('-w, --website <path>', 'path to store sidebars content file', './')
+    .action((opts) => {
+        let fileSet = new FileSet([path.join(opts.docs, '**/*.md')])
+        fileSet.files.forEach((sourceFile) => {
+            loadDocumentParts(sourceFile, opts, true)
+        })
+    });
+
+program
+    .command('save')
+    .description('save documentation parts into respective files')
+    .option('-d, --docs <path>', 'path where markdown files are generated into', './docs')
+    .option('-w, --website <path>', 'path to store sidebars content file', './')
+    .action((opts) => {
+
+        let fileSet = new FileSet([path.join(opts.docs, '**/*.md')])
+        fileSet.files.forEach((sourceFile) => {
+            saveDocumentParts(sourceFile, opts, true)
+        })
+
+    });
 
 program.parse()
-
-let allUniqueNames = [];
-
-if (!program.v2) {
-    program.website = path.join(program.website, 'website');
-}
-
-if (program.args.length == 0) {
-    program.help((helpText) => {
-        return helpText + '\n' + colors.yellow('Provide at least one outline file.')
-    })
-}
-let sb = {}
-let allSidebars = {};
-program.args.forEach((sourceFilename) => {
-    sourceFilename = fileEasy.setDefaultExtension(sourceFilename, '.md')
-    let sidebars = getSidebars(sourceFilename)
-    allSidebars = { ...allSidebars, ...sidebars }
-})
-
-let sortedSidebarNames = Object.keys(allSidebars).sort();
-sortedSidebarNames.forEach((sidebarName) => {
-    sb[sidebarName] = buildSectionCategories(allSidebars[sidebarName])
-})
-
-let content = JSON.stringify(sb, null, 4);
-if (program.v2) {
-    content = hbsr.render_template('sidebarsjs', { content: content });
-}
-
-let extension = (program.v2) ? '.js' : '.json'
-let outFilename = fileEasy.setDefaultExtension(program.out, extension)
-outFilename = path.join(program.website, outFilename);
-saveDocument(outFilename, content)
-console.log('Sidebars file ' + colors.green(outFilename) + ' generated.');
 
 /**
  * Build list of topics and subcategories in a category.
@@ -89,7 +131,7 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
             //
             let topicHeaders = (hasHeaders(topicItem)) ? getTopicHeaders(topicItem[2]) : [];
 
-            let unique = buildTopicPage(parsed.title, { 'parent': parent, headers: topicHeaders, 'prefix': options.prefix, 'description': parsed.description, 'id': parsed.slug, 'altTitle': parsed.altTitle })
+            let unique = buildTopicPage(parsed.title, { 'parent': parent, headers: topicHeaders, 'prefix': options.prefix, 'description': parsed.description, 'id': parsed.slug, 'altTitle': parsed.altTitle, 'program': options['program'] })
             let itemPath = slug(path.join(parent, unique))
             itemPath = itemPath.replace(/\\/g, '/')
             items.push(itemPath)
@@ -138,7 +180,7 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
     })
 
     if (program.intro > 0) {
-        let unique = buildTopicPage(program.introTitle, { 'parent': parent, 'headers': [], 'prefix': options.prefix })
+        let unique = buildTopicPage(program.introTitle, { 'parent': parent, 'headers': [], 'prefix': options.prefix, 'program': options['program'] })
         let itemPath = slug(path.join(parent, unique))
         itemPath = itemPath.replace(/\\/g, '/')
         items.unshift(itemPath)
@@ -178,7 +220,7 @@ function buildHeaders(bulletlist, level = 2) {
  * @param {object} [options={ 'parent': './' }] Options for building section slug
  * @returns {object} Key-value where key is category title and value is a list of items or subcategories.
  */
-function buildSectionCategories(bulletList, options = { 'parent': './' }) {
+function buildSectionCategories(bulletList, opts, options = { 'parent': './' }) {
     let topCategories = {}
     if (bulletList[0] == 'bulletlist') {
         bulletList.slice(1).forEach((category) => {
@@ -191,7 +233,7 @@ function buildSectionCategories(bulletList, options = { 'parent': './' }) {
                 parent = path.join(parent, parsed.slug)
                 parent = parent.replace(/\\/g, '/')
             }
-            topCategories[title] = buildCategoryTopics(category[2], { 'parent': parent, 'prefix': '' });
+            topCategories[title] = buildCategoryTopics(category[2], { 'parent': parent, 'prefix': '', 'program': opts });
         })
     }
     return topCategories;
@@ -220,39 +262,22 @@ function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefi
     })
 
     let topicFilename = id
+    let program = options['program'];
     topicFilename = path.join(program.docs, fileEasy.slug(options.parent), topicFilename);
 
     topicFilename = topicFilename + '.md';
     saveDocument(topicFilename, content)
     console.log('Topic file ' + colors.green(topicFilename) + ' generated.');
-    generateTopicParts(topicFilename);
+    saveDocumentParts(topicFilename, program);
     return path.basename(topicFilename, path.extname(topicFilename));
 }
 
 /**
- * Create parts files for a specified topic document
+ * Get document parts in specified file
  *
- * @param {string} sourceFile Path to topic document
+ * @param {string} sourceFile Path to documentation file
+ @ @returns {Array.{targetPath: string, content: string}} Array of part object, each part has targetPath and content properties
  */
-function generateTopicParts(sourceFile) {
-    let source = fs.readFileSync(sourceFile, 'utf8');
-
-    let regex = /\<\!\-\- *@part +src *= *"([^"]*)" *\-\-\>(\r\n[a-zA-Z0-9\,\.\(\)\s\-\_\+\*\&\^\%\$\#\@\!\}\]\|\\\{\[\"\:\;\?\/\>\<]*)*\r\n\s*<\!\-\- *@\/part *\-\-\>/gi
-
-    let allMatches = regex.exec(source);
-    while (allMatches != null) {
-        let targetPath = allMatches[1];
-        let partContent = allMatches[2];
-
-        let relative = path.relative(program.docs, program.website);
-        let completePath = path.join(program.docs, relative, targetPath);
-        if (!fs.existsSync(completePath)) {
-            saveDocument(completePath, partContent);
-        }
-        allMatches = regex.exec(source)
-    }
-}
-
 function getDocumentParts(sourceFile) {
     let source = fs.readFileSync(sourceFile, 'utf8');
 
@@ -262,36 +287,46 @@ function getDocumentParts(sourceFile) {
     let allMatches = regex.exec(source);
     while (allMatches != null) {
         parts.push({
-            targetPath: allMatches[1];
+            matched: allMatches[0],
+            targetPath: allMatches[1],
             content: allMatches[2]
         })
-        let allMatches = regex.exec(source);
+        allMatches = regex.exec(source);
     }
     return parts;
 }
 
-function saveDocumentParts(sourceFile) {
+/**
+ * Create parts files for a specified topic document
+ *
+ * @param {string} sourceFile Path to topic document
+ * @param {object} program Options passed on command
+ */
+function saveDocumentParts(sourceFile, program, override = false) {
     getDocumentParts(sourceFile).forEach((part) => {
         let targetPath = part.targetPath;
         let partContent = part.content;
-        let relative = path.relative(program.docs, program.website);
-        let completePath = path.join(program.docs, relative, targetPath);
-        if (!fs.existsSync(completePath)) {
+        let completePath = path.join(program.docs, targetPath);
+        if (override || !fs.existsSync(completePath)) {
             saveDocument(completePath, partContent);
         }
     })
 }
 
-function loadDocumentParts(sourceFile) {
+function loadDocumentParts(sourceFile, program) {
     let source = fs.readFileSync(sourceFile, 'utf8')
     getDocumentParts(sourceFile).forEach((part) => {
+        let targetPath = part.targetPath;
+        let partContent = part.content;
+        let completePath = path.join(program.docs, targetPath);
         if (fs.existsSync(completePath)) {
             let partSource = fs.readFileSync(completePath, 'utf8')
             let newpart = hbsr.render_template('part', {
                 src: targetPath,
-                content: content
+                content: partSource
             })
-            source = source.replace(pathRegex, newpart);
+            source = source.replace(part.matched, newpart);
+        }
     })
     saveDocument(sourceFile, source)
 }

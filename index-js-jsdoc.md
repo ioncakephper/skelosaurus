@@ -1,59 +1,31 @@
-### Functions
+<a name="module_skelosaurusv2"></a>
 
-<dl>
-<dt><a href="#buildCategoryTopics">buildCategoryTopics(bulletList, [options])</a> ⇒ <code>Array.Object</code></dt>
-<dd><p>Build list of topics and subcategories in a category.</p>
-</dd>
-<dt><a href="#buildHeaders">buildHeaders(bulletlist, [level])</a> ⇒ <code>Array</code></dt>
-<dd><p>Build headers as template variables</p>
-</dd>
-<dt><a href="#buildSectionCategories">buildSectionCategories(bulletList, [options])</a> ⇒ <code>object</code></dt>
-<dd><p>Build items of navigation section.</p>
-</dd>
-<dt><a href="#buildTopicPage">buildTopicPage(title, [options])</a> ⇒ <code>string</code></dt>
-<dd><p>Create topic documentation topic in Markdown.</p>
-</dd>
-<dt><a href="#generateTopicParts">generateTopicParts(sourceFile)</a></dt>
-<dd><p>Create parts files for a specified topic document</p>
-</dd>
-<dt><a href="#getSidebars">getSidebars(sourceFilename)</a> ⇒ <code>object</code></dt>
-<dd><p>Extract sidebar title and sidebar outline from a Markdown file.</p>
-</dd>
-<dt><a href="#getTopicHeaders">getTopicHeaders(bulletlist)</a> ⇒ <code>Array</code></dt>
-<dd><p>Build topic top headers</p>
-</dd>
-<dt><a href="#getUniqueName">getUniqueName(name)</a> ⇒ <code>string</code></dt>
-<dd><p>Return a variant string</p>
-</dd>
-<dt><a href="#hasHeaders">hasHeaders(topicItem)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Checks whether the topic has headers</p>
-</dd>
-<dt><a href="#isSingleTopic">isSingleTopic(topicItem)</a> ⇒ <code>boolean</code></dt>
-<dd><p>Checks whether a topic has children topics</p>
-</dd>
-<dt><a href="#makeid">makeid(length)</a> ⇒ <code>string</code></dt>
-<dd><p>Return a random string with digital characters of specified length</p>
-</dd>
-<dt><a href="#parseTitle">parseTitle(topicTitle)</a> ⇒ <code>object</code></dt>
-<dd><p>Extract topic title to extract relevant information</p>
-</dd>
-<dt><a href="#saveDocument">saveDocument(fileName, content)</a></dt>
-<dd><p>Create a text file in utf-8 format from specified name and content</p>
-</dd>
-<dt><a href="#slug">slug(source)</a> ⇒ <code>string</code></dt>
-<dd><p>Convert specified string into a slug.</p>
-<p>Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash ().
-Compresses sequence of dashes or special characters into a single dash. Removes heading or trailing
-dashes or special characters from the specified string.</p>
-</dd>
-</dl>
+### skelosaurusv2
+**Author**: Ion Gireada  
 
-<a name="buildCategoryTopics"></a>
+* [skelosaurusv2](#module_skelosaurusv2)
+    * [~buildCategoryTopics(bulletList, [options])](#module_skelosaurusv2..buildCategoryTopics) ⇒ <code>Array.Object</code>
+    * [~buildHeaders(bulletlist, [level])](#module_skelosaurusv2..buildHeaders) ⇒ <code>Array</code>
+    * [~buildSectionCategories(bulletList, [options])](#module_skelosaurusv2..buildSectionCategories) ⇒ <code>object</code>
+    * [~buildTopicPage(title, [options])](#module_skelosaurusv2..buildTopicPage) ⇒ <code>string</code>
+    * [~getDocumentParts(sourceFile)](#module_skelosaurusv2..getDocumentParts)
+    * [~saveDocumentParts(sourceFile, program)](#module_skelosaurusv2..saveDocumentParts)
+    * [~getSidebars(sourceFilename)](#module_skelosaurusv2..getSidebars) ⇒ <code>object</code>
+    * [~getTopicHeaders(bulletlist)](#module_skelosaurusv2..getTopicHeaders) ⇒ <code>Array</code>
+    * [~getUniqueName(name)](#module_skelosaurusv2..getUniqueName) ⇒ <code>string</code>
+    * [~hasHeaders(topicItem)](#module_skelosaurusv2..hasHeaders) ⇒ <code>boolean</code>
+    * [~isSingleTopic(topicItem)](#module_skelosaurusv2..isSingleTopic) ⇒ <code>boolean</code>
+    * [~makeid(length)](#module_skelosaurusv2..makeid) ⇒ <code>string</code>
+    * [~parseTitle(topicTitle)](#module_skelosaurusv2..parseTitle) ⇒ <code>object</code>
+    * [~saveDocument(fileName, content)](#module_skelosaurusv2..saveDocument)
+    * [~slug(source)](#module_skelosaurusv2..slug) ⇒ <code>string</code>
 
-### buildCategoryTopics(bulletList, [options]) ⇒ <code>Array.Object</code>
+<a name="module_skelosaurusv2..buildCategoryTopics"></a>
+
+#### skelosaurusv2~buildCategoryTopics(bulletList, [options]) ⇒ <code>Array.Object</code>
 Build list of topics and subcategories in a category.
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>Array.Object</code> - List of topics and categories.  
 
 | Param | Type | Default | Description |
@@ -61,12 +33,12 @@ Build list of topics and subcategories in a category.
 | bulletList | <code>Array</code> |  | The bullet list internal representation. |
 | [options] | <code>object</code> | <code>{ &#x27;parent&#x27;: &#x27;./&#x27;, &#x27;prefix&#x27;: &#x27;&#x27; }</code> | Options for building topic slug and folders |
 
-<a name="buildHeaders"></a>
+<a name="module_skelosaurusv2..buildHeaders"></a>
 
-### buildHeaders(bulletlist, [level]) ⇒ <code>Array</code>
+#### skelosaurusv2~buildHeaders(bulletlist, [level]) ⇒ <code>Array</code>
 Build headers as template variables
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>Array</code> - Array of objects where each object is a set of template variables  
 
 | Param | Type | Default | Description |
@@ -74,12 +46,12 @@ Build headers as template variables
 | bulletlist | <code>Array</code> |  | Representation of list in Markdown abstract tree |
 | [level] | <code>number</code> | <code>2</code> | Heading level for Markdown notation |
 
-<a name="buildSectionCategories"></a>
+<a name="module_skelosaurusv2..buildSectionCategories"></a>
 
-### buildSectionCategories(bulletList, [options]) ⇒ <code>object</code>
+#### skelosaurusv2~buildSectionCategories(bulletList, [options]) ⇒ <code>object</code>
 Build items of navigation section.
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>object</code> - Key-value where key is category title and value is a list of items or subcategories.  
 
 | Param | Type | Default | Description |
@@ -87,12 +59,12 @@ Build items of navigation section.
 | bulletList | <code>Array</code> |  | The bullet list internal representation. |
 | [options] | <code>object</code> | <code>{ &#x27;parent&#x27;: &#x27;./&#x27; }</code> | Options for building section slug |
 
-<a name="buildTopicPage"></a>
+<a name="module_skelosaurusv2..buildTopicPage"></a>
 
-### buildTopicPage(title, [options]) ⇒ <code>string</code>
+#### skelosaurusv2~buildTopicPage(title, [options]) ⇒ <code>string</code>
 Create topic documentation topic in Markdown.
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>string</code> - Topic unique slug  
 
 | Param | Type | Default | Description |
@@ -100,119 +72,131 @@ Create topic documentation topic in Markdown.
 | title | <code>string</code> |  | Topic title |
 | [options] | <code>object</code> | <code>{ &#x27;headers&#x27;: [], &#x27;parent&#x27;: &#x27;./&#x27;, &#x27;prefix&#x27;: &#x27;&#x27; }</code> | Options for creating topic file. |
 
-<a name="generateTopicParts"></a>
+<a name="module_skelosaurusv2..getDocumentParts"></a>
 
-### generateTopicParts(sourceFile)
+#### skelosaurusv2~getDocumentParts(sourceFile)
+Get document parts in specified file
+
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| sourceFile | <code>string</code> | Path to documentation file  @ @returns {Array.{targetPath: string, content: string}} Array of part object, each part has targetPath and content properties |
+
+<a name="module_skelosaurusv2..saveDocumentParts"></a>
+
+#### skelosaurusv2~saveDocumentParts(sourceFile, program)
 Create parts files for a specified topic document
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | sourceFile | <code>string</code> | Path to topic document |
+| program | <code>object</code> | Options passed on command |
 
-<a name="getSidebars"></a>
+<a name="module_skelosaurusv2..getSidebars"></a>
 
-### getSidebars(sourceFilename) ⇒ <code>object</code>
+#### skelosaurusv2~getSidebars(sourceFilename) ⇒ <code>object</code>
 Extract sidebar title and sidebar outline from a Markdown file.
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>object</code> - Key-value where key is the sidebar title and value is bullet list tree.  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | sourceFilename | <code>string</code> | Filename of a Markdown file with outline |
 
-<a name="getTopicHeaders"></a>
+<a name="module_skelosaurusv2..getTopicHeaders"></a>
 
-### getTopicHeaders(bulletlist) ⇒ <code>Array</code>
+#### skelosaurusv2~getTopicHeaders(bulletlist) ⇒ <code>Array</code>
 Build topic top headers
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>Array</code> - Headers in markdown notation  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | bulletlist | <code>Array</code> | Header list represented in Markdown abstrat tree |
 
-<a name="getUniqueName"></a>
+<a name="module_skelosaurusv2..getUniqueName"></a>
 
-### getUniqueName(name) ⇒ <code>string</code>
+#### skelosaurusv2~getUniqueName(name) ⇒ <code>string</code>
 Return a variant string
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>string</code> - Original string with suffixed text  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | name | <code>string</code> | The name to check for uniqueness |
 
-<a name="hasHeaders"></a>
+<a name="module_skelosaurusv2..hasHeaders"></a>
 
-### hasHeaders(topicItem) ⇒ <code>boolean</code>
+#### skelosaurusv2~hasHeaders(topicItem) ⇒ <code>boolean</code>
 Checks whether the topic has headers
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>boolean</code> - true if topic has headers, false otherwise.  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | topicItem | <code>object</code> | Topic to test whether it has headers |
 
-<a name="isSingleTopic"></a>
+<a name="module_skelosaurusv2..isSingleTopic"></a>
 
-### isSingleTopic(topicItem) ⇒ <code>boolean</code>
+#### skelosaurusv2~isSingleTopic(topicItem) ⇒ <code>boolean</code>
 Checks whether a topic has children topics
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>boolean</code> - true if single topic, false otherwise  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | topicItem | <code>object</code> | Topic to test whether it is single topic |
 
-<a name="makeid"></a>
+<a name="module_skelosaurusv2..makeid"></a>
 
-### makeid(length) ⇒ <code>string</code>
+#### skelosaurusv2~makeid(length) ⇒ <code>string</code>
 Return a random string with digital characters of specified length
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>string</code> - Randomly chosen characters of specified length  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | length | <code>number</code> | The length of string to return. |
 
-<a name="parseTitle"></a>
+<a name="module_skelosaurusv2..parseTitle"></a>
 
-### parseTitle(topicTitle) ⇒ <code>object</code>
+#### skelosaurusv2~parseTitle(topicTitle) ⇒ <code>object</code>
 Extract topic title to extract relevant information
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>object</code> - Properties extracted from title  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | topicTitle | <code>object</code> | Topic title to parse. |
 
-<a name="saveDocument"></a>
+<a name="module_skelosaurusv2..saveDocument"></a>
 
-### saveDocument(fileName, content)
+#### skelosaurusv2~saveDocument(fileName, content)
 Create a text file in utf-8 format from specified name and content
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | fileName | <code>string</code> | Name of the file to create. |
 | content | <code>string</code> | String to place in the file. |
 
-<a name="slug"></a>
+<a name="module_skelosaurusv2..slug"></a>
 
-### slug(source) ⇒ <code>string</code>
+#### skelosaurusv2~slug(source) ⇒ <code>string</code>
 Convert specified string into a slug.Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).Compresses sequence of dashes or special characters into a single dash. Removes heading or trailingdashes or special characters from the specified string.
 
-**Kind**: global function  
+**Kind**: inner method of [<code>skelosaurusv2</code>](#module_skelosaurusv2)  
 **Returns**: <code>string</code> - Trimmed, lowercase string with dashes(-)  
 
 | Param | Type | Description |

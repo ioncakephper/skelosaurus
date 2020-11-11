@@ -36,6 +36,7 @@
     "colors": "^1.4.0",
     "commander": "^6.2.0",
     "file-easy": "^1.0.3",
+    "file-set": "^4.0.1",
     "fs": "0.0.1-security",
     "hbsr": "^1.0.6",
     "lorem-ipsum": "^2.0.3",
