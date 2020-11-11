@@ -1,10 +1,5 @@
 #!/usr/bin/env node
 
-/**
- * @module skelosaurusv2
- * @author Ion Gireada
- */
-
 const colors = require('colors');
 const program = require('commander')
 const fileEasy = require('file-easy');
