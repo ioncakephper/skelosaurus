@@ -246,7 +246,6 @@ function generateTopicParts(sourceFile) {
 
         let relative = path.relative(program.docs, program.website);
         let completePath = path.join(program.docs, relative, targetPath);
-        console.log(completePath);
         if (!fs.existsSync(completePath)) {
             saveDocument(completePath, partContent);
         }
