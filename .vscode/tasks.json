@@ -2,41 +2,79 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type":"shell",
-			"command": ["jsdoc2md"],
-			"args": ["index.js", "-d", "3", ">", "index-js-jsdoc.md"],
-			"label": "Build API file"
+			"type": "shell",
+			"command": [
+				"jsdoc2md"
+			],
+			"args": [
+				"index.js",
+				"-d",
+				"3",
+				">",
+				"index-js-jsdoc.md"
+			],
+			"label": "Build API file",
+			"problemMatcher": [
+				"$eslint-stylish"
+			]
 		},
 		{
-			"type":"shell",
-			"command": ["skelo"],
-			"args": ["-h", ">", "index-js-help.txt"],
+			"type": "shell",
+			"command": [
+				"skelo"
+			],
+			"args": [
+				"-h",
+				">",
+				"index-js-help.txt"
+			],
 			"label": "Build Help Output: -h"
 		},
 		{
-			"type":"shell",
-			"command": ["skelo"],
-			"args": ["help", "save", ">", "index-js-help-save.txt"],
+			"type": "shell",
+			"command": [
+				"skelo"
+			],
+			"args": [
+				"help",
+				"save",
+				">",
+				"index-js-help-save.txt"
+			],
 			"label": "Build Help Output: help save"
 		},
 		{
-			"type":"shell",
-			"command": ["skelo"],
-			"args": ["help", "load", ">", "index-js-help-load.txt"],
+			"type": "shell",
+			"command": [
+				"skelo"
+			],
+			"args": [
+				"help",
+				"load",
+				">",
+				"index-js-help-load.txt"
+			],
 			"label": "Build Help Output: help load"
 		},
 		{
-			"type":"shell",
-			"command": ["skelo"],
-			"args": ["help", "build", ">", "index-js-help-build.txt"],
+			"type": "shell",
+			"command": [
+				"skelo"
+			],
+			"args": [
+				"help",
+				"build",
+				">",
+				"index-js-help-build.txt"
+			],
 			"label": "Build Help Output: help build"
 		},
 		{
 			"label": "Rebuild README from template",
-			// "type":"shell",
-			"dependsOn":["Build API file"],
+			"dependsOn": [
+				"Build API file"
+			],
 			"command": "${command:extension.MdMerge}"
-
 		}
 	]
 }

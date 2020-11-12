@@ -30,13 +30,16 @@ program
 program
     .command('build <sources...>', { isDefault: true })
     .description('build doc files and sidebars file')
-    .option('-o, --out <filename>', 'filename to contains sidebars', 'sidebars')
-    .option('-w, --website <path>', 'path to store sidebars content file', './')
+
+    .option('-c, --clear', 'start with a clear docs path')
     .option('-d, --docs <path>', 'path where markdown files are generated into', './docs')
-    .option('--no-v2', 'generate for Docusaurus v1')
     .option('-f, --autofolder', 'create subfolder for categories and subtopics', false)
     .option('-i, --intro', 'create in Intro page in each subcategory')
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
+    .option('--no-v2', 'generate for Docusaurus v1')
+    .option('-o, --out <filename>', 'filename to contains sidebars', 'sidebars')
+    .option('-w, --website <path>', 'path to store sidebars content file', './')
+
     .action((sources, opts) => {
         let allUniqueNames = [];
 
@@ -58,10 +61,32 @@ program
         })
 
         let sortedSidebarNames = Object.keys(allSidebars).sort();
-        sortedSidebarNames.forEach((sidebarName) => {
-            sb[sidebarName] = buildSectionCategories(allSidebars[sidebarName], opts)
-        })
+        if (sortedSidebarNames) {
+            if (sortedSidebarNames.length > 0) {
+                if (opts.clear) {
 
+                    const deleteFolderRecursive = function (folder) {
+                        if (fs.existsSync(folder)) {
+                            fs.readdirSync(folder).forEach((file, index) => {
+                                const curPath = path.join(folder, file);
+                                if (fs.lstatSync(curPath).isDirectory()) { // recurse
+                                    deleteFolderRecursive(curPath);
+                                } else { // delete file
+                                    fs.unlinkSync(curPath);
+                                }
+                            });
+                            fs.rmdirSync(folder);
+                        }
+                    };
+
+                    deleteFolderRecursive(opts.docs)
+                }
+                sortedSidebarNames.forEach((sidebarName) => {
+                    sb[sidebarName] = buildSectionCategories(allSidebars[sidebarName], opts)
+                })
+
+            }
+        }
         let content = JSON.stringify(sb, null, 4);
         if (opts.v2) {
             content = hbsr.render_template('sidebarsjs', { content: content });
@@ -243,7 +268,6 @@ function buildSectionCategories(bulletList, opts, options = { 'parent': './' }) 
  */
 function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefix': '' }) {
 
-
     let mdHeaders = options.headers;
 
     let id = getUniqueName(fileEasy.slug(options.id || title))
@@ -325,7 +349,6 @@ function loadDocumentParts(sourceFile, program) {
     })
     saveDocument(sourceFile, source)
 }
-
 
 /**
  * Extract sidebar title and sidebar outline from a Markdown file.

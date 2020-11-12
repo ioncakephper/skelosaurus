@@ -72,15 +72,16 @@ Usage: skelo build [options] <sources...>
 build doc files and sidebars file
 
 Options:
-  -o, --out <filename>  filename to contains sidebars (default: "sidebars")
-  -w, --website <path>  path to store sidebars content file (default: "./")
+  -c, --clear           start with a clear docs path
   -d, --docs <path>     path where markdown files are generated into (default:
                         "./docs")
-  --no-v2               generate for Docusaurus v1
   -f, --autofolder      create subfolder for categories and subtopics (default:
                         false)
   -i, --intro           create in Intro page in each subcategory
   --introTitle [title]  title to use in intro pages (default: "Overview")
+  --no-v2               generate for Docusaurus v1
+  -o, --out <filename>  filename to contains sidebars (default: "sidebars")
+  -w, --website <path>  path to store sidebars content file (default: "./")
   -h, --help            display help for command
 
 ```
@@ -182,21 +183,20 @@ The `sample\sample-doc\docs` folder contains `.md` topic source files for your d
 Folder PATH listing for volume WINDOWS
 Volume serial number is EE03-B6C0
 C:.
-|   sidebars.js
-|   tree.txt
-|   
-\---docs
-        adding-content-and-subtopics.md
-        allowing-new-features.md
-        building.md
-        cli-commands.md
-        controversies.md
-        create-folders-from-titles.md
-        creating-simple-files.md
-        delegating-responsabilities.md
-        how-to-create-new-features.md
-        introduction.md
-        sidebars-js.md
+|--  sidebars.js
+|--  tree.txt  
++--  docs
+     |--   adding-content-and-subtopics.md
+     |--   allowing-new-features.md
+     |--   building.md
+     |--   cli-commands.md
+     |--   controversies.md
+     |--   folders-from-titles.md
+     |--   creating-simple-files.md
+     |--   delegating-responsabilities.md
+     |--   how-to-create-new-features.md
+     |--   introduction.md
+     |--   sidebars-js.md
         
 
 ```
