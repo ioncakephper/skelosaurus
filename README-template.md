@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/2.0.1) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
+![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/2.0.2) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
 
 ![Outlined with Skelosaurus v2](https://img.shields.io/badge/Outlined%20with-Skelosaurus%20v2-red)
 
@@ -9,10 +9,10 @@ Skeleton documentation generator for Docusaurus v2 and v1
 
 - [Installation](#installation)
 - [Usage](#usage)
-  - [skelo -h](#skelo--h)
-  - [skelo help build](#skelo-help-build)
-  - [skelo help load](#skelo-help-load)
-  - [skelo help save](#skelo-help-save)
+  - [`skelo -h`](#skelo--h)
+  - [`skelo help build`](#skelo-help-build)
+  - [`skelo help load`](#skelo-help-load)
+  - [`skelo help save`](#skelo-help-save)
 - [Quick example](#quick-example)
   - [Step 1: Create documentation project](#step-1-create-documentation-project)
   - [Step 2: Generate skeleton](#step-2-generate-skeleton)
@@ -36,7 +36,7 @@ The `skelo` command now available at the command prompt.
 
 ## Usage
 
-### skelo -h
+### `skelo -h`
 
 See commands and general options.
 
@@ -47,7 +47,7 @@ See commands and general options.
 > **`build`** is the default command, so you can provide its  arguments and options without including the `build` command.
 
 
-### skelo help build
+### `skelo help build`
 
 See arguments and options for `build` command.
 
@@ -55,7 +55,7 @@ See arguments and options for `build` command.
 !import[/index-js-help-build.txt]
 ```
 
-### skelo help load
+### `skelo help load`
 
 See arguments and options for `load` command.
 
@@ -63,7 +63,7 @@ See arguments and options for `load` command.
 !import[/index-js-help-load.txt]
 ```
 
-### skelo help save
+### `skelo help save`
 
 See arguments and options for `save` command.
 

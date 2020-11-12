@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/2.0.1) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
+![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/2.0.2) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
 
 ![Outlined with Skelosaurus v2](https://img.shields.io/badge/Outlined%20with-Skelosaurus%20v2-red)
 
@@ -9,10 +9,10 @@ Skeleton documentation generator for Docusaurus v2 and v1
 
 - [Installation](#installation)
 - [Usage](#usage)
-  - [skelo -h](#skelo--h)
-  - [skelo help build](#skelo-help-build)
-  - [skelo help load](#skelo-help-load)
-  - [skelo help save](#skelo-help-save)
+  - [`skelo -h`](#skelo--h)
+  - [`skelo help build`](#skelo-help-build)
+  - [`skelo help load`](#skelo-help-load)
+  - [`skelo help save`](#skelo-help-save)
 - [Quick example](#quick-example)
   - [Step 1: Create documentation project](#step-1-create-documentation-project)
   - [Step 2: Generate skeleton](#step-2-generate-skeleton)
@@ -22,22 +22,6 @@ Skeleton documentation generator for Docusaurus v2 and v1
   - [Creating folders selectively](#creating-folders-selectively)
 - [Creating `Overview` pages automatically](#creating-overview-pages-automatically)
 - [API](#api)
-  - [Functions](#functions)
-  - [buildCategoryTopics(bulletList, [options]) ⇒ <code>Array.Object</code>](#buildcategorytopicsbulletlist-options--arrayobject)
-  - [buildHeaders(bulletlist, [level]) ⇒ <code>Array</code>](#buildheadersbulletlist-level--array)
-  - [buildSectionCategories(bulletList, [options]) ⇒ <code>object</code>](#buildsectioncategoriesbulletlist-options--object)
-  - [buildTopicPage(title, [options]) ⇒ <code>string</code>](#buildtopicpagetitle-options--string)
-  - [getDocumentParts(sourceFile)](#getdocumentpartssourcefile)
-  - [saveDocumentParts(sourceFile, program)](#savedocumentpartssourcefile-program)
-  - [getSidebars(sourceFilename) ⇒ <code>object</code>](#getsidebarssourcefilename--object)
-  - [getTopicHeaders(bulletlist) ⇒ <code>Array</code>](#gettopicheadersbulletlist--array)
-  - [getUniqueName(name) ⇒ <code>string</code>](#getuniquenamename--string)
-  - [hasHeaders(topicItem) ⇒ <code>boolean</code>](#hasheaderstopicitem--boolean)
-  - [isSingleTopic(topicItem) ⇒ <code>boolean</code>](#issingletopictopicitem--boolean)
-  - [makeid(length) ⇒ <code>string</code>](#makeidlength--string)
-  - [parseTitle(topicTitle) ⇒ <code>object</code>](#parsetitletopictitle--object)
-  - [saveDocument(fileName, content)](#savedocumentfilename-content)
-  - [slug(source) ⇒ <code>string</code>](#slugsource--string)
 - [License](#license)
 
 ## Installation
@@ -52,7 +36,7 @@ The `skelo` command now available at the command prompt.
 
 ## Usage
 
-### skelo -h
+### `skelo -h`
 
 See commands and general options.
 
@@ -78,7 +62,7 @@ Commands:
 > **`build`** is the default command, so you can provide its  arguments and options without including the `build` command.
 
 
-### skelo help build
+### `skelo help build`
 
 See arguments and options for `build` command.
 
@@ -102,7 +86,7 @@ Options:
 
 ```
 
-### skelo help load
+### `skelo help load`
 
 See arguments and options for `load` command.
 
@@ -119,7 +103,7 @@ Options:
 
 ```
 
-### skelo help save
+### `skelo help save`
 
 See arguments and options for `save` command.
 
@@ -631,11 +615,7 @@ Create a text file in utf-8 format from specified name and content
 <a name="slug"></a>
 
 ### slug(source) ⇒ <code>string</code>
-Convert specified string into a slug.
-
-Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).
-Compresses sequence of dashes or special characters into a single dash. Removes heading or trailing
-dashes or special characters from the specified string.
+Convert specified string into a slug.Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).Compresses sequence of dashes or special characters into a single dash. Removes heading or trailingdashes or special characters from the specified string.
 
 **Kind**: global function  
 **Returns**: <code>string</code> - Trimmed, lowercase string with dashes(-)  
