@@ -22,7 +22,7 @@
 <dt><a href="#getSidebars">getSidebars(sourceFilename)</a> ⇒ <code>object</code></dt>
 <dd><p>Extract sidebar title and sidebar outline from a Markdown file.</p>
 </dd>
-<dt><a href="#getTopicHeaders">getTopicHeaders(bulletlist)</a> ⇒ <code>Array</code></dt>
+<dt><a href="#getTopicHeaders">getTopicHeaders(bulletlist, Command)</a> ⇒ <code>Array</code></dt>
 <dd><p>Build topic top headers</p>
 </dd>
 <dt><a href="#getUniqueName">getUniqueName(name)</a> ⇒ <code>string</code></dt>
@@ -71,6 +71,7 @@ Build headers as template variables
 
 **Kind**: global function  
 **Returns**: <code>Array</code> - Array of objects where each object is a set of template variables  
+**Opts**: <code>object</code> Command line options passed as properties  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -140,7 +141,7 @@ Extract sidebar title and sidebar outline from a Markdown file.
 
 <a name="getTopicHeaders"></a>
 
-### getTopicHeaders(bulletlist) ⇒ <code>Array</code>
+### getTopicHeaders(bulletlist, Command) ⇒ <code>Array</code>
 Build topic top headers
 
 **Kind**: global function  
@@ -149,6 +150,7 @@ Build topic top headers
 | Param | Type | Description |
 | --- | --- | --- |
 | bulletlist | <code>Array</code> | Header list represented in Markdown abstrat tree |
+| Command | <code>object</code> | line options passed as properties |
 
 <a name="getUniqueName"></a>
 

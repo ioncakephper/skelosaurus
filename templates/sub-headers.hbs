@@ -1,6 +1,6 @@
 {{#each headers as |header|}}
 {{{header.prefix}}} {{{header.title}}}
-<!-- @part src="parts/{{{id}}}/h{{{header.level}}}-{{{header.id}}}-description.md" -->
+<!-- @part src="{{{parts}}}/{{{id}}}/h{{{header.level}}}-{{{header.id}}}-description.md" -->
 {{#if header.description}}
 {{{header.description}}}
 {{else}}
@@ -10,7 +10,7 @@
 
 {{{header.content}}}
 
-<!-- @part src="parts/{{{id}}}/h{{{header.level}}}-{{{header.id}}}-body.md" -->
+<!-- @part src="{{{parts}}}/{{{id}}}/h{{{header.level}}}-{{{header.id}}}-body.md" -->
 <!-- Your content goes here, replacing this comment -->
 <!-- @/part -->
 

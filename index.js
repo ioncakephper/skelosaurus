@@ -38,6 +38,7 @@ program
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
     .option('--no-v2', 'generate for Docusaurus v1')
     .option('-o, --out <filename>', 'filename to contains sidebars', 'sidebars')
+    .option('-p, --parts [path]', 'path where parts will be stored', './')
     .option('-w, --website <path>', 'path to store sidebars content file', './')
 
     .action((sources, opts) => {
@@ -103,6 +104,7 @@ program
     .command('load')
     .description('load documentation parts into respective files')
     .option('-d, --docs <path>', 'path where markdown files are generated into', './docs')
+    .option('-p, --parts [path]', 'path where parts will be stored', './')
     .option('-w, --website <path>', 'path to store sidebars content file', './')
     .action((opts) => {
         let fileSet = new FileSet([path.join(opts.docs, '**/*.md')])
@@ -115,6 +117,7 @@ program
     .command('save')
     .description('save documentation parts into respective files')
     .option('-d, --docs <path>', 'path where markdown files are generated into', './docs')
+    .option('-p, --parts [path]', 'path where parts will be stored', './')
     .option('-w, --website <path>', 'path to store sidebars content file', './')
     .action((opts) => {
 
@@ -150,7 +153,7 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
             //
             // A single topic
             //
-            let topicHeaders = (hasHeaders(topicItem)) ? getTopicHeaders(topicItem[2]) : [];
+            let topicHeaders = (hasHeaders(topicItem)) ? getTopicHeaders(topicItem[2], program) : [];
 
             let unique = buildTopicPage(parsed.title, { 'parent': parent, headers: topicHeaders, 'prefix': options.prefix, 'description': parsed.description, 'id': parsed.slug, 'altTitle': parsed.altTitle, 'program': options['program'] })
             let itemPath = slug(path.join(parent, unique))
@@ -213,22 +216,26 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
  * Build headers as template variables
  *
  * @param {Array} bulletlist Representation of list in Markdown abstract tree
+ * @opts {object} Command line options passed as properties
  * @param {number} [level=2] Heading level for Markdown notation
  * @returns {Array} Array of objects where each object is a set of template variables
  */
-function buildHeaders(bulletlist, level = 2) {
+function buildHeaders(bulletlist, opts, level = 2) {
     if (!bulletlist) {
         return []
     }
+    let program = opts;
     let toc = bulletlist.slice(1).map((headerItem) => {
         let parsed = parseTitle(headerItem[1]);
+        let parts = path.join(path.relative(program.docs, program.parts));
         return {
             'title': parsed.title,
             'prefix': '#'.repeat(level),
             'level': level,
             'id': fileEasy.slug(headerItem[1]),
             'description': parsed.description || lorem.generateSentences(5),
-            'content': hbsr.render_template('sub-headers', { 'headers': buildHeaders(headerItem[2], level + 1) })
+            'parts': parts,
+            'content': hbsr.render_template('sub-headers', { 'headers': buildHeaders(headerItem[2], opts, level + 1) })
         }
     })
     return toc;
@@ -269,20 +276,23 @@ function buildSectionCategories(bulletList, opts, options = { 'parent': './' }) 
  */
 function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefix': '' }) {
 
+    let program = options['program'];
     let mdHeaders = options.headers;
 
     let id = getUniqueName(fileEasy.slug(options.id || title))
+
+    let parts = path.join(path.relative(program.docs, program.parts)).replace(/\\/g, '/');
 
     let content = hbsr.render_template('doc-topic', {
         'title': options.altTitle,
         'id': id,
         'sidebar_label': title,
+        'parts': parts,
         'description': options.description || lorem.generateSentences(5),
         'headers': mdHeaders
     })
 
     let topicFilename = id
-    let program = options['program'];
     topicFilename = path.join(program.docs, fileEasy.slug(options.parent), topicFilename);
 
     topicFilename = topicFilename + '.md';
@@ -379,15 +389,16 @@ function getSidebars(sourceFilename) {
  * Build topic top headers
  *
  * @param {Array} bulletlist Header list represented in Markdown abstrat tree
+ * @param {object} Command line options passed as properties
  * @returns {Array} Headers in markdown notation
  */
-function getTopicHeaders(bulletlist) {
+function getTopicHeaders(bulletlist, opts) {
     let headers = []
     if (bulletlist[0] == 'bulletlist') {
         let firstItem = bulletlist[1];
         let hasHeaders = firstItem[1].match(/\@headers\s*/gi)
         if (hasHeaders) {
-            headers = buildHeaders(firstItem[2]);
+            headers = buildHeaders(firstItem[2], opts);
         }
     }
     return headers;

@@ -12,5 +12,6 @@ Options:
   --introTitle [title]  title to use in intro pages (default: "Overview")
   --no-v2               generate for Docusaurus v1
   -o, --out <filename>  filename to contains sidebars (default: "sidebars")
+  -p, --parts [path]    path where parts will be stored (default: "./")
   -w, --website <path>  path to store sidebars content file (default: "./")
   -h, --help            display help for command

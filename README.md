@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/2.0.3) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
+![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/2.0.4) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
 
 ![Outlined with Skelosaurus v2](https://img.shields.io/badge/Outlined%20with-Skelosaurus%20v2-red)
 
@@ -22,22 +22,6 @@ Skeleton documentation generator for Docusaurus v2 and v1
   - [Creating folders selectively](#creating-folders-selectively)
 - [Creating `Overview` pages automatically](#creating-overview-pages-automatically)
 - [API](#api)
-  - [Functions](#functions)
-  - [buildCategoryTopics(bulletList, [options]) ⇒ <code>Array.Object</code>](#buildcategorytopicsbulletlist-options--arrayobject)
-  - [buildHeaders(bulletlist, [level]) ⇒ <code>Array</code>](#buildheadersbulletlist-level--array)
-  - [buildSectionCategories(bulletList, [options]) ⇒ <code>object</code>](#buildsectioncategoriesbulletlist-options--object)
-  - [buildTopicPage(title, [options]) ⇒ <code>string</code>](#buildtopicpagetitle-options--string)
-  - [getDocumentParts(sourceFile)](#getdocumentpartssourcefile)
-  - [saveDocumentParts(sourceFile, program)](#savedocumentpartssourcefile-program)
-  - [getSidebars(sourceFilename) ⇒ <code>object</code>](#getsidebarssourcefilename--object)
-  - [getTopicHeaders(bulletlist) ⇒ <code>Array</code>](#gettopicheadersbulletlist--array)
-  - [getUniqueName(name) ⇒ <code>string</code>](#getuniquenamename--string)
-  - [hasHeaders(topicItem) ⇒ <code>boolean</code>](#hasheaderstopicitem--boolean)
-  - [isSingleTopic(topicItem) ⇒ <code>boolean</code>](#issingletopictopicitem--boolean)
-  - [makeid(length) ⇒ <code>string</code>](#makeidlength--string)
-  - [parseTitle(topicTitle) ⇒ <code>object</code>](#parsetitletopictitle--object)
-  - [saveDocument(fileName, content)](#savedocumentfilename-content)
-  - [slug(source) ⇒ <code>string</code>](#slugsource--string)
 - [License](#license)
 
 ## Installation
@@ -97,6 +81,7 @@ Options:
   --introTitle [title]  title to use in intro pages (default: "Overview")
   --no-v2               generate for Docusaurus v1
   -o, --out <filename>  filename to contains sidebars (default: "sidebars")
+  -p, --parts [path]    path where parts will be stored (default: "./")
   -w, --website <path>  path to store sidebars content file (default: "./")
   -h, --help            display help for command
 
@@ -428,7 +413,7 @@ skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
 <dt><a href="#getSidebars">getSidebars(sourceFilename)</a> ⇒ <code>object</code></dt>
 <dd><p>Extract sidebar title and sidebar outline from a Markdown file.</p>
 </dd>
-<dt><a href="#getTopicHeaders">getTopicHeaders(bulletlist)</a> ⇒ <code>Array</code></dt>
+<dt><a href="#getTopicHeaders">getTopicHeaders(bulletlist, Command)</a> ⇒ <code>Array</code></dt>
 <dd><p>Build topic top headers</p>
 </dd>
 <dt><a href="#getUniqueName">getUniqueName(name)</a> ⇒ <code>string</code></dt>
@@ -477,6 +462,7 @@ Build headers as template variables
 
 **Kind**: global function  
 **Returns**: <code>Array</code> - Array of objects where each object is a set of template variables  
+**Opts**: <code>object</code> Command line options passed as properties  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -546,7 +532,7 @@ Extract sidebar title and sidebar outline from a Markdown file.
 
 <a name="getTopicHeaders"></a>
 
-### getTopicHeaders(bulletlist) ⇒ <code>Array</code>
+### getTopicHeaders(bulletlist, Command) ⇒ <code>Array</code>
 Build topic top headers
 
 **Kind**: global function  
@@ -555,6 +541,7 @@ Build topic top headers
 | Param | Type | Description |
 | --- | --- | --- |
 | bulletlist | <code>Array</code> | Header list represented in Markdown abstrat tree |
+| Command | <code>object</code> | line options passed as properties |
 
 <a name="getUniqueName"></a>
 
@@ -631,11 +618,7 @@ Create a text file in utf-8 format from specified name and content
 <a name="slug"></a>
 
 ### slug(source) ⇒ <code>string</code>
-Convert specified string into a slug.
-
-Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).
-Compresses sequence of dashes or special characters into a single dash. Removes heading or trailing
-dashes or special characters from the specified string.
+Convert specified string into a slug.Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).Compresses sequence of dashes or special characters into a single dash. Removes heading or trailingdashes or special characters from the specified string.
 
 **Kind**: global function  
 **Returns**: <code>string</code> - Trimmed, lowercase string with dashes(-)  
