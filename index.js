@@ -140,6 +140,7 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
     }
     let items = []
     let parent = options.parent;
+    let program = options['program'];
     bulletList.slice(1).forEach((topicItem) => {
         //
         // Does this topic have children
@@ -192,7 +193,7 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
                     items.push({
                         'type': 'category',
                         'label': title,
-                        'items': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent), 'prefix': fileEasy.slug(title) })
+                        'items': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent), 'prefix': fileEasy.slug(title), 'program': options['program'] })
                     })
                 }
             }
