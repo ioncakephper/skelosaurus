@@ -181,24 +181,11 @@ skelo build sample -w ./sample-doc -d ./sample-doc/docs
 The `sample\sample-doc\docs` folder contains `.md` topic source files for your documentation. The `sample\sample-doc\sidebars.js` contains the navigation description.
 
 ```txt
-Folder PATH listing for volume WINDOWS
-Volume serial number is EE03-B6C0
-C:.
-|--  sidebars.js
-|--  tree.txt  
-+--  docs
-     |--   adding-content-and-subtopics.md
-     |--   allowing-new-features.md
-     |--   building.md
-     |--   cli-commands.md
-     |--   controversies.md
-     |--   folders-from-titles.md
-     |--   creating-simple-files.md
-     |--   delegating-responsabilities.md
-     |--   how-to-create-new-features.md
-     |--   introduction.md
-     |--   sidebars-js.md
-        
+sample-doc
+├── docs
+│   ├── installation.md
+│   └── other-topic.md
+└── sidebars.js
 
 ```
 
@@ -306,26 +293,26 @@ skelo sample -f -w ./sample-folders-doc -d ./sample-folders-doc/docs
 This will generate the documentation `.md` files and `sidebars.js` file as before, but it also creates a subfolder for each topic with items. Here is the folder structure in `sample/sample-folders-doc`:
 
 ```txt
-Folder PATH listing for volume WINDOWS
-Volume serial number is EE03-B6C0
-C:.
-|   sidebars.js
-|   tree.txt
-|   
-\---docs
-        adding-content-and-subtopics.md
-        allowing-new-features.md
-        building.md
-        cli-commands.md
-        controversies.md
-        create-folders-from-titles.md
-        creating-simple-files.md
-        delegating-responsabilities.md
-        how-to-create-new-features.md
-        introduction.md
-        overview.md
-        sidebars-js.md
-        
+sample-folders-docs
+├── docs
+│   ├── adding-content-and-subtopics.md
+│   ├── allowing-new-features.md
+│   ├── building.md
+│   ├── cli-commands.md
+│   ├── controversies.md
+│   ├── create-folders-from-titles.md
+│   ├── creating-simple-files.md
+│   ├── delegating-responsabilities.md
+│   ├── how-to-create-new-features.md
+│   ├── introduction.md
+│   ├── overview-07669.md
+│   ├── overview-46414.md
+│   ├── overview-71580.md
+│   ├── overview-96116.md
+│   ├── overview.md
+│   └── sidebars-js.md
+├── sidebars.js
+└── tree.txt
 
 ```
 

@@ -1,20 +1,20 @@
-Folder PATH listing for volume WINDOWS
-Volume serial number is EE03-B6C0
-C:.
-|   sidebars.js
-|   tree.txt
-|   
-\---docs
-        adding-content-and-subtopics.md
-        allowing-new-features.md
-        building.md
-        cli-commands.md
-        controversies.md
-        create-folders-from-titles.md
-        creating-simple-files.md
-        delegating-responsabilities.md
-        how-to-create-new-features.md
-        introduction.md
-        overview.md
-        sidebars-js.md
-        
+sample-folders-docs
+├── docs
+│   ├── adding-content-and-subtopics.md
+│   ├── allowing-new-features.md
+│   ├── building.md
+│   ├── cli-commands.md
+│   ├── controversies.md
+│   ├── create-folders-from-titles.md
+│   ├── creating-simple-files.md
+│   ├── delegating-responsabilities.md
+│   ├── how-to-create-new-features.md
+│   ├── introduction.md
+│   ├── overview-07669.md
+│   ├── overview-46414.md
+│   ├── overview-71580.md
+│   ├── overview-96116.md
+│   ├── overview.md
+│   └── sidebars-js.md
+├── sidebars.js
+└── tree.txt
