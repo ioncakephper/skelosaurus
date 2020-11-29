@@ -129,7 +129,7 @@ program
     });
 
 program.parse()
-// program.parse('nodejs index.js sampleHeaders -w ./sample/sample-doc/ -d ./sample/sample-doc/docs -p ./sample/sample-doc-parts'.split(' '))
+// program.parse('nodejs index.js sampleHeaders -w ./sample/sample-doc/ -d ./sample/sample-doc/docs -p ./sample/sample-doc-parts -i -f'.split(' '))
 
 /**
  * Build list of topics and subcategories in a category.
@@ -286,7 +286,7 @@ function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefi
     let parts = path.join(path.relative(program.docs, program.parts)).replace(/\\/g, '/');
 
     let content = hbsr.render_template('doc-topic', {
-        'title': options.altTitle,
+        'title': options.altTitle || title,
         'id': id,
         'sidebar_label': title,
         'parts': parts,
