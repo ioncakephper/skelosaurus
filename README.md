@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/2.0.4) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
+![npm](https://img.shields.io/npm/v/skelosaurusv2) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurusv2/2.0.5) ![npm](https://img.shields.io/npm/dw/skelosaurusv2) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurusv2) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurusv2) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
 
 ![Outlined with Skelosaurus v2](https://img.shields.io/badge/Outlined%20with-Skelosaurus%20v2-red)
 
@@ -192,17 +192,19 @@ sample-doc
 The `sample\sample-doc\sidebars.js` exports the sidebar navigation design.
 
 ```javascript
+/**
+* Sidebar definitions for Docusaurus v2
+*/
+
 module.exports = {
     "docs": {
         "Getting started": [
-            "overview-51082",
             "introduction",
             "building",
             {
                 "type": "category",
                 "label": "Generating",
                 "items": [
-                    "overview",
                     "allowing-new-features",
                     "delegating-responsabilities"
                 ]
@@ -210,18 +212,15 @@ module.exports = {
             "controversies"
         ],
         "Guides": [
-            "overview-92749",
             "how-to-create-new-features"
         ],
         "API": [
-            "overview-22452",
             "cli-commands",
             "sidebars-js"
         ]
     },
     "tutorials": {
         "Tutorial": [
-            "overview-71275",
             "creating-simple-files",
             "adding-content-and-subtopics",
             "create-folders-from-titles"
@@ -239,7 +238,14 @@ id: introduction
 sidebar_label: Introduction
 ---
 
-Fugiat aute minim aliqua incididunt do eu quis ea velit deserunt proident et. Pariatur eiusmod aute commodo minim sint amet anim culpa minim commodo. Nisi laborum reprehenderit nulla sit. Commodo velit nisi consequat irure. Aliquip fugiat ea aliqua excepteur ea eiusmod duis consequat.
+<!-- @part src="../../../introduction/h1-introduction-description.md" -->
+
+Do irure id ut id et reprehenderit fugiat sit dolore non culpa dolore incididunt. Deserunt reprehenderit et Lorem ex id excepteur excepteur exercitation adipisicing et consectetur nulla eiusmod enim. Incididunt labore ipsum duis dolor Lorem veniam. In ipsum Lorem aute occaecat cillum. Nostrud laboris cupidatat deserunt nostrud.
+<!-- @/part -->
+
+<!-- @part src="../../../introduction/h1-introduction-body.md" -->
+<!-- Your content goes here, replacing this comment -->
+<!-- @/part -->
 
 
 ```
