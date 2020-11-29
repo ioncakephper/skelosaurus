@@ -129,6 +129,7 @@ program
     });
 
 program.parse()
+// program.parse('nodejs index.js sampleHeaders -w ./sample/sample-doc/ -d ./sample/sample-doc/docs -p ./sample/sample-doc-parts'.split(' '))
 
 /**
  * Build list of topics and subcategories in a category.
@@ -156,6 +157,7 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
             let topicHeaders = (hasHeaders(topicItem)) ? getTopicHeaders(topicItem[2], program) : [];
 
             let unique = buildTopicPage(parsed.title, { 'parent': parent, headers: topicHeaders, 'prefix': options.prefix, 'description': parsed.description, 'id': parsed.slug, 'altTitle': parsed.altTitle, 'program': options['program'] })
+
             let itemPath = slug(path.join(parent, unique))
             itemPath = itemPath.replace(/\\/g, '/')
             items.push(itemPath)
@@ -173,13 +175,13 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
                     items.push({
                         'type': 'subcategory',
                         'label': title,
-                        'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent, parsed.slug), 'prefix': options.prefix })
+                        'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent, parsed.slug), 'prefix': options.prefix, 'program': options['program'] })
                     })
                 } else {
                     items.push({
                         'type': 'subcategory',
                         'label': title,
-                        'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent), 'prefix': fileEasy.slug(title) })
+                        'ids': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent), 'prefix': fileEasy.slug(title), 'program': options['program'] })
                     })
                 }
             } else {
@@ -190,7 +192,7 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
                     items.push({
                         'type': 'category',
                         'label': title,
-                        'items': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent, parsed.slug), 'prefix': options.prefix })
+                        'items': buildCategoryTopics(topicItem[2], { 'parent': path.join(parent, parsed.slug), 'prefix': options.prefix, 'program': options['program'] })
                     })
                 } else {
                     items.push({

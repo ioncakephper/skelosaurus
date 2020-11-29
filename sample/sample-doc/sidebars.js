@@ -1,36 +1,26 @@
+/**
+* Sidebar definitions for Docusaurus v2
+*/
+
 module.exports = {
     "docs": {
         "Getting started": [
-            "overview-51082",
-            "introduction",
-            "building",
             {
                 "type": "category",
-                "label": "Generating",
+                "label": "Another page",
                 "items": [
-                    "overview",
-                    "allowing-new-features",
-                    "delegating-responsabilities"
+                    {
+                        "type": "category",
+                        "label": "Bring another page",
+                        "items": [
+                            "getting-started/another-page/bring-another-page/second-page-goes-here"
+                        ]
+                    }
                 ]
             },
-            "controversies"
-        ],
-        "Guides": [
-            "overview-92749",
-            "how-to-create-new-features"
-        ],
-        "API": [
-            "overview-22452",
-            "cli-commands",
-            "sidebars-js"
-        ]
-    },
-    "tutorials": {
-        "Tutorial": [
-            "overview-71275",
-            "creating-simple-files",
-            "adding-content-and-subtopics",
-            "create-folders-from-titles"
+            "getting-started/overview",
+            "getting-started/installation",
+            "getting-started/other-topic"
         ]
     }
 }
