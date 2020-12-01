@@ -8,8 +8,10 @@ const hbsr = require('hbsr');
 const md = require('markdown').markdown;
 const path = require('path');
 const FileSet = require('file-set');
-const { file } = require('grunt');
+const util = require('util');
 const LoremIpsum = require("lorem-ipsum").LoremIpsum;
+
+
 const lorem = new LoremIpsum();
 
 hbsr.options.template_path = path.join(__dirname, 'templates');
@@ -128,8 +130,8 @@ program
 
     });
 
-program.parse()
-// program.parse('nodejs index.js sampleHeaders -w ./sample/sample-doc/ -d ./sample/sample-doc/docs -p ./sample/sample-doc-parts -i -f'.split(' '))
+// program.parse()
+program.parse('nodejs index.js sampleHeaders -w ./sample/sample-doc/ -d ./sample/sample-doc/docs -p ./sample/sample-doc-parts -i -c -f'.split(' '))
 
 /**
  * Build list of topics and subcategories in a category.
@@ -207,8 +209,12 @@ function buildCategoryTopics(bulletList, options = { 'parent': './', 'prefix': '
 
     if (program.intro > 0) {
         let unique = buildTopicPage(program.introTitle, { 'parent': parent, 'headers': [], 'prefix': options.prefix, 'program': options['program'] })
-        let itemPath = slug(path.join(parent, unique))
+        let itemPath = slug(parent)
         itemPath = itemPath.replace(/\\/g, '/')
+
+        itemPath = slug(path.join(itemPath, unique))
+        itemPath = itemPath.replace(/\\/g, '/')
+
         items.unshift(itemPath)
     }
     return items;
@@ -228,8 +234,18 @@ function buildHeaders(bulletlist, opts, level = 2) {
     }
     let program = opts;
     let toc = bulletlist.slice(1).map((headerItem) => {
+        if (util.isArray(headerItem)) {
+            if (headerItem[0] == 'inlinecode') {
+                headerItem = '`' + headerItem[1] + '`'
+            }
+        }
         let parsed = parseTitle(headerItem[1]);
         let parts = path.join(path.relative(program.docs, program.parts));
+        if (util.isArray(headerItem[1])) {
+            if (headerItem[1][0] == 'inlinecode') {
+                headerItem[1] = '`' + headerItem[1][1] + '`'
+            }
+        }
         return {
             'title': parsed.title,
             'prefix': '#'.repeat(level),
@@ -281,7 +297,7 @@ function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefi
     let program = options['program'];
     let mdHeaders = options.headers;
 
-    let id = getUniqueName(fileEasy.slug(options.id || title))
+    let id = getUniqueName(fileEasy.slug(options.id || title), options)
 
     let parts = path.join(path.relative(program.docs, program.parts)).replace(/\\/g, '/');
 
@@ -295,7 +311,7 @@ function buildTopicPage(title, options = { 'headers': [], 'parent': './', 'prefi
     })
 
     let topicFilename = id
-    topicFilename = path.join(program.docs, fileEasy.slug(options.parent), topicFilename);
+    topicFilename = slug(path.join(program.docs, options.parent, topicFilename)).replace(/\\/g, '/');
 
     topicFilename = topicFilename + '.md';
     saveDocument(topicFilename, content)
@@ -412,7 +428,8 @@ function getTopicHeaders(bulletlist, opts) {
  * @param {string} name The name to check for uniqueness
  * @returns {string} Original string with suffixed text
  */
-function getUniqueName(name) {
+function getUniqueName(name, options = {'parent': './'}) {
+    name = path.join(options.parent, name)
     if (allUniqueNames.includes(name)) {
         let base = (!name.match(/(\-[0-9]+)$/)) ? name : name.substr(0, name.lastIndexOf('-'));
         let newEntry = base + '-' + makeid(5);
@@ -420,10 +437,10 @@ function getUniqueName(name) {
             newEntry = base + '-' + makeid(5);
         }
         allUniqueNames.push(newEntry);
-        return newEntry;
+        return path.basename(newEntry);
     }
     allUniqueNames.push(name);
-    return name;
+    return path.basename(name);
 }
 
 /**
@@ -474,6 +491,12 @@ function makeid(length) {
  * @returns {object} Properties extracted from title
  */
 function parseTitle(topicTitle) {
+
+    if (util.isArray(topicTitle)) {
+        if (topicTitle[0] == 'inlinecode') {
+            topicTitle = topicTitle[1]
+        }
+    }
     let regex = /^([^@]*)\@/;
     let matches = topicTitle.match(regex);
     let title = ((matches) ? matches[1] : topicTitle).trim();

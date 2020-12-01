@@ -1,12 +1,11 @@
 ## docs
 
 - Getting started @f @s getting-started
-  - Another page @f
-      - Bring another page @f
-          - Second page goes here
-  - Overview @brief Shows how to install and other topics
+  - Another page
+      - Bring another page
+      - Second page goes here
   - Installation @b Here is the description
       - @headers
-          - Installling Skelosaurus
+          - `Installing Skelosaurus`
           - Verifying installation
   - Other topic
