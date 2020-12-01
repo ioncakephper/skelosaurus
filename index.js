@@ -130,8 +130,7 @@ program
 
     });
 
-// program.parse()
-program.parse('nodejs index.js sampleHeaders -w ./sample/sample-doc/ -d ./sample/sample-doc/docs -p ./sample/sample-doc-parts -i -c -f'.split(' '))
+program.parse()
 
 /**
  * Build list of topics and subcategories in a category.

@@ -5,18 +5,31 @@
 module.exports = {
     "docs": {
         "Getting started": [
-            "getting-started/overview",
+            "introduction",
+            "building",
             {
                 "type": "category",
-                "label": "Another page",
+                "label": "Generating",
                 "items": [
-                    "getting-started/another-page/overview",
-                    "getting-started/another-page/bring-another-page",
-                    "getting-started/another-page/second-page-goes-here"
+                    "allowing-new-features",
+                    "delegating-responsabilities"
                 ]
             },
-            "getting-started/installation",
-            "getting-started/other-topic"
+            "controversies"
+        ],
+        "Guides": [
+            "how-to-create-new-features"
+        ],
+        "API": [
+            "cli-commands",
+            "sidebars-js"
+        ]
+    },
+    "tutorials": {
+        "Tutorial": [
+            "creating-simple-files",
+            "adding-content-and-subtopics",
+            "create-folders-from-titles"
         ]
     }
 }
