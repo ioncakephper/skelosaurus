@@ -26,8 +26,8 @@ program
 program
     .name('skelo')
     .description('Skeleton documentation generator for Docusaurus (v2 and v1)')
-    .usage('[options] outlineFiles...')
-    .version(version)
+    .usage('command [options] outlineFiles...')
+    .version(`v${version}`)
 
 program
     .command('build <sources...>', { isDefault: true })
@@ -36,7 +36,7 @@ program
     .option('-c, --clear', 'start with a clear docs path')
     .option('-d, --docs <path>', 'path where markdown files are generated into', './docs')
     .option('-f, --autofolder', 'create subfolder for categories and subtopics', false)
-    .option('-i, --intro', 'create in Intro page in each subcategory')
+    .option('-i, --intro', 'create an Intro page in each subcategory')
     .option('--introTitle [title]', 'title to use in intro pages', 'Overview')
     .option('--no-v2', 'generate for Docusaurus v1')
     .option('-o, --out <filename>', 'filename to contains sidebars', 'sidebars')
