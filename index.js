@@ -25,7 +25,7 @@ program
 
 program
     .name('skelo')
-    .description('Skeleton documentation generator for Docusaurus (v2 and v2)')
+    .description('Skeleton documentation generator for Docusaurus (v2 and v1)')
     .usage('[options] outlineFiles...')
     .version(version)
 
