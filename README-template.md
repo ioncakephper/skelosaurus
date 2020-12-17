@@ -21,6 +21,7 @@ Skeleton documentation generator for Docusaurus v2 and v1
   - [Creating folders automatically](#creating-folders-automatically)
   - [Creating folders selectively](#creating-folders-selectively)
 - [Creating `Overview` pages automatically](#creating-overview-pages-automatically)
+- [Documentation](#documentation)
 - [API](#api)
 - [License](#license)
 
@@ -197,6 +198,10 @@ To create the `Overview` pages automatically, use the `-i` or `--intro` switch. 
 ```bash
 skelo sample -i -f sample -w ./sample-folders-doc -d ./sample-folders-doc
 ```
+
+## Documentation
+
+See the official documentation at [https://skelosaurus.com](https://skelosaurus.com)
 
 ## API
 
