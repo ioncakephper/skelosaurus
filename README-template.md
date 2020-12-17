@@ -4,7 +4,7 @@
 
 
 <!-- omit in toc -->
-# skelosaurusv2
+# skelosaurus
 Skeleton documentation generator for Docusaurus v2 and v1
 
 - [Installation](#installation)
@@ -29,7 +29,7 @@ Skeleton documentation generator for Docusaurus v2 and v1
 Install the package globally:
 
 ```bash
-npm i skelosaurusv2 -g
+npm i skelosaurus -g
 ```
 
 The `skelo` command now available at the command prompt.
