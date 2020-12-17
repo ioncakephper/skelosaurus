@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/v/skelosaurus) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurus/2.0.11) ![npm](https://img.shields.io/npm/dw/skelosaurus) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurus) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurus) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
+![npm](https://img.shields.io/npm/v/skelosaurus) ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/skelosaurus/2.0.12) ![npm](https://img.shields.io/npm/dw/skelosaurus) ![GitHub last commit](https://img.shields.io/github/last-commit/ioncakephper/skelosaurus) ![GitHub](https://img.shields.io/github/license/ioncakephper/skelosaurus) ![Built with Docusaurus v2](https://img.shields.io/badge/Built%20with-Docusaurus%20v2-blueviolet)
 
 ![Outlined with Skelosaurus](https://img.shields.io/badge/Outlined%20with-Skelosaurus-red)
 

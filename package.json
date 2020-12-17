@@ -1,6 +1,6 @@
 {
   "name": "skelosaurus",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "Skeleton documentation generator for Docusaurus v2 and v1",
   "main": "index.js",
   "bin": {
@@ -31,7 +31,7 @@
     "Scaffold",
     "Skeleton"
   ],
-  "homepage": "https://github.com/ioncakephper/skelosaurus#readme",
+  "homepage": "https://skelosaurus.com",
   "dependencies": {
     "colors": "^1.4.0",
     "commander": "^6.2.0",
