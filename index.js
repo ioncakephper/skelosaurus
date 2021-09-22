@@ -361,7 +361,7 @@ function loadDocumentParts(sourceFile, program) {
     let source = fs.readFileSync(sourceFile, 'utf8')
     getDocumentParts(sourceFile).forEach((part) => {
         let targetPath = part.targetPath;
-        let partContent = part.content;
+        // let partContent = part.content;
         let completePath = path.join(program.docs, targetPath);
         if (fs.existsSync(completePath)) {
             let partSource = fs.readFileSync(completePath, 'utf8')
