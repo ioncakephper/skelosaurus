@@ -64,8 +64,7 @@ program
         })
 
         let sortedSidebarNames = Object.keys(allSidebars).sort();
-        if (sortedSidebarNames) {
-            if (sortedSidebarNames.length > 0) {
+        if (sortedSidebarNames.length > 0) {
                 if (opts.clear) {
 
                     const deleteFolderRecursive = function (folder) {
@@ -87,8 +86,6 @@ program
                 sortedSidebarNames.forEach((sidebarName) => {
                     sb[sidebarName] = buildSectionCategories(allSidebars[sidebarName], opts)
                 })
-
-            }
         }
         let content = JSON.stringify(sb, null, 4);
         if (opts.v2) {
