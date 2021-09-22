@@ -108,7 +108,7 @@ program
     .action((opts) => {
         let fileSet = new FileSet([path.join(opts.docs, '**/*.md')])
         fileSet.files.forEach((sourceFile) => {
-            loadDocumentParts(sourceFile, opts, true)
+            loadDocumentParts(sourceFile, opts)
         })
     });
 
