@@ -1,9 +1,7 @@
-module.exports = {
-    "docs": {
-        "Getting started": [
-            "start/overview",
-            "start/installation",
-            "start/other-topic"
-        ]
-    }
+
+const sidebars = {
+    "simple": [
+        "introduction"
+    ]
 }
+module.exports = sidebars
