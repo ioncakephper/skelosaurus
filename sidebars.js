@@ -1,7 +1,3 @@
 
-const sidebars = {
-    "simple": [
-        "introduction"
-    ]
-}
+const sidebars = {}
 module.exports = sidebars
