@@ -9,7 +9,6 @@ const hbsr = require('hbsr');
 const yamljs = require('yamljs');
 const {sendMessage, addExtensionIfMissing, normalizeItem, getItemAttr, buildItems} = require('./lib/skelo-utils');
 
-
 let program = new Command();
 
 let { name, version, description } = require('./package.json');
@@ -31,7 +30,6 @@ program
 
     .action((pattern, options) => {
 
-
         let files = globSync(pattern);
         files = files.filter(f => {
             let doc = yamljs.load(f);
@@ -41,7 +39,6 @@ program
         })
 
         sendMessage(options.verbose, name, 'info', `found ${files.length} outline files: ${JSON.stringify(files, null, 2)}`);
-
 
         let generatedSidebars = {}
         for (let file of files) {
@@ -68,4 +65,3 @@ program
     }) 
 
 program.parse()
-
