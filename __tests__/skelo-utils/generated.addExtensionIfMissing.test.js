@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const {addExtensionIfMissing} = require('./index');
+const {addExtensionIfMissing} = require('../../lib/skelo-utils');
  
 describe('addExtensionIfMissing', () => {
   it('should not add extension if basename already has the provided extension', () => {

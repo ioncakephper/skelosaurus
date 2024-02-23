@@ -2,7 +2,7 @@
 const assert = require('assert');
 
 // Import the function to be tested
-const {buildHeadingItems} = require('./index');
+const {buildHeadingItems} = require('../../lib/skelo-utils');
 
 // Test case: Testing with items and default level
 assert.strictEqual(

@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const { getSluggedPath } = require('./index');
+const { getSluggedPath } = require('../../lib/skelo-utils');
 
 describe('getSluggedPath', function() {
   it('should return a slugged path for a single string input', function() {

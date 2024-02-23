@@ -1,6 +1,6 @@
 // Runnable unit tests in JavaScript
 const assert = require('assert');
-const {getPath} = require('./index'); // Assuming the function is in a file named getPath.js
+const {getPath} = require('../../lib/skelo-utils'); // Assuming the function is in a file named getPath.js
 
 describe('getPath', function() {
   it('should return the slugged path for the given item with a valid item path', function() {

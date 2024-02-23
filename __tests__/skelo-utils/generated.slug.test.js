@@ -1,5 +1,5 @@
 const assert = require('assert');
-const {slug} = require('./index');
+const {slug} = require('../../lib/skelo-utils');
 
 describe('slug', () => {
   it('should generate a slug from the input string', () => {

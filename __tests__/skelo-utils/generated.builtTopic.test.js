@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { buildTopic } = require('./index');
+const { buildTopic } = require('../../lib/skelo-utils');
 
 describe('buildTopic', () => {
     it('should build a topic from a valid item with no options', () => {

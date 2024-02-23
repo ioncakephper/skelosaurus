@@ -1,6 +1,6 @@
 // Runnable unit tests in javascript
 const assert = require('assert');
-const { buildCategory, normalizeItem } = require('./index');
+const { buildCategory, normalizeItem } = require('../../lib/skelo-utils');
 
 // Test for a valid item object and options
 it('should build a category object from the item and options', () => {

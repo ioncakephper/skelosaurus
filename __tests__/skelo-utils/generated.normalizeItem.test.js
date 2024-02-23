@@ -1,7 +1,7 @@
 // Runnable unit tests in JavaScript
 
 // Import the necessary functions or modules
-const {normalizeItem} = require('./index');
+const {normalizeItem} = require('../../lib/skelo-utils');
 
 describe('normalizeItem', () => {
 // Test case for normalizing a string label

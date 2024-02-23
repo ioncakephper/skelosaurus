@@ -21,6 +21,7 @@ program
 
 program
     .command('build', { isDefault: true })
+    .alias('b')
     .description('build the project')
     .argument('[pattern...]', 'pattern to match outline files', ['**/*.[oO]utline.+(yml|yaml)', '__outlines__/**/*.+(yml|yaml)'])
 

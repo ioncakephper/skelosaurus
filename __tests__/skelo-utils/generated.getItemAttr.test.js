@@ -1,7 +1,7 @@
 
 const assert = require('assert');
 
-const {getItemAttr} = require('./index');
+const {getItemAttr} = require('../../lib/skelo-utils');
 
 describe('getItemAttr', function() {
   it('should retrieve attributes of an item with no "label" and "items" attributes', function() {
