@@ -7,7 +7,7 @@
     "skelo": "./index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -34,14 +34,18 @@
   "homepage": "https://skelosaurus.com",
   "dependencies": {
     "colors": "^1.4.0",
-    "commander": "^6.2.0",
+    "commander": "^6.2.1",
     "file-easy": "^1.0.3",
     "file-set": "^4.0.1",
     "fs": "0.0.1-security",
-    "hbsr": "^1.0.6",
+    "glob": "^10.3.10",
+    "hbsr": "^1.0.11",
+    "jest": "^29.7.0",
+    "lodash": "^4.17.21",
     "lorem-ipsum": "^2.0.3",
     "markdown": "^0.5.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "grunt": "^1.3.0",
