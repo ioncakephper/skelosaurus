@@ -23,8 +23,7 @@ program
 program
     .command('build', { isDefault: true })
     .description('build the project')
-
-    .arguments('[pattern...]', 'Outline files to build documentation from')
+    .argument('[pattern...]', 'pattern to match outline files', ['**/*.[oO]utline.+(yml|yaml)', '__outlines__/**/*.+(yml|yaml)'])
 
     .option('--verbose', 'be verbose')
     .option('-d, --docs <path>', 'path where markdown files are generated into', './docs')
@@ -32,7 +31,6 @@ program
 
     .action((pattern, options) => {
 
-        pattern = (pattern.length) ? pattern : ['**/*.[oO]utline.+(yml|yaml)', '__outlines__/**/*.+(yml|yaml)'];
 
         let files = globSync(pattern);
         files = files.filter(f => {
