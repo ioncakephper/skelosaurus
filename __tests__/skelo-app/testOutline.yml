@@ -1,0 +1,14 @@
+sidebars:
+  - testSidebar:
+      - Topic 1
+      - Category:
+          - Topic 2
+          - Topic 3
+      - label: Topic 4
+        brief: Brief
+        headings:
+          - Topic 5
+          - label: Topic 6
+            brief: Heading 6 brief text
+            items:
+              - Topic 7
