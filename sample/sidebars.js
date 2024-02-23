@@ -1,8 +1,8 @@
-module.exports = {
-    "docs": {
-        "Getting started": [
-            "installation",
-            "other-topic"
-        ]
-    }
+
+const sidebars = {
+    "sampleSidebar": [
+        "introduction",
+        "usage"
+    ]
 }
+module.exports = sidebars
