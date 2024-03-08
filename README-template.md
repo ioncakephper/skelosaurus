@@ -5,14 +5,12 @@
 
 <!-- omit in toc -->
 # skelosaurus
-Skeleton documentation generator for Docusaurus v2 and v1
+Skeleton documentation generator for Docusaurus v3 and v2
 
 - [Installation](#installation)
 - [Usage](#usage)
   - [`skelo -h`](#skelo--h)
   - [`skelo help build`](#skelo-help-build)
-  - [`skelo help load`](#skelo-help-load)
-  - [`skelo help save`](#skelo-help-save)
 - [Quick example](#quick-example)
   - [Step 1: Create documentation project](#step-1-create-documentation-project)
   - [Step 2: Generate skeleton](#step-2-generate-skeleton)
@@ -55,7 +53,7 @@ See arguments and options for `build` command.
 ```txt
 !import[/index-js-help-build.txt]
 ```
-
+<!-- 
 ### `skelo help load`
 
 See arguments and options for `load` command.
@@ -70,13 +68,13 @@ See arguments and options for `save` command.
 
 ```txt
 !import[/index-js-help-save.txt]
-```
+``` -->
 
 ## Quick example
 
 ### Step 1: Create documentation project
 
-Create a working folder `sample` and a documentation outline file `sample.md` which contains documention outline as Markdown.
+Create a working folder `sample` and a documentation outline file `sample.outline.yaml` which contains a documention outline as `.yaml`.
 
 ```bash
 mkdir sample

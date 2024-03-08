@@ -1,7 +1,7 @@
 {
   "name": "skelosaurus",
   "version": "3.0.0",
-  "description": "Skeleton documentation generator for Docusaurus v2 and v1",
+  "description": "Skeleton documentation generator for Docusaurus v3 and v2",
   "main": "index.js",
   "bin": {
     "skelo": "./index.js"

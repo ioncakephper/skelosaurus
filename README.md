@@ -23,6 +23,22 @@ Skeleton documentation generator for Docusaurus v2 and v1
 - [Creating `Overview` pages automatically](#creating-overview-pages-automatically)
 - [Documentation](#documentation)
 - [API](#api)
+  - [Functions](#functions)
+  - [buildCategoryTopics(bulletList, \[options\]) ⇒ Array.Object](#buildcategorytopicsbulletlist-options--arrayobject)
+  - [buildHeaders(bulletlist, \[level\]) ⇒ Array](#buildheadersbulletlist-level--array)
+  - [buildSectionCategories(bulletList, \[options\]) ⇒ object](#buildsectioncategoriesbulletlist-options--object)
+  - [buildTopicPage(title, \[options\]) ⇒ string](#buildtopicpagetitle-options--string)
+  - [getDocumentParts(sourceFile)](#getdocumentpartssourcefile)
+  - [saveDocumentParts(sourceFile, program)](#savedocumentpartssourcefile-program)
+  - [getSidebars(sourceFilename) ⇒ object](#getsidebarssourcefilename--object)
+  - [getTopicHeaders(bulletlist, Command) ⇒ Array](#gettopicheadersbulletlist-command--array)
+  - [getUniqueName(name) ⇒ string](#getuniquenamename--string)
+  - [hasHeaders(topicItem) ⇒ boolean](#hasheaderstopicitem--boolean)
+  - [isSingleTopic(topicItem) ⇒ boolean](#issingletopictopicitem--boolean)
+  - [makeid(length) ⇒ string](#makeidlength--string)
+  - [parseTitle(topicTitle) ⇒ object](#parsetitletopictitle--object)
+  - [saveDocument(fileName, content)](#savedocumentfilename-content)
+  - [slug(source) ⇒ string](#slugsource--string)
 - [License](#license)
 
 ## Installation
@@ -160,7 +176,6 @@ An example of using Markdown to design documentation structure for Docusaurus v1
     - Creating simple files
     - Adding content and subtopics
     - Create folders from titles
-
 ```
 
 Install Docusaurus in your working folder.
@@ -616,7 +631,11 @@ Create a text file in utf-8 format from specified name and content
 <a name="slug"></a>
 
 ### slug(source) ⇒ <code>string</code>
-Convert specified string into a slug.Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).Compresses sequence of dashes or special characters into a single dash. Removes heading or trailingdashes or special characters from the specified string.
+Convert specified string into a slug.
+
+Converts spaces, tabs, and visible special characters into dashes (-) -- except backslash (\).
+Compresses sequence of dashes or special characters into a single dash. Removes heading or trailing
+dashes or special characters from the specified string.
 
 **Kind**: global function  
 **Returns**: <code>string</code> - Trimmed, lowercase string with dashes(-)  

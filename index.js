@@ -31,6 +31,7 @@ program
 
     .action((pattern, options) => {
 
+        console.log('pattern', JSON.stringify(pattern, null, 2));
         let files = globSync(pattern);
         files = files.filter(f => {
             let doc = yamljs.load(f);
@@ -65,4 +66,5 @@ program
 
     }) 
 
-program.parse()
+// program.parse("node index.js website/__outlines__/**/*.yaml -d blind/docs -s blind/sidebars.js --verbose".split(" "))
+program.parse();
