@@ -22,7 +22,7 @@ it('should throw an error if item is null or undefined', () => {
   const item = { label: 'Test Category' };
   assert.throws(() => {
     buildCategory(item);
-  }, /Items must not be null or undefined/);
+  }, /Items must be an array/);
 });
 
 // Test for custom options
