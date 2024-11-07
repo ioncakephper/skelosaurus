@@ -1,0 +1,33 @@
+sidebars:
+  - testSidebar:
+      - Topic 1
+      - Category:
+          - Topic 2
+          - label: External link
+            href: https://www.google.com
+          - Topic 3
+      - label: Topic 4
+        brief: Brief
+        headings:
+          - Topic 5
+          - label: Topic 6
+            brief: Heading 6 brief text
+            items:
+              - Topic 7
+      - label: Topic 8
+        brief: Orders headings with order property. When order property appears on topic, it applies to headings level 1.
+        order:
+          by: label
+          dir: asc
+        headings:
+          - Heading B
+          - Heading C
+          - Heading A
+      - label: Category with generated index
+        generated_index: true
+        items:
+          - Topic A
+          - Topic B
+          - Topic C
+      - label: Topic as an HTML code
+        html: <a href="https://www.google.com">Google</a>
