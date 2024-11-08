@@ -35,9 +35,9 @@ program
         let files = globSync(pattern);
         files = files.filter(f => {
             let doc = yamljs.load(f);
-            let items = doc.sidebars;
+            let sidebars = doc.sidebars;
 
-            return items && items.every(s => typeof s === 'string' || typeof s === 'object')
+            return sidebars && sidebars.every(s => typeof s === 'string' || typeof s === 'object')
         })
 
         sendMessage(options.verbose, name, 'info', `found ${files.length} outline files: ${JSON.stringify(files, null, 2)}`);

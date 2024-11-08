@@ -54,3 +54,87 @@ it('should build a category object with custom options and a different label', (
     items: ['test-item']
   });
 });
+
+it('should build a category object with link attribute whose value is an object with type properties', () => {
+  const item = {
+    label: 'Test Category',
+    items: [normalizeItem('Test Item')],
+    'generated_index': true
+  };
+  const options = { customOption: 'value' };
+  const result = buildCategory(item, options);
+  assert.deepStrictEqual(result, {
+    label: 'Test Category',
+    type: 'category',
+    items: ['test-item'],
+    link: {
+      type: 'generated-index',
+      // description: 'Test Category'
+    }
+  });
+});
+
+it('should build a category object with link attribute whose value is an obkect with type and description properties', () => {
+  const item = {
+    label: 'Test Category',
+    items: [normalizeItem('Test Item')],
+    brief: 'Test Category Brief',
+    'generated_index': true
+  };
+  const options = { customOption: 'value' };
+  const result = buildCategory(item, options);
+  assert.deepStrictEqual(result, {
+    label: 'Test Category',
+    type: 'category',
+    items: ['test-item'],
+    link: {
+      type: 'generated-index',
+      description: 'Test Category Brief'
+    }
+  });
+});
+
+it('should build a category with an item that that is an object with type and value. The type is html and value is the string of the html property ', () => {
+  const item = {
+    label: 'Test Category',
+    items: [normalizeItem({label: 'HTML Item', items: [], 'html': '<p>code</p>'})],
+  }
+  const options = { customOption: 'value' };
+  const result = buildCategory(item, options);
+  assert.deepStrictEqual(result, {
+    label: 'Test Category',
+    type: 'category',
+    items: [
+      {
+        type: 'html',
+        value: '<p>code</p>'
+      }
+    ]
+  })
+});
+
+it('should build a category with an item that that is an object with type, label, and href. The type is link, the label is the item label, and href is the value of href property', () => {
+  const item = {
+    label: 'Test Category',
+    items: [normalizeItem({label: 'HTML Link', items: [], 'href': 'https://mycompany.com'})],
+  }
+  const options = { customOption: 'value' };
+  const result = buildCategory(item, options);
+  assert.deepStrictEqual(result, {
+    label: 'Test Category',
+    type: 'category',
+    items: [
+      {
+        type: 'link',
+        label: 'HTML Link',
+        href: 'https://mycompany.com'
+      }
+    ]
+  })
+});
+
+
+
+
+
+

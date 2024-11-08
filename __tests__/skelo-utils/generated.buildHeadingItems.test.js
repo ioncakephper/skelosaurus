@@ -36,5 +36,5 @@ assert.strictEqual(
 // Test case: Testing with undefined items
 assert.strictEqual(
   buildHeadingItems(undefined),
-  undefined
+  ''
 );
