@@ -34,4 +34,8 @@ describe('getSlugOrId', () => {
     expect(getSluggedPathSpy).toHaveBeenCalledTimes(0); // getSluggedPath is not defined in this test
     // If you want to test getSluggedPath as well, you can import it and use jest.spyOn
   });
+
+  test('throws an error when no argument is provided', () => {
+    expect(() => getSlugOrId()).toThrow('Item must not be null or undefined')
+  })
 });
