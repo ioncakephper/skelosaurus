@@ -33,6 +33,111 @@ program
 
         console.log('pattern', JSON.stringify(pattern, null, 2));
         let files = retrieveFilenames(pattern, ['**/*.[oO]utline.+(yml|yaml)', '__outlines__/**/*.+(yml|yaml)']);
+
+        let jsonSchema = {
+            type: 'object',
+            properties: {
+                "sidebars": {
+                    "type": "array",
+                    "items": {
+                    "oneOf": [
+                        { "$ref": "#/definitions/labelString" },
+                        {
+                            "$ref": "#/definitions/labelObject"
+                        },
+                        {
+                            "$ref": "#/definitions/categoryItem"
+                        },
+                        {
+                            "$ref": "#/definitions/topicItem"
+                        }
+                    ]
+                }}
+            },
+            "definitions": {
+                "labelString": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "labelObject": {
+                    "type": "object",
+                    "properties": {
+                        "label": {
+                            "$ref": "#/definitions/labelString"
+                        },
+                    },
+                    "required": [
+                        "label",
+                    ],
+                },
+                "categoryItem": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/labelObject"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "items": {
+                                    "type": "array",
+                                    "items": {
+                                        "oneOf": [
+                                            { "$ref": "#/definitions/labelString" },
+                                            {
+                                                "$ref": "#/definitions/labelObject"
+                                            },
+                                            {
+                                                "$ref": "#/definitions/categoryItem"    
+                                            },
+                                            {
+                                                "$ref": "#/definitions/topicItem"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "items"
+                            ]
+                        }
+                    ]
+                },
+                "topicItem": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/labelObject"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "headings": {
+                                    "type": "array",
+                                    "items": {
+                                        "oneOf": [
+                                            { "$ref": "#/definitions/labelString" },
+                                            {
+                                                "$ref": "#/definitions/labelObject"
+                                            },
+                                            {
+                                                "$ref": "#/definitions/categoryItem"    
+                                            },
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "headings"
+                            ]
+                        }
+                    ]
+                }
+                
+            }
+        }
+
+        let {valid = [], invalid = []} = validateFiles(files, jsonSchema);
+
+        sendMessage(options.verbose, name, 'info', `found ${files.length} outline files: ${JSON.stringify(files, null, 2)}`);
         files = files.filter(f => {
             let doc = yamljs.load(f);
             let sidebars = doc.sidebars;
