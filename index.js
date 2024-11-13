@@ -7,7 +7,7 @@ const {saveDocument} = require('file-easy');
 const { globSync } = require('glob');
 const hbsr = require('hbsr');
 const yamljs = require('yamljs');
-const {sendMessage, addExtensionIfMissing, normalizeItem, getItemAttr, buildItems} = require('./lib/skelo-utils');
+const {sendMessage, addExtensionIfMissing, normalizeItem, getItemAttr, buildItems, retrieveFilenames} = require('./lib/skelo-utils');
 
 let program = new Command();
 
@@ -23,7 +23,7 @@ program
     .command('build', { isDefault: true })
     .alias('b')
     .description('build the project')
-    .argument('[pattern...]', 'pattern to match outline files', ['**/*.[oO]utline.+(yml|yaml)', '__outlines__/**/*.+(yml|yaml)'])
+    .argument('[pattern...]', 'pattern to match outline files', [])
 
     .option('--verbose', 'be verbose')
     .option('-d, --docs <path>', 'path where markdown files are generated into', './docs')
@@ -32,7 +32,7 @@ program
     .action((pattern, options) => {
 
         console.log('pattern', JSON.stringify(pattern, null, 2));
-        let files = globSync(pattern);
+        let files = retrieveFilenames(pattern, ['**/*.[oO]utline.+(yml|yaml)', '__outlines__/**/*.+(yml|yaml)']);
         files = files.filter(f => {
             let doc = yamljs.load(f);
             let sidebars = doc.sidebars;
