@@ -1,0 +1,124 @@
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://github.com/ioncakephper/skelosaurus/blob/master/schemas/outline.schema.json",
+  "title": "Sidebar Configuration Schema",
+  "description": "Schema for configuring sidebars, including properties for sidebar items, titles, descriptions, and more.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/definitions/commonObject"
+    }
+  ],
+  "properties": {
+    "sidebars": {
+      "description": "Array of sidebar items, which can be either strings or objects with additional properties.",
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/topicString"
+          },
+          {
+            "$ref": "#/definitions/basicObject"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "sidebars"
+  ],
+  "additionalProperties": true,
+  "definitions": {
+    "topicString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slugString": {
+      "type": "string",
+      "pattern": "^ *([a-z0-9]([-_][a-z0-9]+)*)?[a-z0-9] *$"
+    },
+    "pathString": {
+      "type": "string",
+      "pattern": "^ *(?:[a-zA-Z0-9._-]+|\\.||\\.\\.)(?:[\\/][a-zA-Z0-9._-]+|\\.||\\.\\.)* *$"
+    },
+    "commonObject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/slugString"
+        },
+        "slug": {
+          "$ref": "#/definitions/slugString"
+        },
+        "path": {
+          "$ref": "#/definitions/pathString"
+        },
+        "title": {
+          "$ref": "#/definitions/topicString"
+        },
+        "description": {
+          "$ref": "#/definitions/topicString"
+        },
+        "brief": {
+          "$ref": "#/definitions/topicString"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/topicString"
+          }
+        },
+        "generated_index": {
+          "type": "boolean",
+          "default": false
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/topicString"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        },
+        "headings": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/topicString"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "basicObject": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/commonObject"
+        }
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "additionalProperties": true
+    }
+  }
+}

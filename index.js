@@ -3,173 +3,85 @@
 'use strict';
 
 const { Command } = require('commander');
-const {saveDocument} = require('file-easy');
-const { globSync } = require('glob');
-const hbsr = require('hbsr');
+const path = require('path');
+const fs = require('fs');
 const yamljs = require('yamljs');
-const {sendMessage, addExtensionIfMissing, normalizeItem, getItemAttr, buildItems, retrieveFilenames} = require('./lib/skelo-utils');
+const { normalizeItem } = require('./lib/skelo-utils');
+const { checkPatterns } = require('./lib/skelo-utils');
+const { buildItems } = require('./lib/skelo-utils');
 
-let program = new Command();
+const program = new Command();
 
-let { name, version, description } = require('./package.json');
-name = 'skelo';
+const { name, description, version } = require('../skelosaurus/package.json');
+const { validateFiles, processFiles, sendMessage } = require('./lib/skelo-utils');
+const fallbackPatterns = [['**/*.[oO]utline.yaml'], ['__outlines__/**/*.yaml']];
 
 program
     .name(name)
-    .version(version)
     .description(description)
+    .version(version)
+
+program
+    .command('check')
+    .alias('c')
+    .description('check if files are valid')
+    .argument('[patterns...]', 'Glob patterns to match files', [])
+    .option('-s, --schema <path>', 'path to schema', path.join(__dirname, 'outline.schema.json'))
+    .option('-v, --verbose', 'verbose output')
+    .action((patterns, options) => {
+        checkPatterns(patterns, options, fallbackPatterns);
+    })
 
 program
     .command('build', { isDefault: true })
     .alias('b')
-    .description('build the project')
-    .argument('[pattern...]', 'pattern to match outline files', [])
+    .description('build doc files and sidebars file')
+    .argument('[patterns...]', 'Glob patterns to match files', [])
 
-    .option('--verbose', 'be verbose')
     .option('-d, --docs <path>', 'path where markdown files are generated into', './docs')
-    .option('-s, --sidebars <filename>', 'filename to contains sidebars', 'sidebars')
+    .option('-s, --sidebars <filepath>', 'path where sidebars file is generated into', './sidebars.js')
+    .option('-t, --templates <path>', 'path to templates', path.join(__dirname, 'templates'))
+    .option('--schema <path>', 'path to schema', path.join(__dirname, 'outline.schema.json'))
+    .option('-v, --verbose', 'verbose output')
 
-    .action((pattern, options) => {
+    .action((patterns, options) => {
 
-        console.log('pattern', JSON.stringify(pattern, null, 2));
-        let files = retrieveFilenames(pattern, ['**/*.[oO]utline.+(yml|yaml)', '__outlines__/**/*.+(yml|yaml)']);
+        const diagnostics = checkPatterns(patterns, options, fallbackPatterns);
+        const duplicatedSidebarNames = diagnostics.duplicatedSidebarNames ? Object.keys(diagnostics.duplicatedSidebarNames).sort() : [];
+        const validFiles = diagnostics.valid || [];
 
-        let jsonSchema = {
-            type: 'object',
-            properties: {
-                "sidebars": {
-                    "type": "array",
-                    "items": {
-                    "oneOf": [
-                        { "$ref": "#/definitions/labelString" },
-                        {
-                            "$ref": "#/definitions/labelObject"
-                        },
-                        {
-                            "$ref": "#/definitions/categoryItem"
-                        },
-                        {
-                            "$ref": "#/definitions/topicItem"
-                        }
-                    ]
-                }}
-            },
-            "definitions": {
-                "labelString": {
-                    "type": "string",
-                    "minLength": 1
-                },
-                "labelObject": {
-                    "type": "object",
-                    "properties": {
-                        "label": {
-                            "$ref": "#/definitions/labelString"
-                        },
-                    },
-                    "required": [
-                        "label",
-                    ],
-                },
-                "categoryItem": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/labelObject"
-                        },
-                        {
-                            "type": "object",
-                            "properties": {
-                                "items": {
-                                    "type": "array",
-                                    "items": {
-                                        "oneOf": [
-                                            { "$ref": "#/definitions/labelString" },
-                                            {
-                                                "$ref": "#/definitions/labelObject"
-                                            },
-                                            {
-                                                "$ref": "#/definitions/categoryItem"    
-                                            },
-                                            {
-                                                "$ref": "#/definitions/topicItem"
-                                            }
-                                        ]
-                                    }
-                                }
-                            },
-                            "required": [
-                                "items"
-                            ]
-                        }
-                    ]
-                },
-                "topicItem": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/labelObject"
-                        },
-                        {
-                            "type": "object",
-                            "properties": {
-                                "headings": {
-                                    "type": "array",
-                                    "items": {
-                                        "oneOf": [
-                                            { "$ref": "#/definitions/labelString" },
-                                            {
-                                                "$ref": "#/definitions/labelObject"
-                                            },
-                                            {
-                                                "$ref": "#/definitions/categoryItem"    
-                                            },
-                                        ]
-                                    }
-                                }
-                            },
-                            "required": [
-                                "headings"
-                            ]
-                        }
-                    ]
-                }
-                
-            }
+        if (duplicatedSidebarNames.length > 0) {
+            sendMessage(true, 'skelosaurus', 'warning', `Duplicated sidebar names: ${duplicatedSidebarNames.join(', ')} will not be generated as it's already in files: ${JSON.stringify(Object.values(diagnostics.duplicatedSidebarNames).sort(), null, 4)}`);
         }
+    
+        const documentationSidebar = {};
 
-        let {valid = [], invalid = []} = validateFiles(files, jsonSchema);
+        validFiles.forEach(file => {
+            const yaml = yamljs.load(file);
+            const { sidebars: items = [], ...rest } = yaml;
+            const { path: parentPath } = rest;
 
-        sendMessage(options.verbose, name, 'info', `found ${files.length} outline files: ${JSON.stringify(files, null, 2)}`);
-        files = files.filter(f => {
-            let doc = yamljs.load(f);
-            let sidebars = doc.sidebars;
+            const normalizedItems = items
+                .map(normalizeItem)
+                .filter(sidebar => !duplicatedSidebarNames.includes(sidebar.label));
 
-            return sidebars && sidebars.every(s => typeof s === 'string' || typeof s === 'object')
-        })
+                console.log("🚀 ~ .action ~ parentPath:", parentPath)
+            normalizedItems.forEach(sidebar => {
+                documentationSidebar[sidebar.label] = buildItems(sidebar.items, {
+                    ...options,
+                    parentPath
+                });
+            });
+        }); 
+            
 
-        sendMessage(options.verbose, name, 'info', `found ${files.length} outline files: ${JSON.stringify(files, null, 2)}`);
+        console.log("🚀 ~ .action ~ documentationSidebar:", documentationSidebar)
 
-        let generatedSidebars = {}
-        for (let file of files) {
-            let definedSidebars = yamljs.load(file).sidebars;
 
-            for (let definedSidebar of definedSidebars) {
-                definedSidebar = normalizeItem(definedSidebar);
+    })
 
-                let { label, items } = definedSidebar;
-                let itemAttr = getItemAttr(definedSidebar);
-                generatedSidebars[label] = buildItems(items, { ...options, ...itemAttr, ...{name} });
-            }
-  
-        }
+program.parse("node index.js build --verbose".split(" "));
+// program.parse("node index.js check sample.outline.yaml sa*.outline.yaml".split(" "));
+// program.parse();
 
-        // create sidebars structure file
-        let sidebarsFilenameContent = hbsr.render_template('sidebars', {
-            sidebars: JSON.stringify(generatedSidebars, null, 4)
-        })
-        let sidebarsFilename = addExtensionIfMissing(options.sidebars, '.js');
-        saveDocument(sidebarsFilename, sidebarsFilenameContent);
-        sendMessage(options.verbose, name, 'info', `${sidebarsFilename} file created`);
 
-    }) 
-
-// program.parse("node index.js website/__outlines__/**/*.yaml -d blind/docs -s blind/sidebars.js --verbose".split(" "))
-program.parse();
