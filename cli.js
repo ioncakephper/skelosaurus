@@ -10,6 +10,7 @@ const { name, description = 'Default description', version } = require('./packag
 
 
 const fallbackPatterns = ['**/*.[oO]utline.yaml', '__outlines__/**/*.yaml'];
+
 program
     .name(name)
     .description(description)
@@ -34,7 +35,6 @@ program
         console.log("🚀 ~ .action ~ files:", files)
     });
         
-
 program
     .configureHelp(
         {
