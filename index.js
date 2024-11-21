@@ -66,9 +66,9 @@ program
           
             // TODO: get each item if uniqueSidebars, and set documentationSidebars[sidebar.label] = buildSidebar(sidebar.items, {...options, parentPath: rest.path})
 
-            const documentationSidebars = uniqueSidebars.reduce((acc, sidebar) => {
-                return {...acc, [sidebar.label]: buildSidebar(sidebar.items, {...options, parentPath: rest.path})};
-            }, {});
+            // const documentationSidebars = uniqueSidebars.reduce((acc, sidebar) => {
+            //     return {...acc, [sidebar.label]: buildSidebar(sidebar.items, {...options, parentPath: rest.path})};
+            // }, {});
         })
     })
 
