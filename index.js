@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const {Command} = require('commander')
+const { Command } = require('commander')
 const path = require('path');
 const fs = require('fs');
 const yamljs = require('yamljs');
@@ -9,11 +9,12 @@ const {
     findDuplicatedSidebars,
     getFilesFromPatterns,
     normalizeItem,
+    validateFiles,
 } = require('./lib/skelo-utils');
 
 // TODO: Update description property in package: refer to v2 and up of Docusaurus
 
-const {name, description, version} = require('./package.json')
+const { name, description, version } = require('./package.json')
 let program = new Command();
 
 program
@@ -22,7 +23,7 @@ program
     .description(description)
 
 program
-    .command('build', {isDefault: true})
+    .command('build', { isDefault: true })
     .alias('b')
     .description('build documentation files')
     .argument('[patterns...]', 'outline file patterns')
@@ -36,34 +37,21 @@ program
 
     .action((patterns, options) => {
         console.log("🚀 ~ .action ~ patterns:", patterns)
-        const {fallbackPatterns} = options;
+        const { fallbackPatterns } = options;
         console.log("🚀 ~ .action ~ fallbackPatterns:", fallbackPatterns)
 
         const files = getFilesFromPatterns(patterns, options.fallbackPatterns);
         console.log("🚀 ~ .action ~ files:", files)
-
-        const invalidFiles = files.filter(file => {
-            try {
-                // JSON.parse(fs.readFileSync(file));
-                yamljs.parse(fs.readFileSync(file));
-            } catch (error) {
-                return true;
-            }
-            return false;
-        }).map(file => ({ file, error: 'invalid JSON'}));
-        const validFiles = files.filter(file => !invalidFiles.includes(file));
-
+        const {validFiles, invalidFiles} = validateFiles(files, options);
         console.log("🚀 ~ .action ~ invalidFiles:", invalidFiles);
         console.log("🚀 ~ .action ~ validFiles:", validFiles);
-
         const duplicatedSidebars = findDuplicatedSidebars(validFiles);
 
-      
         validFiles.foreach(file => {
-            let { sidebars, ...rest} = yamljs.load(file);
-            const normalizedSidebars  = sidebars.map(normalizeItem);
-            const uniqueSidebars = normalizedSidebars.filter(sidebar=> !duplicatedSidebars.includes(sidebar));
-          
+            let { sidebars, ...rest } = yamljs.load(file);
+            const normalizedSidebars = sidebars.map(normalizeItem);
+            const uniqueSidebars = normalizedSidebars.filter(sidebar => !duplicatedSidebars.includes(sidebar));
+
             // TODO: get each item if uniqueSidebars, and set documentationSidebars[sidebar.label] = buildSidebar(sidebar.items, {...options, parentPath: rest.path})
 
             // const documentationSidebars = uniqueSidebars.reduce((acc, sidebar) => {
