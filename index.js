@@ -36,28 +36,21 @@ program
     .option('--fallback-patterns <patterns...>', 'fallback outline file patterns', ['**/*.[Oo]utline.(yaml|yml)', '__outlines__/**/*.(yaml|yml)'])
 
     .action((patterns, options) => {
-        console.log("🚀 ~ .action ~ patterns:", patterns)
-        const { fallbackPatterns } = options;
-        console.log("🚀 ~ .action ~ fallbackPatterns:", fallbackPatterns)
-
         const files = getFilesFromPatterns(patterns, options.fallbackPatterns);
-        console.log("🚀 ~ .action ~ files:", files)
         const {validFiles, invalidFiles} = validateFiles(files, options);
-        console.log("🚀 ~ .action ~ invalidFiles:", invalidFiles);
-        console.log("🚀 ~ .action ~ validFiles:", validFiles);
         const duplicatedSidebars = findDuplicatedSidebars(validFiles);
 
-        validFiles.foreach(file => {
-            let { sidebars, ...rest } = yamljs.load(file);
-            const normalizedSidebars = sidebars.map(normalizeItem);
-            const uniqueSidebars = normalizedSidebars.filter(sidebar => !duplicatedSidebars.includes(sidebar));
+        // validFiles.foreach(file => {
+        //     let { sidebars, ...rest } = yamljs.load(file);
+        //     const normalizedSidebars = sidebars.map(normalizeItem);
+        //     const uniqueSidebars = normalizedSidebars.filter(sidebar => !duplicatedSidebars.includes(sidebar));
 
-            // TODO: get each item if uniqueSidebars, and set documentationSidebars[sidebar.label] = buildSidebar(sidebar.items, {...options, parentPath: rest.path})
+        //     // TODO: get each item if uniqueSidebars, and set documentationSidebars[sidebar.label] = buildSidebar(sidebar.items, {...options, parentPath: rest.path})
 
-            // const documentationSidebars = uniqueSidebars.reduce((acc, sidebar) => {
-            //     return {...acc, [sidebar.label]: buildSidebar(sidebar.items, {...options, parentPath: rest.path})};
-            // }, {});
-        })
+        //     // const documentationSidebars = uniqueSidebars.reduce((acc, sidebar) => {
+        //     //     return {...acc, [sidebar.label]: buildSidebar(sidebar.items, {...options, parentPath: rest.path})};
+        //     // }, {});
+        // })
     })
 
 
