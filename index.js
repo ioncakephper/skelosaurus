@@ -2,6 +2,14 @@
 
 const {Command} = require('commander')
 const path = require('path');
+const fs = require('fs');
+const yamljs = require('yamljs');
+
+const {
+    findDuplicatedSidebars,
+    getFilesFromPatterns,
+    normalizeItem,
+} = require('./lib/skelo-utils');
 
 // TODO: Update description property in package: refer to v2 and up of Docusaurus
 
@@ -31,7 +39,37 @@ program
         const {fallbackPatterns} = options;
         console.log("🚀 ~ .action ~ fallbackPatterns:", fallbackPatterns)
 
-        
+        const files = getFilesFromPatterns(patterns, options.fallbackPatterns);
+        console.log("🚀 ~ .action ~ files:", files)
+
+        const invalidFiles = files.filter(file => {
+            try {
+                // JSON.parse(fs.readFileSync(file));
+                yamljs.parse(fs.readFileSync(file));
+            } catch (error) {
+                return true;
+            }
+            return false;
+        }).map(file => ({ file, error: 'invalid JSON'}));
+        const validFiles = files.filter(file => !invalidFiles.includes(file));
+
+        console.log("🚀 ~ .action ~ invalidFiles:", invalidFiles);
+        console.log("🚀 ~ .action ~ validFiles:", validFiles);
+
+        const duplicatedSidebars = findDuplicatedSidebars(validFiles);
+
+      
+        validFiles.foreach(file => {
+            let { sidebars, ...rest} = yamljs.load(file);
+            const normalizedSidebars  = sidebars.map(normalizeItem);
+            const uniqueSidebars = normalizedSidebars.filter(sidebar=> !duplicatedSidebars.includes(sidebar));
+          
+            // TODO: get each item if uniqueSidebars, and set documentationSidebars[sidebar.label] = buildSidebar(sidebar.items, {...options, parentPath: rest.path})
+
+            // const documentationSidebars = uniqueSidebars.reduce((acc, sidebar) => {
+            //     return {...acc, [sidebar.label]: buildSidebar(sidebar.items, {...options, parentPath: rest.path})};
+            // }, {});
+        })
     })
 
 
@@ -42,5 +80,5 @@ program.configureHelp({
     showGlobalOptions: true
 })
 
-
-program.parse()
+program.parse("node index.js sample.outline.yaml".split(' '))
+// program.parse()

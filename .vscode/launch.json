@@ -6,16 +6,6 @@
     "configurations": [
 
 
-        // {
-        //     "type": "node",
-        //     "request": "launch",
-        //     "name": "Launch Program",
-        //     "skipFiles": [
-        //         "<node_internals>/**"
-        //     ],
-        //     "program": "${workspaceFolder}\\index.js"
-        // },
-
         {
             "type": "node",
             "request": "launch",
@@ -23,8 +13,18 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\testmd2outline.js"
+            "program": "${workspaceFolder}\\index.js"
         },
+
+        // {
+        //     "type": "node",
+        //     "request": "launch",
+        //     "name": "Launch Program",
+        //     "skipFiles": [
+        //         "<node_internals>/**"
+        //     ],
+        //     "program": "${workspaceFolder}\\testmd2outline.js"
+        // },
         // {
         //     "type": "node",
         //     "request": "launch",
