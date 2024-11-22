@@ -116,4 +116,5 @@ describe('getValidationErrors', () => {
       // Act and Assert
       await expect(getValidationErrors(filePath, schema)).rejects.toThrowError('Invalid arguments: filePath and schema are required');
     });
+
   });

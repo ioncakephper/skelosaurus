@@ -40,17 +40,6 @@ program
         const {validFiles, invalidFiles} = validateFiles(files, options);
         const duplicatedSidebars = findDuplicatedSidebars(validFiles);
 
-        // validFiles.foreach(file => {
-        //     let { sidebars, ...rest } = yamljs.load(file);
-        //     const normalizedSidebars = sidebars.map(normalizeItem);
-        //     const uniqueSidebars = normalizedSidebars.filter(sidebar => !duplicatedSidebars.includes(sidebar));
-
-        //     // TODO: get each item if uniqueSidebars, and set documentationSidebars[sidebar.label] = buildSidebar(sidebar.items, {...options, parentPath: rest.path})
-
-        //     // const documentationSidebars = uniqueSidebars.reduce((acc, sidebar) => {
-        //     //     return {...acc, [sidebar.label]: buildSidebar(sidebar.items, {...options, parentPath: rest.path})};
-        //     // }, {});
-        // })
     })
 
 
