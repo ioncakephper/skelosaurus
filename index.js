@@ -5,18 +5,13 @@ const path = require('path');
 const fs = require('fs');
 const yamljs = require('yamljs');
 
-
-
 const {
     findDuplicatedSidebars,
     getFilesFromPatterns,
-    normalizeItem,
     validateFiles,
     buildSidebar,
     getSidebars,
 } = require('./lib/skelo-utils');
-
-// TODO: Update description property in package: refer to v2 and up of Docusaurus
 
 const { name, description, version } = require('./package.json')
 let program = new Command();
@@ -58,9 +53,7 @@ program
         });
 
         fs.writeFileSync(options.sidebars, `module.exports = ${JSON.stringify(documentationSidebars, null, 4)};`, 'utf-8');
-
     })
-
 
 program.configureHelp({
     sortOptions: true,
