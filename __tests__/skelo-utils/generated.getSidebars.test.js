@@ -47,8 +47,6 @@ describe('getSidebars', () => {
 
         fs.writeFileSync(validSidebarsFile, validSidebarsContent);
 
-
-
         afterEach(() => {
             if (fs.existsSync(validSidebarsFile)) {
                 fs.unlinkSync(validSidebarsFile);
