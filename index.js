@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 const { Command } = require('commander')
-const path = require('path');
 const fs = require('fs');
+const path = require('path');
 const yamljs = require('yamljs');
 
 const {
@@ -35,24 +35,34 @@ program
     .option('--fallback-patterns <patterns...>', 'fallback outline file patterns', ['**/*.[Oo]utline.(yaml|yml)', '__outlines__/**/*.(yaml|yml)'])
 
     .action((patterns, options) => {
-        const files = getFilesFromPatterns(patterns, options.fallbackPatterns);
-        const {validFiles, invalidFiles} = validateFiles(files, options);
-        const duplicatedSidebars = findDuplicatedSidebars(validFiles);
-        console.log("🚀 ~ .action ~ duplicatedSidebars:", JSON.stringify(duplicatedSidebars, null, 4))
+        try {
+            const files = getFilesFromPatterns(patterns, options.fallbackPatterns);
 
-        const documentationSidebars = {};
-
-        validFiles.forEach(file => {
-            const sidebars = getSidebars(file);
-            sidebars.forEach(sidebar => {
-                if (!duplicatedSidebars[sidebar.label]) {
-                    const sidebarItems = buildSidebar(sidebar.items, options);
-                    documentationSidebars[sidebar.label] = sidebarItems;
+            try {
+                const { validFiles, invalidFiles } = validateFiles(files, options);
+                const duplicatedSidebars = findDuplicatedSidebars(validFiles);
+                const documentationSidebars = {};
+                validFiles.forEach(file => {
+                    const {sidebars, ...rest} = getSidebars(file);
+                    sidebars.forEach(sidebar => {
+                        if (!duplicatedSidebars[sidebar.label]) {
+                            const sidebarItems = buildSidebar(sidebar.items, options);
+                            documentationSidebars[sidebar.label] = sidebarItems;
+                        }
+                    });
+                });
+                
+                try {
+                    fs.writeFileSync(options.sidebars, `module.exports = ${JSON.stringify(documentationSidebars, null, 4)};`, 'utf-8');
+                } catch (error) {
+                    console.error(`Error writing sidebars file: ${error.message}`);
                 }
-            });
-        });
-
-        fs.writeFileSync(options.sidebars, `module.exports = ${JSON.stringify(documentationSidebars, null, 4)};`, 'utf-8');
+            } catch (error) {
+                console.error(`Error generating sidebars: ${error.message}`);
+            }
+        } catch (error) {
+            console.error(`Error building sidebars: ${error}`);
+        }
     })
 
 program.configureHelp({

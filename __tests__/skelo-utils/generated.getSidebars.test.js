@@ -14,13 +14,13 @@ describe('getSidebars', () => {
         fs.readFileSync.mockImplementationOnce(() => {
             throw new Error('File not found');
         });
-        const result = getSidebars('non-existent-file.yml');
+        const result = getSidebars('non-existent-file.yml').sidebars;
         expect(result).toEqual([]);
     });
 
     it('should return an empty array if file is empty', () => {
         fs.readFileSync.mockImplementationOnce(() => '');
-        const result = getSidebars('empty-file.yml');
+        const result = getSidebars('empty-file.yml').sidebars;
         expect(result).toEqual([]);
     });
 
@@ -29,7 +29,7 @@ describe('getSidebars', () => {
         yamljs.parse.mockImplementationOnce(() => {
             throw new Error('Invalid YAML');
         });
-        const result = getSidebars('invalid-yaml-file.yml');
+        const result = getSidebars('invalid-yaml-file.yml').sidebars;
         expect(result).toEqual([]);
         // expect(console.error).toHaveBeenCalledTimes(1);
     });
@@ -37,7 +37,7 @@ describe('getSidebars', () => {
     it('should return an empty array if sidebars section is missing', () => {
         fs.readFileSync.mockImplementationOnce(() => 'valid YAML');
         yamljs.parse.mockImplementationOnce(() => ({}));
-        const result = getSidebars('missing-sidebars.yml');
+        const result= getSidebars('missing-sidebars.yml').sidebars;
         expect(result).toEqual([]);
     });
 
