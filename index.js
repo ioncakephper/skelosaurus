@@ -5,11 +5,15 @@ const path = require('path');
 const fs = require('fs');
 const yamljs = require('yamljs');
 
+
+
 const {
     findDuplicatedSidebars,
     getFilesFromPatterns,
     normalizeItem,
     validateFiles,
+    buildSidebar,
+    getSidebars,
 } = require('./lib/skelo-utils');
 
 // TODO: Update description property in package: refer to v2 and up of Docusaurus
@@ -41,7 +45,19 @@ program
         const duplicatedSidebars = findDuplicatedSidebars(validFiles);
         console.log("🚀 ~ .action ~ duplicatedSidebars:", JSON.stringify(duplicatedSidebars, null, 4))
 
-        
+        const documentationSidebars = {};
+
+        validFiles.forEach(file => {
+            const sidebars = getSidebars(file);
+            sidebars.forEach(sidebar => {
+                if (!duplicatedSidebars[sidebar.label]) {
+                    const sidebarItems = buildSidebar(sidebar.items, options);
+                    documentationSidebars[sidebar.label] = sidebarItems;
+                }
+            });
+        });
+
+        fs.writeFileSync(options.sidebars, `module.exports = ${JSON.stringify(documentationSidebars, null, 4)};`, 'utf-8');
 
     })
 
