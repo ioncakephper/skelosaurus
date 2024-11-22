@@ -39,6 +39,7 @@ program
         const files = getFilesFromPatterns(patterns, options.fallbackPatterns);
         const {validFiles, invalidFiles} = validateFiles(files, options);
         const duplicatedSidebars = findDuplicatedSidebars(validFiles);
+        console.log("🚀 ~ .action ~ duplicatedSidebars:", JSON.stringify(duplicatedSidebars, null, 4))
 
         
 
@@ -52,5 +53,5 @@ program.configureHelp({
     showGlobalOptions: true
 })
 
-program.parse("node index.js sample.outline.yaml".split(' '))
+program.parse("node index.js *.outline.yaml *.outline.yml".split(' '))
 // program.parse()
