@@ -1,3 +1,14 @@
+/**
+ * Tests for the slugify function
+ *
+ * Test Cases:
+ * - should convert to lowercase
+ * - should remove diacritics
+ * - should collapse whitespace and replace with hyphens
+ * - should trim hyphens from the start and end
+ * - should handle empty input
+ */
+
 const {slugify} = require('../../lib/skelo-utils')
 
 describe('slugify', () => {
