@@ -40,6 +40,8 @@ program
         const {validFiles, invalidFiles} = validateFiles(files, options);
         const duplicatedSidebars = findDuplicatedSidebars(validFiles);
 
+        
+
     })
 
 
