@@ -39,7 +39,7 @@
     "file-set": "^5.2.0",
     "fs": "0.0.1-security",
     "hbsr": "^1.0.6",
-    "lorem-ipsum": "^2.0.3",
+    "lorem-ipsum": "^2.0.8",
     "markdown": "^0.5.0",
     "path": "^0.12.7"
   },
