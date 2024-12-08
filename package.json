@@ -34,7 +34,7 @@
   "homepage": "https://skelosaurus.com",
   "dependencies": {
     "colors": "^1.4.0",
-    "commander": "^6.2.0",
+    "commander": "^6.2.1",
     "file-easy": "^1.0.3",
     "file-set": "^5.2.0",
     "fs": "0.0.1-security",
