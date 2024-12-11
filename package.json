@@ -34,10 +34,18 @@
   "homepage": "https://skelosaurus.com",
   "dependencies": {
     "colors": "^1.4.0",
-    "commander": "^6.2.0",
-    "file-set": "^5.2.2",
+
+
+    "commander": "^6.2.1",
     "file-easy": "^1.0.4",
+
+  
+
+
+
+    "file-set": "^5.2.2",
     "lorem-ipsum": "^2.0.8",
+
     "fs": "0.0.2",
     "hbsr": "^1.0.12",
     "markdown": "^0.5.0",
