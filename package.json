@@ -35,10 +35,12 @@
   "dependencies": {
     "colors": "^1.4.0",
     "commander": "^6.2.0",
-    "file-easy": "^1.0.3",
+    "file-easy": "^1.0.4",
     "file-set": "^5.2.0",
+
     "fs": "0.0.2",
-    "hbsr": "^1.0.6",
+    "hbsr": "^1.0.12",
+
     "lorem-ipsum": "^2.0.3",
     "markdown": "^0.5.0",
     "path": "^0.12.7"
